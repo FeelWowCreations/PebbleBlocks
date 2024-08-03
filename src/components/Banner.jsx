@@ -5,11 +5,16 @@ import React, { useEffect, useState } from "react";
 const Banner = () => {
   const data = useStaticQuery(graphql`
     query {
-      allFile(filter: { extension: { regex: "/(jpg)/" } }) {
+      allFile(
+        filter: {
+          extension: { regex: "/(jpg)/" }
+          relativeDirectory: { eq: "Banner" }
+        }
+      ) {
         edges {
           node {
             childImageSharp {
-              gatsbyImageData(width: 600, placeholder: TRACED_SVG)
+              gatsbyImageData(width: 2000)
             }
           }
         }
@@ -32,36 +37,36 @@ const Banner = () => {
   }, []);
 
   return (
-    <section className="bg-gray-200 p-4 grid gap-4 grid-cols-[repeat(2,1fr)] items-center justify-center h-[calc(100vh-100px)] w-full">
-      <aside className="rounded-md bg-white h-full p-10">
-        <h1 className="text-5xl mb-5">Reliable Pavers for Business</h1>
-        <p className="text-[#595959] mb-5">
-          With the assistance of our efficient workforce, we offer supreme
-          quality Floor Pavers, Kerb Stones and much more to our high valued
-          clients. These stones, offered by us are very popular for their
-          intricate design patterns and ethnic beauty. In addition, these are
-          available in an array of colors, designs and combinations to suit the
-          customer tastes an preferences. Being highly durable and long lasting
-          they can be used for different purposes. These stones are offered in
-          customized magnitude as per the customer requirements, at highly
-          affordable price range.
-        </p>
-        <button className="rounded p-4 bg-black text-white text-base font-medium flex items-center gap-1">
-          <span>Contact us now</span>
-          <StaticImage
-            src="../images/white-right-arrow-icon.svg"
-            alt="right-arrow"
-          />
-        </button>
-      </aside>
-      <figure className="mb-0 rounded-md bg-white h-full transition-all delay-800">
+    <section className="grid-cols-1 relative grid-rows-1 bg-gray-200 p-4 grid gap-4 md:grid-cols-[repeat(1,1fr)] md:grid-rows-1 items-center justify-center h-[fit-content] w-full ">
+      <figure className="mb-0 rounded-md bg-white h-[450px] md:h-[800px] transition-all delay-800">
         <GatsbyImage
           image={images[currentImageIndex]}
           alt="banner"
-          className="object-fill w-full h-full rounded-md"
+          className="object-fill w-full h-[450px] md:h-full rounded-md transition-all delay-800 "
           placeholder="tracedSVG"
         />
       </figure>
+      <div className="absolute bottom-0 left-0 h-full right-0 bg-gradient-to-t from-black to-transparent p-4 md:h-[300px] flex flex-col justify-end">
+        <h1 className="text-5xl text-white mb-5 font-bold">
+          Reliable Pavers for Business
+        </h1>
+        <p className="text-white md:w-[90%] lg:w-[80%] mb-5">
+          Paver blocks are the building blocks of outdoor design, turning
+          ordinary spaces into extraordinary landscapes. A well-laid paver
+          pathway is like a red carpet for your garden, inviting exploration and
+          admiration."In the world of hardscaping, paver blocks are the unsung
+          heroes, silently bearing the weight of our footsteps and our
+          dreams."Like a mosaic of possibilities, paver blocks allow us to paint
+          our outdoor spaces with durability and style."
+        </p>
+        {/* <button className="rounded p-3 w-fit bg-primary hover:opacity-85 transition-all duration-300 text-white text-base font-medium flex items-center gap-1 ease-in-out">
+            <span>Contact us now</span>
+            <StaticImage
+              src="../images/white-right-arrow-icon.svg"
+              alt="right-arrow"
+            />
+          </button> */}
+      </div>
     </section>
   );
 };
