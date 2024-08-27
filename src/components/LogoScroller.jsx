@@ -18,7 +18,7 @@ const LogoScroller = () => {
             </h2>
             <div className="relative w-full overflow-hidden">
                 <div
-                    className="w-[calc(200%+64px)] flex flex-nowrap animate-infinite-scroll"
+                    className="w-[calc(200%+64px)] flex flex-nowrap animate-infinite-scroll-sm lg:animate-infinite-scroll"
                 >
                     {/* First set of logos */}
                     <ul className="flex items-center [&_li]:mx-16 [&_img]:max-w-none">
