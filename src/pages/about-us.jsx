@@ -4,6 +4,7 @@ import AboutUs from "../components/Main";
 import Footer from "../components/Footer";
 import LogoScroller from "../components/LogoScroller";
 import Timeline from "../components/Timeline";
+import TestimonialSection from "@/components/Testimonials";
 
 const aboutUs = () => {
   return (
@@ -11,6 +12,7 @@ const aboutUs = () => {
       <Navbar />
       <AboutUs />
       <Timeline />
+      <TestimonialSection />
       <LogoScroller />
       <Footer />
     </main>
