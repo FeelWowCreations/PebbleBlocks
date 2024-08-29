@@ -8,9 +8,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-import { EffectCoverflow, Pagination } from "swiper/modules";
+import {
+  EffectCoverflow,
+  Pagination,
+  Navigation,
+  Autoplay,
+} from "swiper/modules";
 
 const SolidBlocks = () => {
+  const swiperRef = React.useRef();
   const data = useStaticQuery(graphql`
     query {
       allFile(
@@ -36,17 +42,23 @@ const SolidBlocks = () => {
 
   return (
     <section className="w-full h-fit flex flex-col items-center justify-center">
-      <h1 className="text-center text-xl md:text-2xl lg:text:3xl mt-5 mb-2">
-        Solid blocks
-      </h1>
-      <div className="h-fit">
+      {/* <h1 className="text-center text-xl md:text-2xl lg:text:3xl mt-5 mb-2">
+        Solid block Projects
+      </h1> */}
+
+      <div className="h-fit relative">
+        <div
+          class="swiper-button-prev !left-[-40px]"
+          onClick={() => swiperRef.current?.slidePrev()}
+        ></div>
         <Swiper
           effect={"coverflow"}
           grabCursor={true}
           centeredSlides={true}
-          initialSlide={1}
+          initialSlide={7}
           slidesPerView={"auto"}
           loop={true}
+          autoplay={true}
           coverflowEffect={{
             rotate: 50,
             stretch: 0,
@@ -56,20 +68,31 @@ const SolidBlocks = () => {
             slideShadows: true,
           }}
           pagination={{ clickable: true }}
-          modules={[EffectCoverflow, Pagination]}
-          className="h-96 rounded-lg !w-fit md:!w-[900px] lg:!w-[1200px] !pb-[50px]"
+          modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+          navigation={{
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          }}
+          onBeforeInit={(swiper) => {
+            swiperRef.current = swiper;
+          }}
+          className="h-96 rounded-lg !w-fit md:!w-[700px] lg:!w-[1200px] !pb-[50px]"
         >
           {images.map((_, index) => (
-            <SwiperSlide className="md:!w-[300px] lg:!w-[800px]">
+            <SwiperSlide className="md:!w-[300px] rounded-lg lg:!w-[800px]">
               <GatsbyImage
                 image={images[index]}
                 alt="banner"
                 placeholder="tracedSVG"
-                class="block h-full w-full object-cover"
+                class="block h-full w-full object-cover rounded-lg"
               />
             </SwiperSlide>
           ))}
         </Swiper>
+        <div
+          class="swiper-button-next !right-[-40px]"
+          onClick={() => swiperRef.current?.slideNext()}
+        ></div>
       </div>
     </section>
   );
