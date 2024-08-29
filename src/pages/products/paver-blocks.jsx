@@ -10,6 +10,7 @@ import TetraPaver from "../../images/PaverBlocks/tetra-paver.jpg";
 import IntekPaver from "../../images/PaverBlocks/intek-paver.jpg";
 import RectanglePaverEight from "../../images/PaverBlocks/rectangle-paver-8.jpg";
 import { motion } from "framer-motion";
+import Footer from "@/components/Footer";
 
 const PaverBlocksMain = () => {
   return (
@@ -163,6 +164,7 @@ const PaverBlocksMain = () => {
           </motion.div>
         </section>
       </main>
+      <Footer />
     </main>
   );
 };

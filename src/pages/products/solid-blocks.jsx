@@ -11,6 +11,7 @@ import IntekPaver from "../../images/PaverBlocks/intek-paver.jpg";
 import RectanglePaverEight from "../../images/PaverBlocks/rectangle-paver-8.jpg";
 import { motion } from "framer-motion";
 import SolidBlocks from "@/components/Products/SolidBlocks";
+import Footer from "@/components/Footer";
 
 const SolidBlocksMain = () => {
   return (
@@ -154,6 +155,7 @@ const SolidBlocksMain = () => {
           </motion.div>
         </section>
       </main>
+      <Footer />
     </main>
   );
 };
