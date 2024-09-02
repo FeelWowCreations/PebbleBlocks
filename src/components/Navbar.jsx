@@ -35,7 +35,7 @@ const Navbar = () => {
             navOpen ? "top-[-9%]" : "top-[-100%]"
           } md:w-auto w-full flex items-center px-5`}
         >
-          <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+          <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-6">
             <li className="transform scale-0 animate-nav-link-load fill-mode-forwards">
               <Link
                 to="/"
@@ -87,11 +87,15 @@ const Navbar = () => {
 
               {/* Dropdown Menu */}
               <ul
-                className={`md:absolute w-max md:top-full md:left-0 md:bg-white md:shadow-lg md:p-4 md:space-y-4 transition-all duration-300 ease-in-out ${
-                  dropdownOpen ? "block" : "hidden"
-                }`}
+                className={`md:absolute w-max md:top-full md:left-0 md:bg-white md:shadow-lg p-2 md:p-4 md:space-y-4 transition-all duration-300 ease-in-out ${
+                  dropdownOpen
+                    ? "md:opacity-100 md:visible md:translate-y-0 max-h-[300px]"
+                    : "md:opacity-0 md:invisible md:translate-y-[-10px] max-h-0"
+                } ${
+                  dropdownOpen ? "block" : "hidden md:block"
+                } overflow-hidden`}
               >
-                <li>
+                <li className="mb-3 md:mb-2">
                   <Link
                     to="/products/paver-blocks"
                     className="hover:text-blue-700"
@@ -100,7 +104,7 @@ const Navbar = () => {
                     Paver Blocks
                   </Link>
                 </li>
-                <li>
+                <li className="mb-3 md:mb-2">
                   <Link
                     to="/products/solid-blocks"
                     className="hover:text-blue-700"
@@ -109,16 +113,30 @@ const Navbar = () => {
                     {`Solid Blocks`}
                   </Link>
                 </li>
-                <li>
+                <li className="mb-3 md:mb-2">
                   <Link
-                    to="/products/projects"
+                    to="/products/flyash-bricks"
                     className="hover:text-blue-700"
                     onClick={() => setActiveTab("/products/projects")}
                   >
-                    Projects
+                    Flyash Bricks
                   </Link>
                 </li>
               </ul>
+            </li>
+
+            <li className="transform scale-0 animate-nav-link-load fill-mode-forwards">
+              <Link
+                to="/projects"
+                className={`hover:text-blue-700 ${
+                  activeTab?.includes("/contact-us")
+                    ? "border-b-2 md:pb-2 border-pebblePrimary text-pebblePrimary"
+                    : ""
+                } transition-all duration-300 ease-in-out hover:border-b-2 hover:md:pb-2 hover:border-pebblePrimary hover:text-pebblePrimary`}
+                onClick={() => setActiveTab("/contact-us")}
+              >
+                Projects
+              </Link>
             </li>
 
             <li className="transform scale-0 animate-nav-link-load fill-mode-forwards">

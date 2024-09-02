@@ -52,7 +52,7 @@ const CardContainer = () => {
     },
   ];
   return (
-    <div className="flex flex-col bg-gradient-to-b from-orange-100 to-white animate-product-load transform translate-y-0 opacity-0 fill-mode-forwards">
+    <div className="flex flex-col animate-product-load transform translate-y-0 opacity-0 fill-mode-forwards">
       <h1 className="font-bold text-[32px] self-center ">FEATURED PRODUCTS</h1>
 
       <article className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-items-center justify-center items-center p-10 border-b-[4px] border-b-gray-200">

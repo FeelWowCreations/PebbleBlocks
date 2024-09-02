@@ -48,7 +48,7 @@ const PaverBlocks = () => {
 
       <div className="h-fit relative">
         <div
-          class="swiper-button-prev !left-[-40px]"
+          class="swiper-button-prev !invisible md:!visible !left-[-40px]"
           onClick={() => swiperRef.current?.slidePrev()}
         ></div>
         <Swiper
@@ -90,7 +90,7 @@ const PaverBlocks = () => {
           ))}
         </Swiper>
         <div
-          class="swiper-button-next !right-[-40px]"
+          class="swiper-button-next !invisible md:!visible !right-[-40px]"
           onClick={() => swiperRef.current?.slideNext()}
         ></div>
       </div>

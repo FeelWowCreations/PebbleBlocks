@@ -75,11 +75,14 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         initialLoad: "transitionIn 0.9s ease-in",
-        'infinite-scroll': 'infinite-scroll 70s linear infinite',
-        'infinite-scroll-sm': 'infinite-scroll-sm 20s linear infinite',
+        "infinite-scroll": "infinite-scroll 70s linear infinite",
+        "infinite-scroll-sm": "infinite-scroll-sm 20s linear infinite",
         "nav-load": "nav-load 400ms ease-in",
         "nav-link-load": "nav-link-load 500ms ease-in 400ms",
         "product-load": "slide-in 500ms ease-in-out 400ms",
+      },
+      boxShadow: {
+        12: "0px 15px 60px -10px rgb(109 117 143 / 33%)",
       },
       keyframes: {
         transitionIn: {
@@ -98,8 +101,8 @@ module.exports = {
           to: { transform: "translateX(-100%)" },
         },
         "infinite-scroll-sm": {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-100%)' },
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
         },
         "nav-load": {
           "0%": {

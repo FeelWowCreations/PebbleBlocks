@@ -20,6 +20,6 @@ export default IndexPage;
 export const Head = () => (
   <>
     <title>Pebble</title>
-    <body className="animate-initialLoad" />
+    <body />
   </>
 );

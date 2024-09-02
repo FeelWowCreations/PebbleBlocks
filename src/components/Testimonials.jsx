@@ -1,50 +1,56 @@
-import React, { useRef } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { Navigation, Pagination } from 'swiper/modules';
-import { motion } from 'framer-motion';
+import React, { useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination } from "swiper/modules";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
     title: "Pixel Perfect design",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad",
     name: "- John Doe",
     designation: "Founder, Arrow",
     bgColor: "bg-yellow-300",
   },
   {
     title: "Minimal and Clean",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad",
     name: "- Rocky Hych",
     designation: "CTO, Upside Down",
     bgColor: "bg-purple-300",
   },
   {
     title: "Built with Bootstrap",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad",
     name: "- John Doe",
     designation: "Founder, Arrow",
     bgColor: "bg-blue-300",
   },
   {
     title: "Responsive template",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad",
     name: "- Rocky Hych",
     designation: "CTO, Upside Down",
     bgColor: "bg-pink-300",
   },
   {
     title: "Responsive template",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad",
     name: "- Rocky Hych",
     designation: "CTO, Upside Down",
     bgColor: "bg-sky-300",
   },
   {
     title: "Built with Bootstrap",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad",
     name: "- John Doe",
     designation: "Founder, Arrow",
     bgColor: "bg-orange-300",
@@ -72,7 +78,8 @@ const TestimonialSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <span className="text-pink-600">Client's</span> hello <br /> testimonials
+          <span className="text-pink-600">Client's</span> hello <br />{" "}
+          testimonials
         </motion.h1>
       </div>
 
@@ -82,7 +89,10 @@ const TestimonialSection = () => {
           className="testimonial-swiper"
           slidesPerView={1}
           spaceBetween={20}
-          navigation={{ prevEl: '.swiper-button-prev', nextEl: '.swiper-button-next' }}
+          navigation={{
+            prevEl: ".swiper-button-prev",
+            nextEl: ".swiper-button-next",
+          }}
           pagination={{ clickable: true }}
           breakpoints={{
             320: { slidesPerView: 1, spaceBetween: 10 },
@@ -93,7 +103,10 @@ const TestimonialSection = () => {
           modules={[Navigation, Pagination]}
         >
           {testimonials.map((testimonial, index) => (
-            <SwiperSlide key={index} className={`p-6 rounded-lg ${testimonial.bgColor}`}>
+            <SwiperSlide
+              key={index}
+              className={`p-6 rounded-lg ${testimonial.bgColor}`}
+            >
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -126,16 +139,13 @@ const TestimonialSection = () => {
         </Swiper>
         {/* Custom Navigation Buttons */}
         <button
-          className="swiper-button-prev lg:ml-[-3rem] top-1/2 right-4 transform -translate-y-1/2  text-white p-2 "
+          className="swiper-button-prev lg:ml-[-2rem] top-1/2 right-4 transform -translate-y-1/2  text-white p-2 "
           onClick={() => swiperRef.current.swiper.slidePrev()}
-        >
-        </button>
+        ></button>
         <button
-          className="swiper-button-next absolute lg:mr-[-3rem] top-1/2 right-4 transform -translate-y-1/2  text-white p-2 "
+          className="swiper-button-next absolute lg:mr-[-2rem] top-1/2 right-4 transform -translate-y-1/2  text-white p-2 "
           onClick={() => swiperRef.current.swiper.slideNext()}
-        >
- 
-        </button>
+        ></button>
       </div>
     </section>
   );

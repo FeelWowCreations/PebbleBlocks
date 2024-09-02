@@ -1,7 +1,5 @@
 import * as React from "react";
 import Navbar from "../../components/Navbar";
-import PaverBlocks from "@/components/Products/PaverBlocks";
-import { StaticImage } from "gatsby-plugin-image";
 import ZigZag from "../../images/PaverBlocks/zig-zag.jpg";
 import EightCombo from "../../images/PaverBlocks/eight-combo.jpg";
 import RectanglePaver from "../../images/PaverBlocks/rectangle-paver.jpg";
@@ -28,10 +26,20 @@ const SolidBlocksMain = () => {
         <section className="p-10">
           <SolidBlocks />
         </section>
-        <h2 className="text-[#23235F] flex justify-center mt-5 text-2xl">
+        <motion.h2
+          className="text-[#23235F] flex justify-center mt-5 text-2xl"
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+        >
           Products Catalog
-        </h2>
-        <section className="p-[50px]">
+        </motion.h2>
+        <motion.section
+          className="p-[50px]"
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+        >
           <motion.div className="grid grid-cols-[repeat(1,1fr)] md:grid-cols-[repeat(2,1fr)] lg:grid-cols-[repeat(4,1fr)] text-center gap-x-5 gap-y-[30px]">
             <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
               <img
@@ -153,7 +161,7 @@ const SolidBlocksMain = () => {
               </div>
             </motion.div>
           </motion.div>
-        </section>
+        </motion.section>
       </main>
       <Footer />
     </main>
@@ -161,3 +169,10 @@ const SolidBlocksMain = () => {
 };
 
 export default SolidBlocksMain;
+
+export const Head = () => (
+  <>
+    <title>Solid Blocks</title>
+    <body />
+  </>
+);
