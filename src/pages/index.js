@@ -4,6 +4,7 @@ import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import CardContainer from "../components/CardContainer";
 
+
 const IndexPage = () => {
   return (
     <main>

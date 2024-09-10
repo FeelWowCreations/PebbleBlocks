@@ -10,6 +10,7 @@ import RectanglePaverEight from "../../images/PaverBlocks/rectangle-paver-8.jpg"
 import { motion } from "framer-motion";
 import SolidBlocks from "@/components/Products/SolidBlocks";
 import Footer from "@/components/Footer";
+import { Link } from "gatsby";
 
 const SolidBlocksMain = () => {
   return (
@@ -42,121 +43,139 @@ const SolidBlocksMain = () => {
         >
           <motion.div className="grid grid-cols-[repeat(1,1fr)] md:grid-cols-[repeat(2,1fr)] lg:grid-cols-[repeat(4,1fr)] text-center gap-x-5 gap-y-[30px]">
             <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
+            <div className="w-full h-full relative group flex items-center justify-center">
               <img
                 src={ZigZag}
                 alt="paver block"
                 className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
               />
+                <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Link to="/solid-blocks/12-6-8">
+                    <div class="mb-3 cursor-pointer relative inline-flex items-center justify-center px-3 py-1 text-base font-bold text-white transition-all duration-200 bg-pebblePrimary border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:opacity-80 rounded">
+                      Learn more
+                    </div>
+                  </Link>
+                </div>
+              </div>  
               <div className=" w-full">
-                <h2 className="font-bold">Zig Zag Paver</h2>
+                <h2 className="font-bold">{`6 Inch Solid Block`}</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`Size - 25" x 12"`}</li>
-                  <li className="py-2.5 px-0">83mm</li>
+                  <li className="py-2.5 px-0">{`Size - 12" x 6" x 8"`}</li>
                 </ul>
               </div>
             </motion.div>
 
             <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
+            <div className="w-full h-full relative group flex items-center justify-center">
               <img
                 src={EightCombo}
                 alt="paver block"
                 className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
               />
+                <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Link to="/solid-blocks/16-4-8">
+                    <div class="mb-3 cursor-pointer relative inline-flex items-center justify-center px-3 py-1 text-base font-bold text-white transition-all duration-200 bg-pebblePrimary border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:opacity-80 rounded">
+                      Learn more
+                    </div>
+                  </Link>
+                </div>
+              </div> 
               <div className=" w-full">
-                <h2 className="font-bold">Eight Combo Paver</h2>
+              <h2 className="font-bold">{`4 Inch Solid Block`}</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`Size - (11", 9", 7", 5", 4")`}</li>
-                  <li className="py-2.5 px-0">63mm</li>
+                <li className="py-2.5 px-0">{`Size - 16" x 4" x 8"`}</li>
                 </ul>
               </div>
             </motion.div>
 
             <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
+            <div className="w-full h-full relative group flex items-center justify-center">
               <img
                 src={RectanglePaver}
                 alt="paver block"
                 className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
               />
+                <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Link to="/solid-blocks/9-8-8">
+                    <div class="mb-3 cursor-pointer relative inline-flex items-center justify-center px-3 py-1 text-base font-bold text-white transition-all duration-200 bg-pebblePrimary border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:opacity-80 rounded">
+                      Learn more
+                    </div>
+                  </Link>
+                </div>
+              </div>
               <div className=" w-full">
-                <h2 className="font-bold">Rectangle Paver</h2>
+              <h2 className="font-bold">{`9 Inch Solid Block`}</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`Size - 12" x 6"`}</li>
-                  <li className="py-2.5 px-0">63mm</li>
+                <li className="py-2.5 px-0">{`Size - 9" x 8" x 8"`}</li>
                 </ul>
               </div>
             </motion.div>
 
             <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
+            <div className="w-full h-full relative group flex items-center justify-center">
               <img
                 src={VertexPaver}
                 alt="paver block"
                 className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
               />
+              <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Link to="/solid-blocks/16-6-8">
+                    <div class="mb-3 cursor-pointer relative inline-flex items-center justify-center px-3 py-1 text-base font-bold text-white transition-all duration-200 bg-pebblePrimary border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:opacity-80 rounded">
+                      Learn more
+                    </div>
+                  </Link>
+                </div>
+              </div>
               <div className=" w-full">
-                <h2 className="font-bold">Vertex Paver</h2>
+              <h2 className="font-bold">{`6 Inch Solid Block`}</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`Size - 12" x 6"`}</li>
-                  <li className="py-2.5 px-0">63mm</li>
+                <li className="py-2.5 px-0">{`Size - 16" x 6" x 8"`}</li>
                 </ul>
               </div>
             </motion.div>
 
             <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
+            <div className="w-full h-full relative group flex items-center justify-center">
               <img
                 src={IntekPaver}
                 alt="paver block"
                 className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
               />
+                <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Link to="/solid-blocks/12-8-8">
+                    <div class="mb-3 cursor-pointer relative inline-flex items-center justify-center px-3 py-1 text-base font-bold text-white transition-all duration-200 bg-pebblePrimary border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:opacity-80 rounded">
+                      Learn more
+                    </div>
+                  </Link>
+                </div>
+              </div>
               <div className=" w-full">
-                <h2 className="font-bold">Intek Paver</h2>
+              <h2 className="font-bold">{`8 Inch Solid Block`}</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`Size - 12" x 6"`}</li>
-                  <li className="py-2.5 px-0">63mm</li>
+                <li className="py-2.5 px-0">{`Size - 12" x 8" x 8"`}</li>
                 </ul>
               </div>
             </motion.div>
 
             <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
+            <div className="w-full h-full relative group flex items-center justify-center">
               <img
                 src={TetraPaver}
                 alt="paver block"
                 className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
               />
-              <div className=" w-full">
-                <h2 className="font-bold">Tetra Paver</h2>
-                <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`Size - 12" x 6"`}</li>
-                  <li className="py-2.5 px-0">63mm</li>
-                </ul>
+                <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Link to="/solid-blocks/9-4-3">
+                    <div class="mb-3 cursor-pointer relative inline-flex items-center justify-center px-3 py-1 text-base font-bold text-white transition-all duration-200 bg-pebblePrimary border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:opacity-80 rounded">
+                      Learn more
+                    </div>
+                  </Link>
+                </div>
               </div>
-            </motion.div>
-
-            <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
-              <img
-                src={RectanglePaverEight}
-                alt="paver block"
-                className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
-              />
               <div className=" w-full">
-                <h2 className="font-bold">{`Rectangle Paver 8" x 11"`}</h2>
+              <h2 className="font-bold">{`9"x4"x3" Solid Block`}</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`Size - 8" x 11"`}</li>
-                  <li className="py-2.5 px-0">63mm</li>
-                </ul>
-              </div>
-            </motion.div>
-
-            <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
-              <img
-                src={RectanglePaverEight}
-                alt="paver block"
-                className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
-              />
-              <div className=" w-full">
-                <h2 className="font-bold">{`Rectangle Paver 8" x 9"`}</h2>
-                <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`Size - 8" x 9"`}</li>
-                  <li className="py-2.5 px-0">63mm</li>
+                <li className="py-2.5 px-0">{`Size - 9" x 4" x 3"`}</li>
                 </ul>
               </div>
             </motion.div>

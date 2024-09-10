@@ -62,123 +62,175 @@ const PaverBlocksMain = () => {
               <div className=" w-full">
                 <h2 className="font-bold">Zig Zag Paver</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`Size - 25" x 12"`}</li>
-                  <li className="py-2.5 px-0">83mm</li>
-                  <li className="py-2.5 px-0 flex items-center gap-1">
-                    <span className="h-4 w-4 rounded-full border-transparent bg-gray-400"></span>
-                    <span className="h-4 w-4 rounded-full border-transparent bg-red-500"></span>
-                    <span className="h-4 w-4 rounded-full border-transparent bg-gray-600"></span>
-                  </li>
+                  <li className="py-2.5 px-0">{`Zigzag pavers offer a range of benefits due to their unique design andmproved interlocking stability.`}</li>
                 </ul>
               </div>
             </motion.div>
 
             <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
+            <div className="w-full h-full relative group flex items-center justify-center">
               <img
                 src={EightCombo}
                 alt="paver block"
                 className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
               />
+                <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Link to="/paver-blocks/eight-combo">
+                    <div class="mb-3 cursor-pointer relative inline-flex items-center justify-center px-3 py-1 text-base font-bold text-white transition-all duration-200 bg-pebblePrimary border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:opacity-80 rounded">
+                      Learn more
+                    </div>
+                  </Link>
+                </div>
+              </div>
+
               <div className=" w-full">
                 <h2 className="font-bold">Eight Combo Paver</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`Size - (11", 9", 7", 5", 4")`}</li>
-                  <li className="py-2.5 px-0">63mm</li>
-                  <li className="py-2.5 px-0 flex items-center gap-1">
-                    <span className="h-4 w-4 rounded-full border-transparent bg-gray-400"></span>
-                    <span className="h-4 w-4 rounded-full border-transparent bg-red-500"></span>
-                    <span className="h-4 w-4 rounded-full border-transparent bg-gray-600"></span>
-                  </li>
+                  <li className="py-2.5 px-0">{`It refers to a set of eight different types or designs of pavers combined into a single package or collection.`}</li>
                 </ul>
               </div>
             </motion.div>
 
             <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
+            <div className="w-full h-full relative group flex items-center justify-center">
               <img
                 src={RectanglePaver}
                 alt="paver block"
                 className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
               />
+                <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Link to="/paver-blocks/rectangle-paver">
+                    <div class="mb-3 cursor-pointer relative inline-flex items-center justify-center px-3 py-1 text-base font-bold text-white transition-all duration-200 bg-pebblePrimary border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:opacity-80 rounded">
+                      Learn more
+                    </div>
+                  </Link>
+                </div>
+              </div>
+
               <div className=" w-full">
                 <h2 className="font-bold">Rectangle Paver</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`Size - 12" x 6"`}</li>
-                  <li className="py-2.5 px-0">63mm</li>
+                  <li className="py-2.5 px-0">{`Rectangle pavers, as the name suggests, are paving units with a clean and classic rectangle shape.`}</li>
                 </ul>
               </div>
             </motion.div>
 
             <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
+            <div className="w-full h-full relative group flex items-center justify-center">
               <img
                 src={VertexPaver}
                 alt="paver block"
                 className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
               />
+                <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Link to="/paver-blocks/vertex-paver">
+                    <div class="mb-3 cursor-pointer relative inline-flex items-center justify-center px-3 py-1 text-base font-bold text-white transition-all duration-200 bg-pebblePrimary border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:opacity-80 rounded">
+                      Learn more
+                    </div>
+                  </Link>
+                </div>
+              </div>
+
               <div className=" w-full">
                 <h2 className="font-bold">Vertex Paver</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`Size - 12" x 6"`}</li>
-                  <li className="py-2.5 px-0">63mm</li>
+                  <li className="py-2.5 px-0">{`Vertex pavers introduce a captivating undulating pattern with unique design to your outdoor spaces.`}</li>
                 </ul>
               </div>
             </motion.div>
 
             <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
+            <div className="w-full h-full relative group flex items-center justify-center">
               <img
                 src={IntekPaver}
                 alt="paver block"
                 className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
               />
+                <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Link to="/paver-blocks/intek-paver">
+                    <div class="mb-3 cursor-pointer relative inline-flex items-center justify-center px-3 py-1 text-base font-bold text-white transition-all duration-200 bg-pebblePrimary border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:opacity-80 rounded">
+                      Learn more
+                    </div>
+                  </Link>
+                </div>
+              </div>
+
               <div className=" w-full">
                 <h2 className="font-bold">Intek Paver</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`Size - 12" x 6"`}</li>
-                  <li className="py-2.5 px-0">63mm</li>
+                  <li className="py-2.5 px-0">{`Intek Paver blocks, also known as paving stones, are specialized building materials used for surfacing outdoor areas.`}</li>
                 </ul>
               </div>
             </motion.div>
 
             <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
+            <div className="w-full h-full relative group flex items-center justify-center">
               <img
                 src={TetraPaver}
                 alt="paver block"
                 className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
               />
+                <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Link to="/paver-blocks/tetra-paver">
+                    <div class="mb-3 cursor-pointer relative inline-flex items-center justify-center px-3 py-1 text-base font-bold text-white transition-all duration-200 bg-pebblePrimary border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:opacity-80 rounded">
+                      Learn more
+                    </div>
+                  </Link>
+                </div>
+              </div>
+
               <div className=" w-full">
                 <h2 className="font-bold">Tetra Paver</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`Size - 12" x 6"`}</li>
-                  <li className="py-2.5 px-0">63mm</li>
+                  <li className="py-2.5 px-0">{`Tetra pavers are easy to maintain which resist stains, dirt, and oil spills, making cleaning a hassle-free process.`}</li>
                 </ul>
               </div>
             </motion.div>
 
             <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
+            <div className="w-full h-full relative group flex items-center justify-center">
               <img
                 src={RectanglePaverEight}
                 alt="paver block"
                 className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
               />
+                <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Link to="/paver-blocks/rectangle-paver-8-11">
+                    <div class="mb-3 cursor-pointer relative inline-flex items-center justify-center px-3 py-1 text-base font-bold text-white transition-all duration-200 bg-pebblePrimary border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:opacity-80 rounded">
+                      Learn more
+                    </div>
+                  </Link>
+                </div>
+              </div>
+
               <div className=" w-full">
                 <h2 className="font-bold">{`Rectangle Paver 8" x 11"`}</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`Size - 8" x 11"`}</li>
-                  <li className="py-2.5 px-0">63mm</li>
+                  <li className="py-2.5 px-0">{`rectangle blocks are manufactured from strong materials such as concrete, clay, or natural stone, making them highly durable`}</li>
                 </ul>
               </div>
             </motion.div>
 
             <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
+            <div className="w-full h-full relative group flex items-center justify-center">
               <img
                 src={RectanglePaverEight}
                 alt="paver block"
                 className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
               />
+                <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Link to="/paver-blocks/rectangle-paver-8-9">
+                    <div class="mb-3 cursor-pointer relative inline-flex items-center justify-center px-3 py-1 text-base font-bold text-white transition-all duration-200 bg-pebblePrimary border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:opacity-80 rounded">
+                      Learn more
+                    </div>
+                  </Link>
+                </div>
+              </div>
+
               <div className=" w-full">
                 <h2 className="font-bold">{`Rectangle Paver 8" x 9"`}</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`Size - 8" x 9"`}</li>
-                  <li className="py-2.5 px-0">63mm</li>
+                  <li className="py-2.5 px-0">{`rectangle blocks are manufactured from strong materials such as concrete, clay, or natural stone, making them highly durable`}</li>
                 </ul>
               </div>
             </motion.div>
