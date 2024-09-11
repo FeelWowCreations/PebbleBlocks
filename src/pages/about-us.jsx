@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import LogoScroller from "../components/LogoScroller";
 import Timeline from "../components/Timeline";
 import TestimonialSection from "@/components/Testimonials";
+import WhatsappButton from "@/components/ui/WhatsAppFixed";
 
 const aboutUs = () => {
   return (
@@ -14,6 +15,7 @@ const aboutUs = () => {
       <Timeline />
       <TestimonialSection />
       <LogoScroller />
+      <WhatsappButton />
       <Footer />
     </main>
   );

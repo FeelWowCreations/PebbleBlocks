@@ -1,6 +1,7 @@
 import * as React from "react";
 import Navbar from "../components/Navbar";
 import Products from "../components/Products/Main";
+import WhatsappButton from "@/components/ui/WhatsAppFixed";
 
 const products = () => {
   return (
@@ -9,6 +10,7 @@ const products = () => {
       <main>
         <Products />
       </main>
+      <WhatsappButton />
     </main>
   );
 };

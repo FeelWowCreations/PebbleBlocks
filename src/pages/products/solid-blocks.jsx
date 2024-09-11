@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 import SolidBlocks from "@/components/Products/SolidBlocks";
 import Footer from "@/components/Footer";
 import { Link } from "gatsby";
+import WhatsappButton from "@/components/ui/WhatsAppFixed";
 
 const SolidBlocksMain = () => {
   return (
@@ -183,6 +184,7 @@ const SolidBlocksMain = () => {
           </motion.div>
         </motion.section>
       </main>
+      <WhatsappButton />
       <Footer />
     </main>
   );

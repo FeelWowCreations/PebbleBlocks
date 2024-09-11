@@ -11,6 +11,7 @@ import RectanglePaverEight from "../../images/PaverBlocks/rectangle-paver-8.jpg"
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
 import { Link } from "gatsby";
+import WhatsappButton from "@/components/ui/WhatsAppFixed";
 
 const PaverBlocksMain = () => {
   return (
@@ -237,6 +238,7 @@ const PaverBlocksMain = () => {
           </motion.div>
         </motion.section>
       </main>
+      <WhatsappButton />
       <Footer />
     </main>
   );

@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../../components/Navbar";
 import { motion } from "framer-motion";
 import FlyAshBlock from "../../images/Products/FlyashBlocks/flyash-block-1.jpg";
+import WhatsappButton from "@/components/ui/WhatsAppFixed";
 
 const FlyashBricksMain = () => {
   return (
@@ -55,6 +56,7 @@ const FlyashBricksMain = () => {
           </div>
         </section>
       </main>
+      <WhatsappButton />
     </div>
   );
 };

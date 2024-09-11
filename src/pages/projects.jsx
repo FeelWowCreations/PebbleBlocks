@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
+import WhatsappButton from "@/components/ui/WhatsAppFixed";
 
 const ProjectsMain = () => {
   const data = useStaticQuery(graphql`
@@ -63,7 +64,7 @@ const ProjectsMain = () => {
             </div>
           </motion.div>
         </section>
-
+        <WhatsappButton />
         <Footer />
       </main>
     </div>
