@@ -1,8 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import FooterBackground from "../images/AboutUs/footerBackground.jpg"
-import ContactUS from "../images/AboutUs/contactUS.jpeg"
-import ContactUS2 from "../images/AboutUs/contactUS2.jpg"
+import ContactUS2 from "../images/AboutUs/contact-bg.jpg"
 import emailjs from 'emailjs-com';
 
 

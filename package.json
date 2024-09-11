@@ -27,6 +27,7 @@
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-postcss": "^6.13.1",
     "gatsby-plugin-sharp": "^5.13.1",
+    "gatsby-plugin-svgr": "^3.0.0-beta.0",
     "gatsby-source-filesystem": "^5.13.1",
     "gatsby-transformer-sharp": "^5.13.1",
     "postcss": "^8.4.39",

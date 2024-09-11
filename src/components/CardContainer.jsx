@@ -1,67 +1,88 @@
 import { graphql, useStaticQuery } from "gatsby";
+import { useState } from "react"; 
 import Card from "./Card";
-import React from "react";
+import * as React from "react";
+import PaverBlocks from "@/components/Products/PaverBlocks";
+import ZigZag from "../images/PaverBlocks/zig-zag.jpg";
+import EightCombo from "../images/PaverBlocks/eight-combo.jpg";
+import RectanglePaver from "../images/PaverBlocks/rectangle-paver.jpg";
+import VertexPaver from "../images/PaverBlocks/vertex-paver.jpg";
+import TetraPaver from "../images/PaverBlocks/tetra-paver.jpg";
+import IntekPaver from "../images/PaverBlocks/intek-paver.jpg";
+import RectanglePaverEight from "../images/PaverBlocks/rectangle-paver-8.jpg";
+import { motion } from "framer-motion";
+
+import { Link } from "gatsby";
+
+const productData = [
+  { id: 1, src: ZigZag, title: 'Zig Zag Paver', description: 'Zigzag pavers offer a range of benefits due to their unique design and improved interlocking stability.', link: '/paver-blocks/zig-zag' },
+  { id: 2, src: EightCombo, title: 'Eight Combo Paver', description: 'It refers to a set of eight different types or designs of pavers combined into a single package or collection.', link: '/paver-blocks/eight-combo' },
+  { id: 3, src: RectanglePaver, title: 'Rectangle Paver', description: 'Rectangle pavers, as the name suggests, are paving units with a clean and classic rectangle shape.', link: '/paver-blocks/rectangle-paver' },
+  { id: 4, src: VertexPaver, title: 'Vertex Paver', description: 'Vertex pavers introduce a captivating undulating pattern with unique design to your outdoor spaces.', link: '/paver-blocks/vertex-paver' },
+  { id: 5, src: IntekPaver, title: 'Intek Paver', description: 'Intek Paver blocks, also known as paving stones, are specialized building materials used for surfacing outdoor areas.', link: '/paver-blocks/intek-paver' },
+  { id: 6, src: TetraPaver, title: 'Tetra Paver', description: 'Tetra pavers are easy to maintain which resist stains, dirt, and oil spills, making cleaning a hassle-free process.', link: '/paver-blocks/tetra-paver' },
+  { id: 7, src: RectanglePaverEight, title: 'Rectangle Paver 8" x 11"', description: 'Rectangle blocks are manufactured from strong materials such as concrete, clay, or natural stone, making them highly durable.', link: '/paver-blocks/rectangle-paver-8-11' },
+  { id: 8, src: RectanglePaverEight, title: 'Rectangle Paver 8" x 9"', description: 'Rectangle blocks are manufactured from strong materials such as concrete, clay, or natural stone, making them highly durable.', link: '/paver-blocks/rectangle-paver-8-9' }
+];
+
 const CardContainer = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allFile(
-        filter: {
-          extension: { regex: "/(jpg)/" }
-          relativeDirectory: { eq: "Card" }
-        }
-      ) {
-        edges {
-          node {
-            childImageSharp {
-              gatsbyImageData(width: 2000)
-            }
-          }
-        }
-      }
-    }
-  `);
+  const [expanded, setExpanded] = useState(false);
 
-  const images = data.allFile.edges.map(
-    (edge) => edge.node.childImageSharp.gatsbyImageData
-  );
+  // Determine the products to show based on whether the "Expand All" button is active
+  const displayedProducts = expanded ? productData : productData.slice(0, 4);
 
-  const cardDetails = [
-    {
-      src: images[0],
-      title: "Paver Tiles",
-      description:
-        "The paver tiles are generally placed on top of a foundation which is made of layers of compacted stone and sand",
-    },
-    {
-      src: images[1],
-      title: "Rectangular Paver Block",
-      description:
-        "Rectangular paver blocks are durable, interlocking concrete or stone units that are specifically designed for paving purposes",
-    },
-    {
-      src: images[2],
-      title: "Concrete Block",
-      description:
-        "The concrete paver blocks are placed in the desired pattern and the space between pavers is then filled with a polymeric sand",
-    },
-    {
-      src: images[3],
-      title: "Interlocking Block",
-      description:
-        "Interlock blocks can be installed rather quickly and in any climate. The blocks are strong and considered very weather resistant",
-    },
-  ];
   return (
-    <div className="flex flex-col animate-product-load transform translate-y-0 opacity-0 fill-mode-forwards">
-      <h1 className="font-bold text-[32px] self-center ">FEATURED PRODUCTS</h1>
-
-      <article className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-items-center justify-center items-center p-10 border-b-[4px] border-b-gray-200">
-        {cardDetails.map((item) => (
-          <Card data={item} />
-        ))}
-      </article>
-    </div>
+    <main>
+      <motion.h2
+        className="text-[#23235F] flex justify-center mt-5 text-2xl"
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.8 }}
+      >
+        Our Paver Blocks
+      </motion.h2>
+      <motion.section
+        className="p-[50px]"
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.8 }}
+      >
+        <motion.div className="grid grid-cols-[repeat(1,1fr)] md:grid-cols-[repeat(2,1fr)] lg:grid-cols-[repeat(4,1fr)] text-center gap-x-5 gap-y-[30px]">
+          {displayedProducts.map(product => (
+            <motion.div key={product.id} className="flex flex-col justify-self-center items-center shadow-md w-full">
+              <div className="w-full h-full relative group flex items-center justify-center">
+                <img
+                  src={product.src}
+                  alt="paver block"
+                  className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
+                />
+                <div className="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Link to={product.link}>
+                    <div className="mb-3 cursor-pointer relative inline-flex items-center justify-center px-3 py-1 text-base font-bold text-white transition-all duration-200 bg-pebblePrimary border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:opacity-80 rounded">
+                      Learn more
+                    </div>
+                  </Link>
+                </div>
+              </div>
+              <div className="w-full">
+                <h2 className="font-bold">{product.title}</h2>
+                <ul className="border-t border-[#ccc] flex flex-col items-center justify-center">
+                  <li className="py-2.5 px-0">{product.description}</li>
+                </ul>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+        <button
+          className="mt-5 px-4 py-2 bg-pebblePrimary text-white rounded hover:opacity-80"
+          onClick={() => setExpanded(!expanded)}
+        >
+          {expanded ? 'Show Less' : 'Expand All'}
+        </button>
+      </motion.section>
+    </main>
   );
 };
+
 
 export default CardContainer;

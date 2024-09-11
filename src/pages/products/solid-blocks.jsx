@@ -1,12 +1,13 @@
 import * as React from "react";
 import Navbar from "../../components/Navbar";
-import ZigZag from "../../images/PaverBlocks/zig-zag.jpg";
-import EightCombo from "../../images/PaverBlocks/eight-combo.jpg";
-import RectanglePaver from "../../images/PaverBlocks/rectangle-paver.jpg";
-import VertexPaver from "../../images/PaverBlocks/vertex-paver.jpg";
-import TetraPaver from "../../images/PaverBlocks/tetra-paver.jpg";
-import IntekPaver from "../../images/PaverBlocks/intek-paver.jpg";
-import RectanglePaverEight from "../../images/PaverBlocks/rectangle-paver-8.jpg";
+
+import SixInch from "../../images/SolidBlocks/solid-block.png";
+import FourInch from "../../images/SolidBlocks/solid-block.png";
+import NineInch from "../../images/SolidBlocks/solid-block.png";
+import SixInch2 from "../../images/SolidBlocks/solid-block.png";
+import EightInch from "../../images/SolidBlocks/solid-block.png";
+import NineInch2 from "../../images/SolidBlocks/solid-block.png";
+
 import { motion } from "framer-motion";
 import SolidBlocks from "@/components/Products/SolidBlocks";
 import Footer from "@/components/Footer";
@@ -45,7 +46,7 @@ const SolidBlocksMain = () => {
             <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
             <div className="w-full h-full relative group flex items-center justify-center">
               <img
-                src={ZigZag}
+                src={SixInch}
                 alt="paver block"
                 className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
               />
@@ -68,7 +69,7 @@ const SolidBlocksMain = () => {
             <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
             <div className="w-full h-full relative group flex items-center justify-center">
               <img
-                src={EightCombo}
+                src={FourInch}
                 alt="paver block"
                 className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
               />
@@ -91,7 +92,7 @@ const SolidBlocksMain = () => {
             <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
             <div className="w-full h-full relative group flex items-center justify-center">
               <img
-                src={RectanglePaver}
+                src={NineInch}
                 alt="paver block"
                 className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
               />
@@ -114,7 +115,7 @@ const SolidBlocksMain = () => {
             <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
             <div className="w-full h-full relative group flex items-center justify-center">
               <img
-                src={VertexPaver}
+                src={SixInch2}
                 alt="paver block"
                 className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
               />
@@ -137,7 +138,7 @@ const SolidBlocksMain = () => {
             <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
             <div className="w-full h-full relative group flex items-center justify-center">
               <img
-                src={IntekPaver}
+                src={EightInch}
                 alt="paver block"
                 className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
               />
@@ -160,7 +161,7 @@ const SolidBlocksMain = () => {
             <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
             <div className="w-full h-full relative group flex items-center justify-center">
               <img
-                src={TetraPaver}
+                src={EightInch}
                 alt="paver block"
                 className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
               />
