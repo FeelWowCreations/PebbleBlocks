@@ -3,10 +3,28 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `My Demo Project`,
+    title: `Pebble Blocks`,
     siteUrl: `https://www.yourdomain.tld`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "AW-16704933197",  // Your Google Ads/Tag Manager ID
+        ],
+        // This object gets passed directly to the gtag config command
+        // This is where you define any config options for gtag
+        gtagConfig: {
+          anonymize_ip: true, // Optional, anonymizes the user's IP
+        },
+        // This object gets passed to the plugin
+        pluginConfig: {
+          head: true, // Places the gtag.js script in the head of the HTML
+          respectDNT: true, // Respects "Do Not Track" settings
+        },
+      },
+    },
     "gatsby-plugin-postcss",
     "gatsby-plugin-svgr",
     "gatsby-plugin-image",
