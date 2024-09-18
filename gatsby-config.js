@@ -11,7 +11,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [
-          "AW-16704933197",  // Your Google Ads/Tag Manager ID
+          "AW-16705789102",  // Your Google Ads/Tag Manager ID
         ],
         // This object gets passed directly to the gtag config command
         // This is where you define any config options for gtag
