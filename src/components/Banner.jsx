@@ -88,12 +88,12 @@ const Banner = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <CounterCard value="3+" label="Manufacturing Units" Icon={<FactoryIcon />} />
-            <CounterCard value="200+" label="Workers" Icon={<WorkersIcon />} />
-            <CounterCard value="100+" label="Customers" Icon={<CustomerIcon />} />
+            <CounterCard value="50+" label="Workers" Icon={<WorkersIcon />} />
+            <CounterCard value="1000+" label="Customers" Icon={<CustomerIcon />} />
             <CounterCard value="25+" label="Products" Icon={<ProductsIcon className="w-12 h-12"/>} />
-            <CounterCard value="50+" label="Projects Completed" Icon={<ProjectIcon />} />
-            <CounterCard value="150+" label="Suppliers" Icon={<SupplierIcon />} />
-            <CounterCard value="10+" label="Awards Won" Icon={<AwardIcon />} />
+            <CounterCard value="500+" label="Projects Completed" Icon={<ProjectIcon />} />
+            <CounterCard value="30+" label="Suppliers" Icon={<SupplierIcon />} />
+            <CounterCard value="15+" label="Years of Experience" Icon={<AwardIcon />} />
             <CounterCard value="75+" label="Happy Reviews" Icon={<ReviewIcons />} />
           </div>
         </div>

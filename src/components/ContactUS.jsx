@@ -45,8 +45,7 @@ const ContactUs = () => {
   const googleFormURL =
     "https://docs.google.com/forms/d/e/1FAIpQLSff2CvzEnE0hi7mHlw3SvYRXelCZ6xH5zDaN-RgDxVijUwTEQ/viewform?embedded=true";
   const googleMapURL =
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4467.541924224169!2d77.18337973928766!3d11.003358394964332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8557738869f03%3A0x526230936713b17!2sPebble%20Blocks!5e0!3m2!1sen!2sin!4v1722668539467!5m2!1sen!2sin";
-
+    "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13955.21679044835!2d77.1856741226989!3d11.004824461435197!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba855b6781a0783%3A0xf8d06448bc01b5e7!2sPebble%20Blocks%20(%20Paver%20Block%20l%20Solid%20Block%20l%20Hollow%20Block%20)!5e0!3m2!1sen!2sin!4v1727789309438!5m2!1sen!2sin";
   const images = data.allFile.edges.map(
     (edge) => edge.node.childImageSharp.gatsbyImageData
   );
@@ -55,16 +54,16 @@ const ContactUs = () => {
     {
       icon: "icofont-ui-call",
       title: "+91 888 333 7674",
-      description: "pebbleblocks@gmail.com",
+      description: "contact@velavanenterprise.com",
     },
     {
       icon: "icofont-google-map",
       title: "114/B Pudu Kinathu Thottam",
-      description: "Paruvai, Palladam",
+      description: "Paruvai, Palladam, Tiruppur",
     },
     {
       icon: "icofont-wall-clock",
-      title: "Mon - Sat: 8am - 5pm",
+      title: "Mon - Sat: 8am - 7pm",
       description: "Sunday Closed",
     },
   ];

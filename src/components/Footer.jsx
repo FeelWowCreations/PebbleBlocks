@@ -94,7 +94,7 @@ const Footer = () => {
             </h6>
 
             <a
-              href="https://www.facebook.com/yourpage"
+              href="https://www.facebook.com/pebbleblocks/"
               target="_blank"
               rel="noopener noreferrer"
               className="mb-4 flex items-center justify-center md:justify-start hover:text-pebblePrimary transition-all duration-300 cursor-pointer ease-in-out"
@@ -119,7 +119,7 @@ const Footer = () => {
             </a>
 
             <a
-              href="https://www.instagram.com/yourpage"
+              href="https://www.instagram.com/pebbleblocks/"
               target="_blank"
               rel="noopener noreferrer"
               className="mb-4 flex items-center justify-center md:justify-start hover:text-pebblePrimary transition-all duration-300 cursor-pointer ease-in-out"
@@ -177,7 +177,7 @@ const Footer = () => {
             </a>
 
             <a
-              href="https://wa.me/yourphonenumber"
+              href="https://wa.me/+918883337674"
               target="_blank"
               rel="noopener noreferrer"
               className="mb-4 flex items-center justify-center md:justify-start hover:text-pebblePrimary transition-all duration-300 cursor-pointer ease-in-out"
@@ -200,7 +200,7 @@ const Footer = () => {
               </span>
               WhatsApp
             </a>
-
+{/* 
             <a
               href="https://twitter.com/yourpage"
               target="_blank"
@@ -248,7 +248,7 @@ const Footer = () => {
                 </svg>{" "}
               </span>
               Twitter
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
