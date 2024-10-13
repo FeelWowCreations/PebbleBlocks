@@ -1,26 +1,28 @@
 import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
-import FooterBackground from "../images/AboutUs/footerBackground.jpg"
+import FooterBackground from "../images/AboutUs/footerBackground.jpg";
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-center text-surface/75 dark:bg-neutral-700 dark:text-white/75 lg:text-left">
-
+    <footer className="bg-white border-t-2 border-gray-300 text-center text-surface/75 dark:bg-neutral-700 dark:text-white/75 lg:text-left">
       {/* Footer Content */}
 
       <div className="mx-6 py-10 text-center md:text-left">
-        
-        <div className="grid-1 grid gap-8 md:grid-cols-3 lg:grid-cols-4">
-          <div className="w-60 h-40 flex flex-col  justify-center justify-self-center">
+        <div className="grid-1 grid gap-4 md:gap-6 md:grid-cols-3">
+          <div className="w-60 h-40 flex flex-col  justify-center md:justify-start justify-self-center">
             <StaticImage
               src="../images/Logo/p24.jpg"
               width={640}
               alt="Logo"
-              className="cursor-pointer mb-4"
+              className="cursor-pointer mb-2"
             />
+
+            <div className="self-end text-pebblePrimary font-medium text-[18px]">
+              By Velavan Enterprises
+            </div>
           </div>
 
-          <div>
+          {/* <div>
             <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
               Useful links
             </h6>
@@ -33,30 +35,35 @@ const Footer = () => {
             <p className="mb-4 hover:text-pebblePrimary transition-all duration-300 cursor-pointer ease-in-out">
               <a href="#!">Contact Us</a>
             </p>
-          </div>
+          </div> */}
 
           <div>
             <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
               Reach us
             </h6>
-            <p className="mb-4 flex items-center justify-center md:justify-start hover:text-pebblePrimary transition-all duration-300 cursor-pointer ease-in-out">
-              <span className="me-3 [&>svg]:h-5 [&>svg]:w-5">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
-                  <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
-                </svg>
-              </span>
-              114/B Pudu Kinathu Thottam
-              <br>
-              </br>
-              Paruvai (P.O), Palladam Taluk
-              <br></br>
-              Tiruppur , Tamil Nadu-641658
-            </p>
+            <a
+              href="https://maps.app.goo.gl/2NeCiF61t17FNnzJ6"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <p className="mb-4 flex items-center justify-center md:justify-start hover:text-pebblePrimary transition-all duration-300 cursor-pointer ease-in-out">
+                <span className="me-3 [&>svg]:h-5 [&>svg]:w-5">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
+                    <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
+                  </svg>
+                </span>
+                114/B Pudu Kinathu Thottam
+                <br></br>
+                Paruvai (P.O), Palladam Taluk
+                <br></br>
+                Tiruppur , Tamil Nadu-641658
+              </p>
+            </a>
             <p className="mb-4 flex items-center justify-center md:justify-start hover:text-pebblePrimary transition-all duration-300 cursor-pointer ease-in-out">
               <span className="me-3 [&>svg]:h-5 [&>svg]:w-5">
                 <svg
@@ -68,9 +75,15 @@ const Footer = () => {
                   <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
                 </svg>
               </span>
-              pebbleblocks@gmail.com
+              <a
+                href="mailto:contact@velavanenterprise.com"
+                className="text-inherit"
+                rel="noreferrer"
+              >
+                contact@velavanenterprise.com
+              </a>
             </p>
-            <p className="mb-4 flex items-center justify-center md:justify-start hover:text-pebblePrimary transition-all duration-300 cursor-pointer ease-in-out">
+            <p className="mb-4 flex items-center justify-center md:justify-start transition-all duration-300 cursor-pointer ease-in-out">
               <span className="me-3 [&>svg]:h-5 [&>svg]:w-5">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +97,23 @@ const Footer = () => {
                   />
                 </svg>
               </span>
-              +91 888 333 7674 <br></br> +91 888 333 2822
+              <div className="flex flex-col items-center">
+                <a
+                  href="tel:+918883332822"
+                  rel="noreferrer"
+                  className="text-inherit hover:text-pebblePrimary"
+                >
+                  <h2 className="text-[8px] md:text-sm"> +91 888 333 2822 </h2>
+                </a>
+
+                <a
+                  href="tel:+918883337674"
+                  rel="noreferrer"
+                  className="text-inherit hover:text-pebblePrimary"
+                >
+                  <h2 className="text-[8px] md:text-sm"> +91 888 333 7674 </h2>
+                </a>
+              </div>
             </p>
           </div>
 
@@ -200,7 +229,7 @@ const Footer = () => {
               </span>
               WhatsApp
             </a>
-{/* 
+            {/* 
             <a
               href="https://twitter.com/yourpage"
               target="_blank"

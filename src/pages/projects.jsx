@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import React from "react";
+import React, { useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Footer from "../components/Footer";
@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import WhatsappButton from "@/components/ui/WhatsAppFixed";
 
 const ProjectsMain = () => {
+  const [modelOpen, setModelOpen] = useState(false);
   const data = useStaticQuery(graphql`
     query {
       allFile(
@@ -33,7 +34,7 @@ const ProjectsMain = () => {
   return (
     <div>
       <Navbar />
-      <main>
+      <main className="relative">
         <section className="relative flex justify-center items-center bg-[url('../images/AboutUs/brick-wall.jpeg')] bg-cover h-[200px]">
           <div className="w-full h-full bg-black opacity-20 absolute top-0 left-0"></div>
           <h1 className="text-xl md:text-2xl lg:text-4xl font-bold leading-9 text-white z-10 text-center">
@@ -58,7 +59,30 @@ const ProjectsMain = () => {
                     image={getImage(item)}
                     alt={`project_${index}`}
                     className="w-full h-full object-cover"
+                    // onClick={() => setModelOpen(true)}
                   />
+                  {/* {true && (
+                    <div
+                      className="fixed top-0 left-0 w-full h-full bg-black-primary bg-opacity-50 flex justify-center items-center z-[999999]"
+                      tabIndex={0}
+                    >
+                      <div className="absolute top-0 right-0 p-4">
+                        <button
+                          onClick={() => setModelOpen(false)}
+                          className="text-white"
+                        >
+                          close
+                        </button>
+                      </div>
+                      <GatsbyImage
+                        src={getImage(item)}
+                        alt="whatsapp-image"
+                        width={800}
+                        height={600}
+                        className="w-full h-full object-contain p-14"
+                      />
+                    </div>
+                  )} */}
                 </div>
               ))}
             </div>

@@ -42,13 +42,9 @@ const PaverBlocks = () => {
 
   return (
     <section className="w-fit h-fit m-auto flex flex-col items-center justify-center">
-      {/* <h1 className="text-center text-xl md:text-2xl lg:text:3xl mt-5 mb-2">
-        Paver blocks
-      </h1> */}
-
       <div className="h-fit relative">
         <div
-          class="swiper-button-prev !invisible md:!visible !left-[-40px]"
+          class="swiper-button-prev !left-[-40px]"
           onClick={() => swiperRef.current?.slidePrev()}
         ></div>
         <Swiper
@@ -90,7 +86,7 @@ const PaverBlocks = () => {
           ))}
         </Swiper>
         <div
-          class="swiper-button-next !invisible md:!visible !right-[-40px]"
+          class="swiper-button-next !right-[-40px]"
           onClick={() => swiperRef.current?.slideNext()}
         ></div>
       </div>

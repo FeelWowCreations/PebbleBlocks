@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -10,6 +10,11 @@ import { ReactComponent as ProjectIcon } from "../images/Icons/projects.svg";
 import { ReactComponent as SupplierIcon } from "../images/Icons/suppliers.svg";
 import { ReactComponent as AwardIcon } from "../images/Icons/awards.svg";
 import { ReactComponent as ReviewIcons } from "../images/Icons/reviews.svg";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination } from "swiper/modules";
 
 const Banner = () => {
   const data = useStaticQuery(graphql`
@@ -35,6 +40,8 @@ const Banner = () => {
     (edge) => edge.node.childImageSharp.gatsbyImageData
   );
 
+  console.log(images);
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
@@ -47,16 +54,22 @@ const Banner = () => {
 
   return (
     <>
-      <section className="relative w-full h-screen overflow-hidden">
-        <figure className="absolute inset-0">
-          <GatsbyImage
-            image={images[currentImageIndex]}
-            alt="banner"
-            className="object-cover w-full h-full transition-transform duration-1500 ease-in-out"
-            placeholder="tracedSVG"
-          />
-        </figure>
-        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent flex flex-col justify-center items-center text-center p-8">
+      <section className="relative w-full h-[calc(100vh-92px)] overflow-hidden">
+        <Swiper className="mySwiper h-full">
+          {images.map((_, index) => (
+            <SwiperSlide className="">
+              <figure className="h-full w-full">
+                <GatsbyImage
+                  image={images[currentImageIndex]}
+                  alt="banner"
+                  placeholder="tracedSVG"
+                  className="object-cover w-full h-full transition-transform duration-1500 ease-in-out"
+                />
+              </figure>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-gray-900 to-transparent flex flex-col justify-center items-center text-center p-8">
           <motion.h1
             className="text-4xl md:text-6xl text-white font-bold mb-4"
             initial={{ y: 50, opacity: 0 }}
@@ -71,30 +84,61 @@ const Banner = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-          We Provide Reliable High Quality Bricks and Blocks From Foundations to Finishes
+            We Provide Reliable High Quality Bricks and Blocks From Foundations
+            to Finishes
           </motion.p>
-          <motion.button
-            className="px-6 py-3 bg-blue-500 text-white font-medium rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
-            initial={{ scale: 0.9 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.3 }}
-          >
-            Contact Us
-          </motion.button>
+          <Link to="/contact-us">
+            <motion.button
+              className="px-6 py-3 bg-blue-500 text-white font-medium rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              Contact Us
+            </motion.button>
+          </Link>
         </div>
       </section>
 
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <CounterCard value="3+" label="Manufacturing Units" Icon={<FactoryIcon />} />
+            <CounterCard
+              value="3+"
+              label="Manufacturing Units"
+              Icon={<FactoryIcon />}
+            />
             <CounterCard value="50+" label="Workers" Icon={<WorkersIcon />} />
-            <CounterCard value="1000+" label="Customers" Icon={<CustomerIcon />} />
-            <CounterCard value="25+" label="Products" Icon={<ProductsIcon className="w-12 h-12"/>} />
-            <CounterCard value="500+" label="Projects Completed" Icon={<ProjectIcon />} />
-            <CounterCard value="30+" label="Suppliers" Icon={<SupplierIcon />} />
-            <CounterCard value="15+" label="Years of Experience" Icon={<AwardIcon />} />
-            <CounterCard value="75+" label="Happy Reviews" Icon={<ReviewIcons />} />
+            <CounterCard
+              value="1000+"
+              label="Customers"
+              Icon={<CustomerIcon />}
+            />
+            <CounterCard
+              value="25+"
+              label="Products"
+              Icon={<ProductsIcon className="w-12 h-12" />}
+            />
+            <CounterCard
+              value="500+"
+              label="Projects Completed"
+              Icon={<ProjectIcon />}
+            />
+            <CounterCard
+              value="30+"
+              label="Suppliers"
+              Icon={<SupplierIcon />}
+            />
+            <CounterCard
+              value="15+"
+              label="Years of Experience"
+              Icon={<AwardIcon />}
+            />
+            <CounterCard
+              value="75+"
+              label="Happy Reviews"
+              Icon={<ReviewIcons />}
+            />
           </div>
         </div>
       </section>
@@ -118,7 +162,7 @@ const CounterCard = ({ value, label, Icon }) => {
         transition={{ duration: 0.6 }}
       >
         {/* Icon with w-12 h-12 size */}
-        {React.cloneElement(Icon, { className: 'w-12 h-12' })}
+        {React.cloneElement(Icon, { className: "w-12 h-12" })}
       </motion.div>
       <motion.h2
         className="text-3xl font-bold text-blue-600"
@@ -139,7 +183,5 @@ const CounterCard = ({ value, label, Icon }) => {
     </motion.div>
   );
 };
-
-
 
 export default Banner;

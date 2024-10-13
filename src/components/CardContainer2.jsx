@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby";
-import { useState } from "react"; 
+import { useState } from "react";
 import Card from "./Card";
 import * as React from "react";
 import SixInch from "../images/SolidBlocks/solid-block.png";
@@ -15,19 +15,57 @@ import { motion } from "framer-motion";
 import { Link } from "gatsby";
 
 const solidBlockData = [
-  { id: 1, src: SixInch, title: '6 Inch Solid Block', description: 'Size - 12" x 6" x 8"', link: '/solid-blocks/12-6-8' },
-  { id: 2, src: FourInch, title: '4 Inch Solid Block', description: 'Size - 16" x 4" x 8"', link: '/solid-blocks/16-4-8' },
-  { id: 3, src: NineInch, title: '9 Inch Solid Block', description: 'Size - 9" x 8" x 8"', link: '/solid-blocks/9-8-8' },
-  { id: 4, src: SixInch2, title: '6 Inch Solid Block', description: 'Size - 16" x 6" x 8"', link: '/solid-blocks/16-6-8' },
-  { id: 5, src: EightInch, title: '8 Inch Solid Block', description: 'Size - 12" x 8" x 8"', link: '/solid-blocks/12-8-8' },
-  { id: 6, src: NineInch2, title: '9"x4"x3" Solid Block', description: 'Size - 9" x 4" x 3"', link: '/solid-blocks/9-4-3' }
+  {
+    id: 1,
+    src: SixInch,
+    title: "6 Inch Solid Block",
+    description: 'Size - 12" x 6" x 8"',
+    link: "/products/solid-blocks/",
+  },
+  {
+    id: 2,
+    src: FourInch,
+    title: "4 Inch Solid Block",
+    description: 'Size - 16" x 4" x 8"',
+    link: "/products/solid-blocks/",
+  },
+  {
+    id: 3,
+    src: NineInch,
+    title: "9 Inch Solid Block",
+    description: 'Size - 9" x 8" x 8"',
+    link: "/products/solid-blocks/",
+  },
+  {
+    id: 4,
+    src: SixInch2,
+    title: "6 Inch Solid Block",
+    description: 'Size - 16" x 6" x 8"',
+    link: "/products/solid-blocks/",
+  },
+  {
+    id: 5,
+    src: EightInch,
+    title: "8 Inch Solid Block",
+    description: 'Size - 12" x 8" x 8"',
+    link: "/products/solid-blocks/",
+  },
+  {
+    id: 6,
+    src: NineInch2,
+    title: '9"x4"x3" Solid Block',
+    description: 'Size - 9" x 4" x 3"',
+    link: "/products/solid-blocks/",
+  },
 ];
 
 const CardContainer2 = () => {
   const [expanded, setExpanded] = useState(false);
 
   // Determine the blocks to show based on whether the "Expand All" button is active
-  const displayedBlocks = expanded ? solidBlockData : solidBlockData.slice(0, 4);
+  const displayedBlocks = expanded
+    ? solidBlockData
+    : solidBlockData.slice(0, 4);
 
   return (
     <main>
@@ -46,8 +84,11 @@ const CardContainer2 = () => {
         transition={{ delay: 0.5, duration: 0.8 }}
       >
         <motion.div className="grid grid-cols-[repeat(1,1fr)] md:grid-cols-[repeat(2,1fr)] lg:grid-cols-[repeat(4,1fr)] text-center gap-x-5 gap-y-[30px]">
-          {displayedBlocks.map(block => (
-            <motion.div key={block.id} className="flex flex-col justify-self-center items-center shadow-md w-full">
+          {displayedBlocks.map((block) => (
+            <motion.div
+              key={block.id}
+              className="flex flex-col justify-self-center items-center shadow-md w-full"
+            >
               <div className="w-full h-full relative group flex items-center justify-center">
                 <img
                   src={block.src}
@@ -75,12 +116,11 @@ const CardContainer2 = () => {
           className="mt-5 px-4 py-2 bg-pebblePrimary text-white rounded hover:opacity-80"
           onClick={() => setExpanded(!expanded)}
         >
-          {expanded ? 'Show Less' : 'Expand All'}
+          {expanded ? "Show Less" : "Expand All"}
         </button>
       </motion.section>
     </main>
   );
 };
-
 
 export default CardContainer2;
