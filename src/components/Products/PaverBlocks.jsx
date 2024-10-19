@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, getSrc } from "gatsby-plugin-image";
 import * as React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -14,7 +14,7 @@ import {
   Autoplay,
 } from "swiper/modules";
 
-const PaverBlocks = () => {
+const PaverBlocks = ({ setModalOpen, setImageUrl }) => {
   const swiperRef = React.useRef();
 
   const data = useStaticQuery(graphql`
@@ -36,9 +36,10 @@ const PaverBlocks = () => {
     }
   `);
 
-  const images = data.allFile.edges.map(
-    (edge) => edge.node.childImageSharp.gatsbyImageData
-  );
+  const images = data.allFile.edges.map((edge) => ({
+    gatsbyImageData: edge.node.childImageSharp.gatsbyImageData,
+    imageUrl: getSrc(edge.node.childImageSharp.gatsbyImageData), // extract the URL
+  }));
 
   return (
     <section className="w-fit h-fit m-auto flex flex-col items-center justify-center">
@@ -74,10 +75,16 @@ const PaverBlocks = () => {
           }}
           className="h-96 rounded-lg !w-fit md:!w-[700px] lg:!w-[1200px] !pb-[50px]"
         >
-          {images.map((_, index) => (
-            <SwiperSlide className="md:!w-[300px] rounded-lg lg:!w-[800px]">
+          {images.map((item, index) => (
+            <SwiperSlide
+              className="md:!w-[300px] rounded-lg lg:!w-[800px]"
+              onClick={() => {
+                setModalOpen(true);
+                setImageUrl(item?.imageUrl);
+              }}
+            >
               <GatsbyImage
-                image={images[index]}
+                image={item?.gatsbyImageData}
                 alt="banner"
                 placeholder="tracedSVG"
                 class="block h-full w-full object-cover rounded-lg"
