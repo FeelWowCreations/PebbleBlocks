@@ -1,14 +1,21 @@
 import React from "react";
 import logo from "../images/Logo/p24.jpg";
-import Dalmia from "../images/CustomerLogo/dalmia.svg"
-import Ultratec from "../images/CustomerLogo/ultratec.svg"
-import Tamilnadu from "../images/CustomerLogo/tamilnadu.png"
-import Mhrd from "../images/CustomerLogo/mhrd.jpeg"
-import Make from "../images/CustomerLogo/make.png"
+// import Dalmia from "../images/CustomerLogo/dalmia.svg"
+// import Ultratec from "../images/CustomerLogo/ultratec.svg"
+// import Tamilnadu from "../images/CustomerLogo/tamilnadu.png"
+// import Mhrd from "../images/CustomerLogo/mhrd.jpeg"
+// import Make from "../images/CustomerLogo/make.png"
 import Gsquare from "../images/CustomerLogo/gsquare.png"
 import Zoho from "../images/CustomerLogo/zoho.svg"
-import Bni from "../images/CustomerLogo/bni.jpg"
-
+//import Bni from "../images/CustomerLogo/bni.jpg"
+import logo1 from "../images/CustomerLogo/logo1.jpg"
+import logo2 from "../images/CustomerLogo/logo2.png"
+import logo3 from "../images/CustomerLogo/logo3.png"
+import logo4 from "../images/CustomerLogo/logo4.png"
+import logo5 from "../images/CustomerLogo/logo5.webp"
+import logo6 from "../images/CustomerLogo/logo6.png"
+import logo7 from "../images/CustomerLogo/logo7.webp"
+import logo8 from "../images/CustomerLogo/logo8.svg"
 
 const LogoScroller = () => {
     return (
@@ -26,19 +33,19 @@ const LogoScroller = () => {
                             <img src={logo} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
-                            <img src={Dalmia} alt="Logo 1" width="110" height="24" />
+                            <img src={logo1} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
-                            <img src={Ultratec} alt="Logo 1" width="110" height="24" />
+                            <img src={logo2} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
-                            <img src={Tamilnadu} alt="Logo 1" width="110" height="24" />
+                            <img src={logo3} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
-                            <img src={Mhrd} alt="Logo 1" width="110" height="24" />
+                            <img src={logo4} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
-                            <img src={Make} alt="Logo 1" width="110" height="24" />
+                            <img src={logo5} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
                             <img src={Gsquare} alt="Logo 1" width="110" height="24" />
@@ -47,7 +54,13 @@ const LogoScroller = () => {
                             <img src={Zoho} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
-                            <img src={Bni} alt="Logo 1" width="110" height="24" />
+                            <img src={logo6} alt="Logo 1" width="110" height="24" />
+                        </li>
+                        <li>
+                            <img src={logo7} alt="Logo 1" width="110" height="24" />
+                        </li>
+                        <li>
+                            <img src={logo8} alt="Logo 1" width="110" height="24" />
                         </li>
                     </ul>
                     {/* Duplicate set of logos for infinite scroll */}
@@ -56,19 +69,19 @@ const LogoScroller = () => {
                             <img src={logo} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
-                            <img src={Dalmia} alt="Logo 1" width="110" height="24" />
+                            <img src={logo1} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
-                            <img src={Ultratec} alt="Logo 1" width="110" height="24" />
+                            <img src={logo2} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
-                            <img src={Tamilnadu} alt="Logo 1" width="110" height="24" />
+                            <img src={logo3} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
-                            <img src={Mhrd} alt="Logo 1" width="110" height="24" />
+                            <img src={logo4} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
-                            <img src={Make} alt="Logo 1" width="110" height="24" />
+                            <img src={logo5} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
                             <img src={Gsquare} alt="Logo 1" width="110" height="24" />
@@ -77,7 +90,13 @@ const LogoScroller = () => {
                             <img src={Zoho} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
-                            <img src={Bni} alt="Logo 1" width="110" height="24" />
+                            <img src={logo6} alt="Logo 1" width="110" height="24" />
+                        </li>
+                        <li>
+                            <img src={logo7} alt="Logo 1" width="110" height="24" />
+                        </li>
+                        <li>
+                            <img src={logo8} alt="Logo 1" width="110" height="24" />
                         </li>
                     </ul>
                     {/* Duplicate set of logos for infinite scroll */}
@@ -86,19 +105,19 @@ const LogoScroller = () => {
                             <img src={logo} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
-                            <img src={Dalmia} alt="Logo 1" width="110" height="24" />
+                            <img src={logo1} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
-                            <img src={Ultratec} alt="Logo 1" width="110" height="24" />
+                            <img src={logo2} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
-                            <img src={Tamilnadu} alt="Logo 1" width="110" height="24" />
+                            <img src={logo3} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
-                            <img src={Mhrd} alt="Logo 1" width="110" height="24" />
+                            <img src={logo4} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
-                            <img src={Make} alt="Logo 1" width="110" height="24" />
+                            <img src={logo5} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
                             <img src={Gsquare} alt="Logo 1" width="110" height="24" />
@@ -107,7 +126,13 @@ const LogoScroller = () => {
                             <img src={Zoho} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
-                            <img src={Bni} alt="Logo 1" width="110" height="24" />
+                            <img src={logo6} alt="Logo 1" width="110" height="24" />
+                        </li>
+                        <li>
+                            <img src={logo7} alt="Logo 1" width="110" height="24" />
+                        </li>
+                        <li>
+                            <img src={logo8} alt="Logo 1" width="110" height="24" />
                         </li>
                     </ul>
                 </div>
