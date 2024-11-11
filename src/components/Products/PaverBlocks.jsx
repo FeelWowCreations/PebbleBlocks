@@ -79,8 +79,8 @@ const PaverBlocks = ({ setModalOpen, setImageUrl }) => {
             <SwiperSlide
               className="md:!w-[300px] rounded-lg lg:!w-[800px]"
               onClick={() => {
-                setModalOpen(true);
-                setImageUrl(item?.imageUrl);
+                setModalOpen && setModalOpen(true);
+                setImageUrl && setImageUrl(item?.imageUrl);
               }}
             >
               <GatsbyImage

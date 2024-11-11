@@ -40,8 +40,6 @@ const Banner = () => {
     (edge) => edge.node.childImageSharp.gatsbyImageData
   );
 
-  console.log(images);
-
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {

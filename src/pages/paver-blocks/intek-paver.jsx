@@ -1,11 +1,37 @@
 import React from "react";
 import Navbar from "../../components/Navbar";
-import ZigZagImage from "../../images/PaverBlocks/single/zig-zag.jpg";
-import PaverBlocks from "@/components/Products/PaverBlocks";
+import IntekImage from "../../images/PaverBlocks/intek.jpg";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import BlocksSlider from "@/components/Products/BlocksSlider";
+import { graphql, useStaticQuery } from "gatsby";
+import { getSrc } from "gatsby-plugin-image";
 
-const ZigZag = () => {
+const IntekPaver = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allFile(
+        filter: {
+          extension: { regex: "/(jpg)/" }
+          relativeDirectory: { eq: "Products/Intek" }
+        }
+      ) {
+        edges {
+          node {
+            childImageSharp {
+              gatsbyImageData(width: 2000)
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const images = data.allFile.edges.map((edge) => ({
+    gatsbyImageData: edge.node.childImageSharp.gatsbyImageData,
+    imageUrl: getSrc(edge.node.childImageSharp.gatsbyImageData), // extract the URL
+  }));
+
   return (
     <main>
       <Navbar />
@@ -13,11 +39,11 @@ const ZigZag = () => {
         <section className="relative flex justify-center items-center bg-[url('../images/AboutUs/brick-wall.jpeg')] bg-cover h-[200px]">
           <div className="w-full h-full bg-black opacity-20 absolute top-0 left-0"></div>
           <h1 className="text-xl md:text-2xl lg:text-4xl font-bold leading-9 text-white z-10 text-center">
-            Zig Zag Blocks
+            Intek Blocks
           </h1>
         </section>
 
-        <section className="py-20 bg-[#eff2f5]">
+        <section className="pb-20 bg-[#eff2f5]">
           <div className="max-w-[1250px] m-auto">
             <div className="shadow-12 p-[30px] lg:py-10 lg:px-[140px] relative bg-white rounded-xl">
               <div className="flex flex-col items-center">
@@ -25,13 +51,13 @@ const ZigZag = () => {
                   PRODUCTS
                 </h5>
                 <h1 className="mb-[30px] font-extrabold mt-[-5px] p-0 text-[40px]">
-                  Zig Zag Blocks
+                  Intek Blocks
                 </h1>
                 <div className="grid grid-cols-1 md:grid-cols-[repeat(2,50%)] mb-[30px] w-full h-full">
-                  <div className="w-[80%] h-[80%] col-span-1 self-center justify-self-center rounded-lg">
+                  <div className="w-[300px] h-[280px] md:w-[350px] md:h-[350px] col-span-1 self-center justify-self-center rounded-lg">
                     <img
-                      src={ZigZagImage}
-                      alt="zig-zag block"
+                      src={IntekImage}
+                      alt="intek block"
                       className="w-full h-full rounded-lg"
                     />
                   </div>
@@ -65,9 +91,9 @@ const ZigZag = () => {
 
         <section className="bg-[#eff2f5] flex flex-col justify-center items-center">
           <h1 className="mb-[30px] font-bold mt-[-5px] p-0 text-[35px]">
-            Zig Zag Block Projects
+            Intek Block Projects
           </h1>
-          <PaverBlocks />
+          <BlocksSlider images={images} />
         </section>
         <Footer />
       </main>
@@ -75,4 +101,4 @@ const ZigZag = () => {
   );
 };
 
-export default ZigZag;
+export default IntekPaver;

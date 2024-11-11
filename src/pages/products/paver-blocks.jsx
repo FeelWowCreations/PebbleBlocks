@@ -246,7 +246,7 @@ const PaverBlocksMain = () => {
 
       {modelOpen && (
         <div
-          className="fixed hidden md:flex top-0 left-0 w-full h-full bg-[#000000] bg-opacity-50 justify-center items-center z-[40]"
+          className="fixed flex top-0 left-0 w-full h-full bg-[#000000] bg-opacity-50 justify-center items-center z-[40]"
           tabIndex={0}
           onClick={() => setModelOpen(false)}
         >
