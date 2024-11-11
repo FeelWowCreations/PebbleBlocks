@@ -112,7 +112,7 @@ const PaverBlocksMain = () => {
               </div>
 
               <div className=" w-full">
-                <h2 className="font-bold">Rectangle Paver</h2>
+                <h2 className="font-bold">Brick Paver 12" x 6"</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
                   <li className="py-2.5 px-0">{`Rectangle pavers, as the name suggests, are paving units with a clean and classic rectangle shape.`}</li>
                 </ul>

@@ -10,24 +10,24 @@ const testimonials = [
   {
     title: "Exceptional Quality and Durability!",
     description:
-      "We've been using blocks from Pebble Blocks for over five years, and their quality is unmatched. The blocks are durable, dimensionally accurate, and perfect for our construction projects.",
-    name: "- MR. Krishna V",
+      "We've been using blocks from Pebble Blocks for few years, and their quality is unmatched. The blocks are durable, dimensionally accurate, and perfect for our construction projects.",
+    name: "- Mr. Krishna V",
     designation: "Construction Project Manager",
     bgColor: "bg-yellow-300",
   },
   {
     title: "Beautiful and Versatile Pavers",
     description:
-      "We've used Pebble Blocks' pavers in several landscaping projects, and they never disappoint. The colors are vibrant, and the pavers are resilient. We get so many compliments on the finished look.",
-    name: "- MR . Dinesh Kumar R",
+      "We've used Pebble Blocks pavers in several landscaping projects, and they never disappoint. The colors are vibrant, and the pavers are resilient. We get so many compliments on the finished look.",
+    name: "- Mr. Dinesh Kumar R",
     designation: "Managing Director, Sri Ranga Impex",
     bgColor: "bg-purple-300",
   },
   {
     title: "Perfect for All Weather Conditions",
     description:
-      "ebble Blocks' concrete blocks are incredibly durable. We've used them in areas exposed to extreme weather, and they hold up perfectly. Definitely the best blocks we've used for outdoor construction.",
-    name: "- Mr . Narendran M",
+      "Pebble Blocks concrete blocks are incredibly durable. We've used them in areas exposed to extreme weather, and they hold up perfectly. Definitely the best blocks we've used for outdoor construction.",
+    name: "- Mr. Narendran M",
     designation: "CEO Cheran Agro Tech",
     bgColor: "bg-blue-300",
   },
@@ -35,7 +35,7 @@ const testimonials = [
     title: "Solid quality and affordable prices",
     description:
       "I was skeptical at first because their prices were so reasonable, but I was blown away by the quality. The blocks are sturdy, perfectly sized, and they made a big difference in the look of our project.",
-    name: "- Mr . Syed Manzoor S",
+    name: "- Mr. Syed Manzoor S",
     designation: "Senior Engineer, SS Constructions",
     bgColor: "bg-pink-300",
   },
@@ -43,7 +43,7 @@ const testimonials = [
     title: " Customer Support and Quality Assurance",
     description:
       "Pebble Blocks has an amazing team that ensures every product meets our expectations. The quality control is excellent, and their customer support team is always ready to help with any questions we have.",
-    name: "- Mr . Aaadhavan",
+    name: "- Mr. Aaadhavan",
     designation: "Senior Software Engineer",
     bgColor: "bg-sky-300",
   },

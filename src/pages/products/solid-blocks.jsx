@@ -63,6 +63,7 @@ const SolidBlocksMain = () => {
                 <h2 className="font-bold">{`6 Inch Solid Block`}</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
                   <li className="py-2.5 px-0">{`Size - 12" x 6" x 8"`}</li>
+                  <li className="py-2.5 px-0">{`300mm x 150mm x 200mm`}</li>
                 </ul>
               </div>
             </motion.div>
@@ -86,6 +87,7 @@ const SolidBlocksMain = () => {
                 <h2 className="font-bold">{`4 Inch Solid Block`}</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
                   <li className="py-2.5 px-0">{`Size - 16" x 4" x 8"`}</li>
+                  <li className="py-2.5 px-0">{`400mm x 100mm x 200mm`}</li>
                 </ul>
               </div>
             </motion.div>
@@ -109,6 +111,7 @@ const SolidBlocksMain = () => {
                 <h2 className="font-bold">{`9 Inch Solid Block`}</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
                   <li className="py-2.5 px-0">{`Size - 9" x 8" x 8"`}</li>
+                  <li className="py-2.5 px-0">{`225mm x 200mm x 200mm`}</li>
                 </ul>
               </div>
             </motion.div>
@@ -132,6 +135,7 @@ const SolidBlocksMain = () => {
                 <h2 className="font-bold">{`6 Inch Solid Block`}</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
                   <li className="py-2.5 px-0">{`Size - 16" x 6" x 8"`}</li>
+                  <li className="py-2.5 px-0">{`400mm x 150mm x 200mm`}</li>
                 </ul>
               </div>
             </motion.div>
@@ -155,6 +159,7 @@ const SolidBlocksMain = () => {
                 <h2 className="font-bold">{`8 Inch Solid Block`}</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
                   <li className="py-2.5 px-0">{`Size - 12" x 8" x 8"`}</li>
+                  <li className="py-2.5 px-0">{`300mm x 200mm x 200mm`}</li>
                 </ul>
               </div>
             </motion.div>
@@ -178,6 +183,7 @@ const SolidBlocksMain = () => {
                 <h2 className="font-bold">{`9"x4"x3" Solid Block`}</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
                   <li className="py-2.5 px-0">{`Size - 9" x 4" x 3"`}</li>
+                  <li className="py-2.5 px-0">{`230mm x 110mm x 75mm`}</li>
                 </ul>
               </div>
             </motion.div>

@@ -90,12 +90,12 @@ const timelineData = [
     {
         title: "Velavan Enterprise",
         date: {year: "2019" },
-        description: "We have started supplying all kinds of construction materials in partnership with the leading brands across Coimbatore, Tiruppur, Pollachi, Erode Districts"
+        description: "We have started supplying all kinds of construction materials in partnership with the leading brands across Coimbatore, Tiruppur, Pollachi, Erode Districts."
     },
     {
         title: "Pebble Blocks",
         date: {year: "2022" },
-        description: "With the enromous experience of manufacturing bricks and blocks we have rebranded ourself and expanded our portfolio even further by introducing the paver blocks our paver blocks are manufactured using the latest technology available",
+        description: "With the enromous experience of manufacturing bricks and blocks we have rebranded ourself and expanded our portfolio even further by introducing the paver blocks. Our paver blocks are manufactured using the latest technology available",
         editable: true
     }
 ];

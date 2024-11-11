@@ -18,7 +18,7 @@ const Footer = () => {
             />
 
             <div className="self-end text-pebblePrimary font-medium text-[18px]">
-              By Velavan Enterprises
+              By Velavan Enterprise
             </div>
           </div>
 
