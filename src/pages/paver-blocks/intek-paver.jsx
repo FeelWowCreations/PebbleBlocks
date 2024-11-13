@@ -28,6 +28,7 @@ const IntekPaver = () => {
     }
   `);
 
+
   const images = data.allFile.edges.map((edge) => ({
     gatsbyImageData: edge.node.childImageSharp.gatsbyImageData,
     imageUrl: getSrc(edge.node.childImageSharp.gatsbyImageData), // extract the URL
