@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../../components/Navbar";
 import { motion } from "framer-motion";
-import FlyAshBlock from "../../images/Products/FlyashBlocks/flyash-block-1.jpg";
+//import FlyAshBlock from "../../images/Products/FlyashBlocks/flyash-block-1.jpg";
 import WhatsappButton from "@/components/ui/WhatsAppFixed";
 
 const FlyashBricksMain = () => {
@@ -28,11 +28,11 @@ const FlyashBricksMain = () => {
                 </h1>
                 <div className="grid grid-cols-1 md:grid-cols-[repeat(2,50%)] mb-[30px] w-full h-full">
                   <div className="w-[90%] h-[90%] col-span-1 self-center justify-self-center rounded-lg">
-                    <img
+                    {/* <img
                       src={FlyAshBlock}
                       alt="fly-ash block"
                       className="w-full h-full rounded-lg"
-                    />
+                    /> */}
                   </div>
                   <div>Query Form</div>
                 </div>

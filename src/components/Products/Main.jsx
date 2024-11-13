@@ -20,7 +20,7 @@ const Products = () => {
             <SolidBlocks />
 
             {/* Flyash */}
-            <section className="h-full w-full lg:w-fit max-w-[350px] m-auto flex flex-col items-center justify-center">
+            {/* <section className="h-full w-full lg:w-fit max-w-[350px] m-auto flex flex-col items-center justify-center">
               <h1 className="text-center text-xl md:text-2xl lg:text:3xl mt-5 mb-2">
                 Flyash blocks
               </h1>
@@ -38,7 +38,7 @@ const Products = () => {
                   </div>
                 </CardContent>
               </Card>
-            </section>
+            </section> */}
 
             {/* Paver blocks */}
             <PaverBlocks />

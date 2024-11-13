@@ -57,7 +57,7 @@ const Vertex = () => {
                   <div className="w-[300px] h-[280px] md:w-[350px] md:h-[350px] col-span-1 self-center justify-self-center rounded-lg">
                     <img
                       src={VertexImage}
-                      alt="zig-zag block"
+                      alt="vertex block"
                       className="w-full h-full rounded-lg"
                     />
                   </div>
@@ -68,7 +68,7 @@ const Vertex = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1 }}
                 >
-                  <p class="mb-3 text-[#787878] text-base text-center leading-6">
+                  <p className="mb-3 text-[#787878] text-base text-center leading-6">
                     Vertex pavers, also known as herringbone pavers or Vertex
                     pattern pavers, are a popular choice for creating attractive
                     and durable outdoor surfaces such as walkways, driveways,
@@ -78,9 +78,9 @@ const Vertex = () => {
                     stability of the pavement. We provide interlock pavers with
                     Zig Zag pavers to withstand heavy weights in the outdoors
                     like parking lots, pavements, and traffic areas. Our clients
-                    are stastifed with our{" "}
+                    are satisfied with our{" "}
                     <a href="/projects">Zig zag pavers</a> installation. We take
-                    pride in manufacturing Vertex pavers in coimbatore and
+                    pride in manufacturing Vertex pavers in Coimbatore and
                     interlock pavers.
                   </p>
                 </motion.div>

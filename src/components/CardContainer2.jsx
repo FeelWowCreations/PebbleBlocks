@@ -9,7 +9,7 @@ import SixInch2 from "../images/SolidBlocks/solid-block.png";
 import EightInch from "../images/SolidBlocks/solid-block.png";
 import NineInch2 from "../images/SolidBlocks/solid-block.png";
 
-import RectanglePaverEight from "../images/PaverBlocks/rectangle-paver-8.jpg";
+import RectanglePaverEight from "../images/PaverBlocks/rectangle-paver-8x9.jpg";
 import { motion } from "framer-motion";
 
 import { Link } from "gatsby";

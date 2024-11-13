@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
-import TetraImage from "../../images/PaverBlocks/Tetra/tetra-2.jpg";
+import TetraImage from "../../images/PaverBlocks/tetra-2.jpg";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import BlocksSlider from "@/components/Products/BlocksSlider";
 import { graphql, useStaticQuery } from "gatsby";
 import { getSrc } from "gatsby-plugin-image";
+import emailjs from "emailjs-com";
 
 const TetraPaver = () => {
   const data = useStaticQuery(graphql`
@@ -31,6 +32,32 @@ const TetraPaver = () => {
     gatsbyImageData: edge.node.childImageSharp.gatsbyImageData,
     imageUrl: getSrc(edge.node.childImageSharp.gatsbyImageData), // extract the URL
   }));
+
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        "your_service_id",
+        "your_template_id",
+        e.target,
+        "your_user_id"
+      )
+      .then(
+        (result) => {
+          alert("Enquiry sent successfully!");
+        },
+        (error) => {
+          alert("Failed to send enquiry. Please try again.");
+        }
+      );
+  };
 
   return (
     <main>
@@ -61,14 +88,51 @@ const TetraPaver = () => {
                       className="w-full h-full rounded-lg"
                     />
                   </div>
-                  <div>Query Form</div>
+                  <div className="space-y-4">
+                    <h2 className="text-lg font-bold">Request More Information</h2>
+                    <form onSubmit={sendEmail} className="space-y-4">
+                      <input
+                        type="text"
+                        name="name"
+                        value={form.name}
+                        onChange={handleChange}
+                        placeholder="Your Name"
+                        className="w-full border border-gray-300 rounded-md p-2"
+                        required
+                      />
+                      <input
+                        type="email"
+                        name="email"
+                        value={form.email}
+                        onChange={handleChange}
+                        placeholder="Your Email"
+                        className="w-full border border-gray-300 rounded-md p-2"
+                        required
+                      />
+                      <textarea
+                        name="message"
+                        value={form.message}
+                        onChange={handleChange}
+                        placeholder="Your Message"
+                        className="w-full border border-gray-300 rounded-md p-2"
+                        rows="4"
+                        required
+                      ></textarea>
+                      <button
+                        type="submit"
+                        className="w-full bg-green-600 text-white font-bold py-2 rounded-md"
+                      >
+                        Submit Enquiry
+                      </button>
+                    </form>
+                  </div>
                 </div>
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1 }}
                 >
-                  <p class="mb-3 text-[#787878] text-base text-center leading-6">
+                  <p className="mb-3 text-[#787878] text-base text-center leading-6">
                     <strong>Tetra</strong> Paver Blocks are a distinctive type
                     of interlocking concrete block known for their durability,
                     versatility, and unique shape, which allows for various
@@ -78,7 +142,8 @@ const TetraPaver = () => {
                     aesthetic appeal. Their interlocking feature provides
                     stability and reduces the need for additional adhesives or
                     mortar, making them a popular choice for many construction
-                    and landscaping projects.<br></br>
+                    and landscaping projects.
+                    <br />
                     Tetra Paver Blocks are a high-quality, versatile solution
                     for both decorative and heavy-duty outdoor projects. Their
                     interlocking design ensures longevity and stability, making

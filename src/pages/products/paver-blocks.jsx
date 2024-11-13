@@ -7,7 +7,7 @@ import RectanglePaver from "../../images/PaverBlocks/rectangle-paver.jpg";
 import VertexPaver from "../../images/PaverBlocks/vertex-paver.jpg";
 import TetraPaver from "../../images/PaverBlocks/tetra-paver.jpg";
 import IntekPaver from "../../images/PaverBlocks/intek-paver.jpg";
-import RectanglePaverEight from "../../images/PaverBlocks/rectangle-paver-8.jpg";
+import RectanglePaverEight from "../../images/PaverBlocks/rectangle-paver-8x9.jpg";
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
 import { Link } from "gatsby";
