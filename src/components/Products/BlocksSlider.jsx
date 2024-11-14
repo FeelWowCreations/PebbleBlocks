@@ -47,7 +47,7 @@ const BlocksSlider = ({ setModalOpen, setImageUrl, images }) => {
           onBeforeInit={(swiper) => {
             swiperRef.current = swiper;
           }}
-          className="h-96 rounded-lg !w-fit md:!w-[700px] lg:!w-[1200px] !pb-[50px]"
+          className="h-96 rounded-lg !w-[350px] md:!w-[700px] lg:!w-[1200px] !pb-[50px]"
         >
           {images?.map((item) => (
             <SwiperSlide

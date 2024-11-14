@@ -76,7 +76,7 @@ const SolidBlocks = () => {
           onBeforeInit={(swiper) => {
             swiperRef.current = swiper;
           }}
-          className="h-96 rounded-lg !w-fit md:!w-[700px] lg:!w-[1200px] !pb-[50px]"
+          className="h-96 rounded-lg !w-[350px] md:!w-[700px] lg:!w-[1200px] !pb-[50px]"
         >
           {images.map((_, index) => (
             <SwiperSlide className="md:!w-[300px] rounded-lg lg:!w-[800px]">

@@ -4,7 +4,6 @@ import Footer from "../components/Footer";
 import ContactUs from "../components/ContactUS";
 import WhatsappButton from "@/components/ui/WhatsAppFixed";
 
-
 const contactUS = () => {
     return (
       <main>
