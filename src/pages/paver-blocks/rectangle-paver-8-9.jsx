@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
-import RectangleBlockImage from  "../../images/Products/Rectangle-8-9/rectangle88.jpg";
+import RectangleBlockImage from  "../../images/Products/Rectangle-8-9/rectangle89.jpg";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import BlocksSlider from "@/components/Products/BlocksSlider";
