@@ -9,7 +9,7 @@ import VertexPaver from "../images/Products/Vertex/Vertex11.jpg";
 import TetraPaver from "../images/Products/Tetra/Tetra22.jpg";
 import IntekPaver from "../images/Products/Intek/Intek121.jpg";
 import RectanglePaverEight from "../images/Products/Rectangle-8-11/rectangle8-11.jpg";
-import RectanglePaverEightNine from  "../images/Products/Rectangle-8-9/rectangle8-9.jpg";
+import RectanglePaverEightNine from  "../images/Products/Rectangle-8-9/rectangle88.jpg";
 import { motion } from "framer-motion";
 
 import { Link } from "gatsby";
