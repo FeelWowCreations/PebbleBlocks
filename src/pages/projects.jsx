@@ -103,7 +103,7 @@ const ProjectsMain = () => {
             <img
               src={imageUrl}
               alt="whatsapp-image"
-              className="w-full h-full object-contain p-14"
+              className="w-full h-full object-contain p-4"
             />
           </div>
         )}

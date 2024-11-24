@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
-import ZigZagImage from "../../images/PaverBlocks/single/zig-zag.jpg";
+import ZigZagImage from "../../images/Products/Zigzag/Zigzag11.jpg";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import PaverBlocks from "@/components/Products/PaverBlocks";
 import { graphql, useStaticQuery } from "gatsby";
 import { getSrc } from "gatsby-plugin-image";
 import emailjs from "emailjs-com";
+import BlocksSlider from "@/components/Products/BlocksSlider";
 
 const ZigZag = () => {
   const [modelOpen, setModelOpen] = React.useState(false);
@@ -17,7 +18,7 @@ const ZigZag = () => {
       allFile(
         filter: {
           extension: { regex: "/(jpg)/" }
-          relativeDirectory: { eq: "Products/ZigZag" }
+          relativeDirectory: { eq: "Products/Zigzag" }
         }
       ) {
         edges {
@@ -154,10 +155,14 @@ const ZigZag = () => {
       </section>
 
       <section className="bg-[#eff2f5] flex flex-col justify-center items-center">
-        <h1 className="mb-[30px] font-bold mt-[-5px] p-0 text-[35px]">
+        <h1 className="mb-[30px] font-bold mt-[-5px] p-0 text-lg md:text-[35px]">
           Zig Zag Block Projects
         </h1>
-        <PaverBlocks setModalOpen={setModelOpen} setImageUrl={setImageUrl} />
+        <BlocksSlider
+          images={images}
+          setModalOpen={setModelOpen}
+          setImageUrl={setImageUrl}
+        />
       </section>
       <Footer />
 
@@ -191,7 +196,7 @@ const ZigZag = () => {
           <img
             src={imageUrl}
             alt="whatsapp-image"
-            className="w-full h-full object-contain p-14"
+            className="w-full h-full object-contain p-4"
           />
         </div>
       )}

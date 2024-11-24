@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
-import Rectangle8x11Image from "../../images/PaverBlocks/rectangle8x9.jpg";
+import Rectangle8x11Image from "../../images/Products/Rectangle-8-11/rectangle8-11.jpg";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import BlocksSlider from "@/components/Products/BlocksSlider";
@@ -16,7 +16,7 @@ const Rectangle8x11Block = () => {
       allFile(
         filter: {
           extension: { regex: "/(jpg)/" }
-          relativeDirectory: { eq: "Products/Rectangle8x11" }
+          relativeDirectory: { eq: "Products/Rectangle-8-11" }
         }
       ) {
         edges {
@@ -157,7 +157,7 @@ const Rectangle8x11Block = () => {
         </section>
 
         <section className="bg-[#eff2f5] flex flex-col justify-center items-center">
-          <h1 className="mb-[30px] font-bold mt-[-5px] p-0 text-[35px]">
+          <h1 className="mb-[30px] font-bold mt-[-5px] p-0 text-lg md:text-[35px]">
             8x11 Rectangle Block Projects
           </h1>
           <BlocksSlider
@@ -166,7 +166,6 @@ const Rectangle8x11Block = () => {
             setImageUrl={setImageUrl}
           />
         </section>
-        <Footer />
         {modelOpen && (
           <div
             className="fixed flex top-0 left-0 w-full h-full bg-[#000000] bg-opacity-50 justify-center items-center z-[40]"
@@ -197,10 +196,11 @@ const Rectangle8x11Block = () => {
             <img
               src={imageUrl}
               alt="whatsapp-image"
-              className="w-full h-full object-contain p-14"
+              className="w-full h-full object-contain p-4"
             />
           </div>
         )}
+        <Footer />
       </main>
     </main>
   );

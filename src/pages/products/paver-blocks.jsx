@@ -1,13 +1,15 @@
 import * as React from "react";
 import Navbar from "../../components/Navbar";
 import PaverBlocks from "@/components/Products/PaverBlocks";
-import ZigZag from "../../images/PaverBlocks/zig-zag.jpg";
-import EightCombo from "../../images/PaverBlocks/eight-combo.jpg";
-import RectanglePaver from "../../images/PaverBlocks/rectangle-paver.jpg";
-import VertexPaver from "../../images/PaverBlocks/vertex-paver.jpg";
-import TetraPaver from "../../images/PaverBlocks/tetra-paver.jpg";
-import IntekPaver from "../../images/PaverBlocks/intek-paver.jpg";
-import RectanglePaverEight from "../../images/PaverBlocks/rectangle-paver-8x9.jpg";
+import ZigZag from "../../images/Products/Zigzag/Zigzag11.jpg";
+import EightCombo from "../../images/Products/EightCombo/8Combo1.jpg";
+import RectanglePaver from "../../images/Products/Bricks-12-6/rectangle1.jpg";
+import VertexPaver from "../../images/Products/Vertex/Vertex11.jpg";
+import TetraPaver from "../../images/Products/Tetra/Tetra22.jpg";
+import IntekPaver from "../../images/Products/Intek/Intek121.jpg";
+import RectanglePaverEight from "../../images/Products/Rectangle-8-11/rectangle8-11.jpg";
+import RectanglePaverEightNine from  "../../images/Products/Rectangle-8-9/rectangle8-9.jpg";
+
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
 import { Link } from "gatsby";
@@ -51,7 +53,7 @@ const PaverBlocksMain = () => {
                 <img
                   src={ZigZag}
                   alt="paver block"
-                  className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
+                  className="cursor-pointer w-[250px] h-[150px] md:w-[300px] md:h-[250px] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
                 />
 
                 <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -76,7 +78,7 @@ const PaverBlocksMain = () => {
                 <img
                   src={EightCombo}
                   alt="paver block"
-                  className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
+                  className="cursor-pointer w-[250px] h-[150px] md:w-[300px] md:h-[250px] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
                 />
                 <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Link to="/paver-blocks/eight-combo">
@@ -100,7 +102,7 @@ const PaverBlocksMain = () => {
                 <img
                   src={RectanglePaver}
                   alt="paver block"
-                  className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
+                  className="cursor-pointer w-[250px] h-[150px] md:w-[300px] md:h-[250px] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
                 />
                 <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Link to="/paver-blocks/rectangle-paver">
@@ -124,7 +126,7 @@ const PaverBlocksMain = () => {
                 <img
                   src={VertexPaver}
                   alt="paver block"
-                  className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
+                  className="cursor-pointer w-[250px] h-[150px] md:w-[300px] md:h-[250px] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
                 />
                 <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Link to="/paver-blocks/vertex-paver">
@@ -148,7 +150,7 @@ const PaverBlocksMain = () => {
                 <img
                   src={IntekPaver}
                   alt="paver block"
-                  className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
+                  className="cursor-pointer w-[250px] h-[150px] md:w-[300px] md:h-[250px] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
                 />
                 <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Link to="/paver-blocks/intek-paver">
@@ -172,7 +174,7 @@ const PaverBlocksMain = () => {
                 <img
                   src={TetraPaver}
                   alt="paver block"
-                  className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
+                  className="cursor-pointer w-[250px] h-[150px] md:w-[300px] md:h-[250px] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
                 />
                 <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Link to="/paver-blocks/tetra-paver">
@@ -196,7 +198,7 @@ const PaverBlocksMain = () => {
                 <img
                   src={RectanglePaverEight}
                   alt="paver block"
-                  className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
+                  className="cursor-pointer w-[250px] h-[150px] md:w-[300px] md:h-[250px] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
                 />
                 <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Link to="/paver-blocks/rectangle-paver-8-11">
@@ -218,9 +220,9 @@ const PaverBlocksMain = () => {
             <motion.div className="flex flex-col justify-self-center items-center shadow-md w-full">
               <div className="w-full h-full relative group flex items-center justify-center">
                 <img
-                  src={RectanglePaverEight}
+                  src={RectanglePaverEightNine}
                   alt="paver block"
-                  className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
+                  className="cursor-pointer w-[250px] h-[150px] md:w-[300px] md:h-[250px] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
                 />
                 <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Link to="/paver-blocks/rectangle-paver-8-9">
@@ -274,7 +276,7 @@ const PaverBlocksMain = () => {
           <img
             src={imageUrl}
             alt="whatsapp-image"
-            className="w-full h-full object-contain p-14"
+            className="w-full h-full object-contain p-4"
           />
         </div>
       )}

@@ -8,8 +8,6 @@ import NineInch from "../images/SolidBlocks/solid-block.png";
 import SixInch2 from "../images/SolidBlocks/solid-block.png";
 import EightInch from "../images/SolidBlocks/solid-block.png";
 import NineInch2 from "../images/SolidBlocks/solid-block.png";
-
-import RectanglePaverEight from "../images/PaverBlocks/rectangle-paver-8x9.jpg";
 import { motion } from "framer-motion";
 
 import { Link } from "gatsby";
@@ -93,7 +91,7 @@ const CardContainer2 = () => {
                 <img
                   src={block.src}
                   alt="solid block"
-                  className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
+                  className="cursor-pointer w-[250px] h-[150px] md:w-[300px] md:h-[250px] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
                 />
                 <div className="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Link to={block.link}>

@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../../components/Navbar";
-import VertexImage from "../../images/PaverBlocks/vertex-paver.jpg";
+import VertexImage from "../../images/Products/Vertex/Vertex11.jpg";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import BlocksSlider from "@/components/Products/BlocksSlider";
@@ -92,7 +92,7 @@ const Vertex = () => {
         </section>
 
         <section className="bg-[#eff2f5] flex flex-col justify-center items-center">
-          <h1 className="mb-[30px] font-bold mt-[-5px] p-0 text-[35px]">
+          <h1 className="mb-[30px] font-bold mt-[-5px] p-0 text-lg md:text-[35px]">
             Vertex Block Projects
           </h1>
           <BlocksSlider
@@ -133,7 +133,7 @@ const Vertex = () => {
             <img
               src={imageUrl}
               alt="whatsapp-image"
-              className="w-full h-full object-contain p-14"
+              className="w-full h-full object-contain p-4"
             />
           </div>
         )}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
-import TetraImage from "../../images/PaverBlocks/tetra-2.jpg";
+import TetraImage from "../../images/Products/Tetra/Tetra22.jpg";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import BlocksSlider from "@/components/Products/BlocksSlider";
@@ -158,7 +158,7 @@ const TetraPaver = () => {
         </section>
 
         <section className="bg-[#eff2f5] flex flex-col justify-center items-center">
-          <h1 className="mb-[30px] font-bold mt-[-5px] p-0 text-[35px]">
+          <h1 className="mb-[30px] font-bold mt-[-5px] p-0 text-lg md:text-[35px]">
             Tetra Block Projects
           </h1>
           <BlocksSlider
@@ -199,7 +199,7 @@ const TetraPaver = () => {
             <img
               src={imageUrl}
               alt="whatsapp-image"
-              className="w-full h-full object-contain p-14"
+              className="w-full h-full object-contain p-4"
             />
           </div>
         )}

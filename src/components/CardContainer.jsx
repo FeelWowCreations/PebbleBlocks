@@ -2,14 +2,14 @@ import { graphql, useStaticQuery } from "gatsby";
 import { useState } from "react"; 
 import Card from "./Card";
 import * as React from "react";
-import PaverBlocks from "@/components/Products/PaverBlocks";
-import ZigZag from "../images/PaverBlocks/zig-zag.jpg";
-import EightCombo from "../images/PaverBlocks/eight-combo.jpg";
-import RectanglePaver from "../images/PaverBlocks/rectangle-paver.jpg";
-import VertexPaver from "../images/PaverBlocks/vertex-paver.jpg";
-import TetraPaver from "../images/PaverBlocks/tetra-paver.jpg";
-import IntekPaver from "../images/PaverBlocks/intek-paver.jpg";
-import RectanglePaverEight from "../images/PaverBlocks/rectangle-paver-8x9.jpg";
+import ZigZag from "../images/Products/Zigzag/Zigzag11.jpg";
+import EightCombo from "../images/Products/EightCombo/8Combo1.jpg";
+import RectanglePaver from "../images/Products/Bricks-12-6/rectangle1.jpg";
+import VertexPaver from "../images/Products/Vertex/Vertex11.jpg";
+import TetraPaver from "../images/Products/Tetra/Tetra22.jpg";
+import IntekPaver from "../images/Products/Intek/Intek121.jpg";
+import RectanglePaverEight from "../images/Products/Rectangle-8-11/rectangle8-11.jpg";
+import RectanglePaverEightNine from  "../images/Products/Rectangle-8-9/rectangle8-9.jpg";
 import { motion } from "framer-motion";
 
 import { Link } from "gatsby";
@@ -22,7 +22,7 @@ const productData = [
   { id: 5, src: IntekPaver, title: 'Intek Paver', description: 'Intek Paver blocks, also known as paving stones, are specialized building materials used for surfacing outdoor areas.', link: '/paver-blocks/intek-paver' },
   { id: 6, src: TetraPaver, title: 'Tetra Paver', description: 'Tetra pavers are easy to maintain which resist stains, dirt, and oil spills, making cleaning a hassle-free process.', link: '/paver-blocks/tetra-paver' },
   { id: 7, src: RectanglePaverEight, title: 'Rectangle Paver 8" x 11"', description: 'Rectangle blocks are manufactured from strong materials such as concrete, clay, or natural stone, making them highly durable.', link: '/paver-blocks/rectangle-paver-8-11' },
-  { id: 8, src: RectanglePaverEight, title: 'Rectangle Paver 8" x 9"', description: 'Rectangle blocks are manufactured from strong materials such as concrete, clay, or natural stone, making them highly durable.', link: '/paver-blocks/rectangle-paver-8-9' }
+  { id: 8, src: RectanglePaverEightNine, title: 'Rectangle Paver 8" x 9"', description: 'Rectangle blocks are manufactured from strong materials such as concrete, clay, or natural stone, making them highly durable.', link: '/paver-blocks/rectangle-paver-8-9' }
 ];
 
 const CardContainer = () => {
@@ -54,7 +54,7 @@ const CardContainer = () => {
                 <img
                   src={product.src}
                   alt="paver block"
-                  className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
+                  className="cursor-pointer w-[250px] h-[150px] md:w-[300px] md:h-[250px] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
                 />
                 <div className="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Link to={product.link}>

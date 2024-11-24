@@ -6,15 +6,17 @@ import FourInch from "../../images/SolidBlocks/solid-block.png";
 import NineInch from "../../images/SolidBlocks/solid-block.png";
 import SixInch2 from "../../images/SolidBlocks/solid-block.png";
 import EightInch from "../../images/SolidBlocks/solid-block.png";
-import NineInch2 from "../../images/SolidBlocks/solid-block.png";
 
 import { motion } from "framer-motion";
 import SolidBlocks from "@/components/Products/SolidBlocks";
 import Footer from "@/components/Footer";
-import { Link } from "gatsby";
+
 import WhatsappButton from "@/components/ui/WhatsAppFixed";
 
 const SolidBlocksMain = () => {
+  const [modelOpen, setModelOpen] = React.useState(false);
+  const [imageUrl, setImageUrl] = React.useState("");
+
   return (
     <main>
       <Navbar />
@@ -27,7 +29,7 @@ const SolidBlocksMain = () => {
         </section>
 
         <section className="p-10">
-          <SolidBlocks />
+          <SolidBlocks setModalOpen={setModelOpen} setImageUrl={setImageUrl} />
         </section>
         <motion.h2
           className="text-[#23235F] flex justify-center mt-5 text-2xl"
@@ -49,7 +51,7 @@ const SolidBlocksMain = () => {
                 <img
                   src={SixInch}
                   alt="paver block"
-                  className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
+                  className="cursor-pointer w-[250px] h-[150px] md:w-[300px] md:h-[250px] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
                 />
                 {/* <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Link to="/solid-blocks/12-6-8">
@@ -73,7 +75,7 @@ const SolidBlocksMain = () => {
                 <img
                   src={FourInch}
                   alt="paver block"
-                  className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
+                  className="cursor-pointer w-[250px] h-[150px] md:w-[300px] md:h-[250px] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
                 />
                 {/* <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Link to="/solid-blocks/16-4-8">
@@ -97,7 +99,7 @@ const SolidBlocksMain = () => {
                 <img
                   src={NineInch}
                   alt="paver block"
-                  className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
+                  className="cursor-pointer w-[250px] h-[150px] md:w-[300px] md:h-[250px] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
                 />
                 {/* <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Link to="/solid-blocks/9-8-8">
@@ -121,7 +123,7 @@ const SolidBlocksMain = () => {
                 <img
                   src={SixInch2}
                   alt="paver block"
-                  className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
+                  className="cursor-pointer w-[250px] h-[150px] md:w-[300px] md:h-[250px] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
                 />
                 {/* <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Link to="/solid-blocks/16-6-8">
@@ -145,7 +147,7 @@ const SolidBlocksMain = () => {
                 <img
                   src={EightInch}
                   alt="paver block"
-                  className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
+                  className="cursor-pointer w-[250px] h-[150px] md:w-[300px] md:h-[250px] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
                 />
                 {/* <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Link to="/solid-blocks/12-8-8">
@@ -169,7 +171,7 @@ const SolidBlocksMain = () => {
                 <img
                   src={EightInch}
                   alt="paver block"
-                  className="cursor-pointer w-[80%] h-[80%] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
+                  className="cursor-pointer w-[250px] h-[150px] md:w-[300px] md:h-[250px] rounded-lg hover:scale-105 transition-all duration-500 ease-in-out"
                 />
                 {/* <div class="absolute inset-0 flex items-end justify-center bg-[#00000066] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Link to="/solid-blocks/9-4-3">
@@ -190,6 +192,40 @@ const SolidBlocksMain = () => {
           </motion.div>
         </motion.section>
       </main>
+
+      {modelOpen && (
+        <div
+          className="fixed flex top-0 left-0 w-full h-full bg-[#000000] bg-opacity-50 justify-center items-center z-[40]"
+          tabIndex={0}
+          onClick={() => setModelOpen(false)}
+        >
+          <div className="absolute top-0 right-0 p-4">
+            <button
+              onClick={() => setModelOpen(false)}
+              className="text-black -z-50"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+          <div className="min-h-[300px] min-w-[300px]">
+            <img src={imageUrl} alt="whatsapp-image" className=" p-4" />
+          </div>
+        </div>
+      )}
+
       <WhatsappButton />
       <Footer />
     </main>

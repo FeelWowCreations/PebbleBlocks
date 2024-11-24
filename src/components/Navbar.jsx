@@ -7,14 +7,34 @@ import rightArrow from "../images/Navbar/right-arrow.svg";
 const Navbar = () => {
   const [navOpen, setNavOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("");
-  const [dropdownOpen, setDropdownOpen] = useState(false); // state for dropdown in mobile
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if we're on mobile and set initial dropdown state
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 768; // md breakpoint
+      setIsMobile(mobile);
+      // Only open dropdown by default if we're on mobile
+      setDropdownOpen(mobile);
+    };
+
+    // Check on mount
+    checkMobile();
+
+    // Add resize listener
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const toggleHamburgerIcon = () => {
     setNavOpen(!navOpen);
   };
 
   const handleDropdownToggle = () => {
-    setDropdownOpen(!dropdownOpen); // toggle dropdown in mobile view
+    if (isMobile) {
+      setDropdownOpen(!dropdownOpen);
+    }
   };
 
   useEffect(() => {
@@ -87,7 +107,6 @@ const Navbar = () => {
       {/* Navbar */}
       <div className="bg-white h-16">
         <nav className="flex justify-between items-center w-[92%] mx-auto animate-nav-load">
-          {/* Existing navbar content */}
           <Link to="/">
             <div>
               <img className="w-40 cursor-pointer" src={logo} alt="..." />
@@ -98,7 +117,7 @@ const Navbar = () => {
               navOpen ? "top-[-9%]" : "top-[-100%]"
             } md:w-auto w-full flex items-center px-5`}
           >
-            <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-6">
+            <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-4 md:gap-6">
               <li className="transform scale-0 animate-nav-link-load fill-mode-forwards">
                 <Link
                   to="/"
@@ -129,11 +148,11 @@ const Navbar = () => {
               {/* Products with Dropdown */}
               <li
                 className="transform scale-0 animate-nav-link-load fill-mode-forwards relative md:hover:cursor-pointer"
-                onMouseEnter={() => setDropdownOpen(true)} // open dropdown on hover in desktop
-                onMouseLeave={() => setDropdownOpen(false)} // close dropdown on mouse leave in desktop
+                onMouseEnter={() => !isMobile && setDropdownOpen(true)}
+                onMouseLeave={() => !isMobile && setDropdownOpen(false)}
               >
                 <div
-                  onClick={handleDropdownToggle} // open/close dropdown on click in mobile
+                  onClick={handleDropdownToggle}
                   className={`${
                     activeTab?.includes("/products")
                       ? "border-b-2 md:pb-2 border-pebblePrimary text-pebblePrimary"
@@ -141,24 +160,19 @@ const Navbar = () => {
                   } w-fit flex items-center transition-all duration-300 ease-in-out hover:border-b-2 hover:md:pb-2 hover:border-pebblePrimary hover:text-pebblePrimary cursor-pointer`}
                 >
                   <span>Products</span>
-                  {/* <img
-                  src={rightArrow}
-                  alt="right-arrow"
-                  className="h-5 w-5 mt-0.5"
-                /> */}
                 </div>
 
                 {/* Dropdown Menu */}
                 <ul
                   className={`md:absolute w-max md:top-full md:left-0 md:bg-white md:shadow-lg p-2 md:p-4 md:space-y-4 transition-all duration-300 ease-in-out ${
-                    dropdownOpen
-                      ? "md:opacity-100 md:visible md:translate-y-0 max-h-[300px]"
-                      : "md:opacity-0 md:invisible md:translate-y-[-10px] max-h-0"
-                  } ${
-                    dropdownOpen ? "block" : "hidden md:block"
+                    !isMobile
+                      ? dropdownOpen
+                        ? "md:opacity-100 md:visible md:translate-y-0"
+                        : "md:opacity-0 md:invisible md:translate-y-[-10px]"
+                      : "block"
                   } overflow-hidden`}
                 >
-                  <li className="mb-3 md:mb-2">
+                  <li className="mb-2">
                     <Link
                       to="/products/paver-blocks"
                       className="hover:text-blue-700"
@@ -167,7 +181,7 @@ const Navbar = () => {
                       Paver Blocks
                     </Link>
                   </li>
-                  <li className="mb-3 md:mb-2">
+                  <li className="mb-0 md:mb-2">
                     <Link
                       to="/products/solid-blocks"
                       className="hover:text-blue-700"
@@ -176,15 +190,6 @@ const Navbar = () => {
                       Solid Blocks
                     </Link>
                   </li>
-                  {/* <li className="mb-3 md:mb-2">
-                    <Link
-                      to="/products/flyash-bricks"
-                      className="hover:text-blue-700"
-                      onClick={() => setActiveTab("/products/projects")}
-                    >
-                      Flyash Bricks
-                    </Link>
-                  </li> */}
                 </ul>
               </li>
 

@@ -1,20 +1,24 @@
 import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
-import RectangleImage from "../../images/PaverBlocks/single/rectangle-8x9.jpg";
+import RectangleImage from "../../images/Products/Bricks-12-6/rectangle1.jpg";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import PaverBlocks from "@/components/Products/PaverBlocks";
 import { graphql, useStaticQuery } from "gatsby";
 import { getSrc } from "gatsby-plugin-image";
 import emailjs from "emailjs-com";
+import BlocksSlider from "@/components/Products/BlocksSlider";
 
 const RectanglePaver = () => {
+  const [modelOpen, setModelOpen] = React.useState(false);
+  const [imageUrl, setImageUrl] = React.useState("");
+
   const data = useStaticQuery(graphql`
     query {
       allFile(
         filter: {
           extension: { regex: "/(jpg)/" }
-          relativeDirectory: { eq: "Products/Rectangle" }
+          relativeDirectory: { eq: "Products/Bricks-12-6" }
         }
       ) {
         edges {
@@ -33,7 +37,12 @@ const RectanglePaver = () => {
     imageUrl: getSrc(edge.node.childImageSharp.gatsbyImageData),
   }));
 
-  const [form, setForm] = useState({ name: "", email: "", quantity: "", area: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    quantity: "",
+    area: "",
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,12 +52,7 @@ const RectanglePaver = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
-      .sendForm(
-        "your_service_id",
-        "your_template_id",
-        e.target,
-        "your_user_id"
-      )
+      .sendForm("your_service_id", "your_template_id", e.target, "your_user_id")
       .then(
         (result) => {
           alert("Enquiry sent successfully!");
@@ -65,7 +69,7 @@ const RectanglePaver = () => {
       <section className="relative flex justify-center items-center bg-[url('../images/AboutUs/brick-wall.jpeg')] bg-cover h-[200px]">
         <div className="w-full h-full bg-black opacity-20 absolute top-0 left-0"></div>
         <h1 className="text-xl md:text-2xl lg:text-4xl font-bold leading-9 text-white z-10 text-center">
-          Rectangle Pavers
+          Brick 12 x 6
         </h1>
       </section>
 
@@ -132,8 +136,15 @@ const RectanglePaver = () => {
                 transition={{ duration: 1 }}
               >
                 <p className="mb-3 text-[#787878] text-base text-center leading-6">
-                  Rectangle pavers are versatile and durable, making them a popular choice for various outdoor applications like patios, walkways, and driveways. These pavers have a rectangular shape, making them easy to install in a range of patterns, from traditional to modern. We offer high-quality rectangle pavers designed to withstand heavy traffic and harsh weather conditions. Our customers are highly satisfied with our{" "}
-                  <a href="/projects">rectangle pavers</a> installations. We are proud to manufacture and supply these pavers in Coimbatore.
+                  Rectangle pavers are versatile and durable, making them a
+                  popular choice for various outdoor applications like patios,
+                  walkways, and driveways. These pavers have a rectangular
+                  shape, making them easy to install in a range of patterns,
+                  from traditional to modern. We offer high-quality rectangle
+                  pavers designed to withstand heavy traffic and harsh weather
+                  conditions. Our customers are highly satisfied with our{" "}
+                  <a href="/projects">rectangle pavers</a> installations. We are
+                  proud to manufacture and supply these pavers in Coimbatore.
                 </p>
               </motion.div>
             </div>
@@ -142,10 +153,14 @@ const RectanglePaver = () => {
       </section>
 
       <section className="bg-[#eff2f5] flex flex-col justify-center items-center">
-        <h1 className="mb-[30px] font-bold mt-[-5px] p-0 text-[35px]">
-          Rectangle Paver Projects
+        <h1 className="mb-[30px] font-bold mt-[-5px] p-0 text-lg md:text-[35px]">
+          Brick 12 x 6 Projects
         </h1>
-        <PaverBlocks images={images} />
+        <BlocksSlider
+          images={images}
+          setModalOpen={setModelOpen}
+          setImageUrl={setImageUrl}
+        />
       </section>
       <Footer />
     </main>
