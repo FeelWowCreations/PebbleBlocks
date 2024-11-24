@@ -17,7 +17,7 @@ const Rectangle8x9Paver = () => {
       allFile(
         filter: {
           extension: { regex: "/(jpg)/" }
-          relativeDirectory: { eq: "Products/rectangle-8-9" }
+          relativeDirectory: { eq: "Products/Rectangle-8-9" }
         }
       ) {
         edges {
