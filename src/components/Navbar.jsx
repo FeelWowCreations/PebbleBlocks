@@ -66,7 +66,7 @@ const Navbar = () => {
 
             <a
               href="mailto:contact@velavanenterprise.com"
-              className="text-[8px] md:text-xs text-gray-500"
+              className="text-[8px] md:text-xs text-gray-900"
             >
               contact@velavanenterprise.com
             </a>
@@ -90,12 +90,12 @@ const Navbar = () => {
             </svg>
 
             <div className="flex items-center gap-2 md:gap-4">
-              <a href="tel:+918883332822" className="text-xs text-gray-500">
+              <a href="tel:+918883332822" className="text-xs text-gray-900">
                 <h2 className="text-[8px] md:text-sm"> +91 888 333 2822 </h2>
               </a>
               <a
                 href="tel:+918883337674"
-                className="text-xs lg:ml-6 text-gray-500"
+                className="text-xs lg:ml-6 text-gray-900"
               >
                 <h2 className="text-[8px] md:text-sm"> +91 888 333 7674 </h2>
               </a>{" "}

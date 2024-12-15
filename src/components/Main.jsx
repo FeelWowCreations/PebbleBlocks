@@ -56,7 +56,7 @@ const AboutUs = () => {
 };
 
 const aboutUsContent = [
-  "Pebble Blocks is a leading manufacturer of high-quality bricks and blocks, with over 20 years of experience in the field. We specialize in producing solid, hollow, flyash, concrete, and paver blocks, making us a trusted name in the industry.",
+  "Pebble Blocks is a leading manufacturer of high-quality bricks and blocks, with over 15+ years of experience in the field. We specialize in producing solid, hollow, flyash, concrete, and paver blocks, making us a trusted name in the industry.",
   "Since its establishment, Pebble Blocks has become the most trusted paver block manufacturer in Coimbatore. We provide a premium range of products, including square paver blocks, rectangular heavy-duty paver blocks, zig-zag pavers, and interlocking pavers for various paving requirements.",
   "Our paver blocks are typically used for constructing pathways, pavements, yards, and boundaries. Made from cement mortar and composite materials, our blocks are known for their durability, easy installation, and weather resistance.",
   "As a leading paver block manufacturer in Coimbatore, India, we use high-quality raw materials and state-of-the-art manufacturing processes to deliver products of exceptional quality. Our modern production lines and implementation of advanced tools allow us to meet the diverse needs of our clients.",

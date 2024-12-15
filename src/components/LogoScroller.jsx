@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../images/Logo/p24.jpg";
+//import logo from "../images/Logo/p24.jpg";
 // import Dalmia from "../images/CustomerLogo/dalmia.svg"
 // import Ultratec from "../images/CustomerLogo/ultratec.svg"
 // import Tamilnadu from "../images/CustomerLogo/tamilnadu.png"
@@ -21,7 +21,7 @@ const LogoScroller = () => {
     return (
         <div className="bg-white p-6 md:p-10 rounded-lg mb-10 ">
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-semibold text-center mb-12 text-gray-800">
-                Our Customers and Suppliers
+                Our Client's
             </h2>
             <div className="relative w-full overflow-hidden">
                 <div
@@ -30,9 +30,6 @@ const LogoScroller = () => {
                     {/* First set of logos */}
                     <ul className="flex items-center [&_li]:mx-16 [&_img]:max-w-none">
                         <li>
-                            <img src={logo} alt="Logo 1" width="110" height="24" />
-                        </li>
-                        <li>
                             <img src={logo1} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
@@ -66,9 +63,6 @@ const LogoScroller = () => {
                     {/* Duplicate set of logos for infinite scroll */}
                     <ul className="flex items-center [&_li]:mx-16 [&_img]:max-w-none">
                         <li>
-                            <img src={logo} alt="Logo 1" width="110" height="24" />
-                        </li>
-                        <li>
                             <img src={logo1} alt="Logo 1" width="110" height="24" />
                         </li>
                         <li>
@@ -101,9 +95,6 @@ const LogoScroller = () => {
                     </ul>
                     {/* Duplicate set of logos for infinite scroll */}
                     <ul className="flex items-center [&_li]:mx-16 [&_img]:max-w-none">
-                        <li>
-                            <img src={logo} alt="Logo 1" width="110" height="24" />
-                        </li>
                         <li>
                             <img src={logo1} alt="Logo 1" width="110" height="24" />
                         </li>
