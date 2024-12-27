@@ -30,13 +30,11 @@ const ContactUs = () => {
     e.preventDefault();
 
     // Use your EmailJS service ID, template ID, and user ID here
-    emailjs.sendForm('service_3w9ux2t', 'template_o8v6t8c', e.target, 'bGSllFnbAIFCmLRtW')
+    emailjs.sendForm('service_3w9ux2t', 'template_a1fzuzr', e.target, 'bGSllFnbAIFCmLRtW')
       .then((result) => {
-        console.log('Success:', result.text);
         alert('Message sent successfully!');
         e.target.reset();
       }, (error) => {
-        console.log('Error:', error.text);
         alert('Failed to send message.');
       });
   };

@@ -67,7 +67,7 @@ const PaverBlocksMain = () => {
               <div className=" w-full">
                 <h2 className="font-bold">Zig Zag Paver</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`Zigzag pavers offer a range of benefits due to their unique design andmproved interlocking stability.`}</li>
+                  <li className="py-2.5 px-0">{`Zigzag pavers offer a range of benefits due to their unique design and improved interlocking stability.`}</li>
                 </ul>
               </div>
             </motion.div>
@@ -91,7 +91,7 @@ const PaverBlocksMain = () => {
               <div className=" w-full">
                 <h2 className="font-bold">Eight Combo Paver</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`It refers to a set of eight different types or designs of pavers combined into a single package or collection.`}</li>
+                  <li className="py-2.5 px-0">{`It refers to a set of five different types or designs of pavers combined into a single package or collection.`}</li>
                 </ul>
               </div>
             </motion.div>
@@ -139,7 +139,7 @@ const PaverBlocksMain = () => {
               <div className=" w-full">
                 <h2 className="font-bold">Vertex Paver</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`Vertex pavers introduce a captivating undulating pattern with unique design to your outdoor spaces.`}</li>
+                  <li className="py-2.5 px-0">{`Vertex pavers introduce a captivating undulating pattern with unique 3d design to your outdoor spaces.`}</li>
                 </ul>
               </div>
             </motion.div>
@@ -163,7 +163,7 @@ const PaverBlocksMain = () => {
               <div className=" w-full">
                 <h2 className="font-bold">Intek Paver</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`Intek Paver blocks, also known as paving stones, are specialized building materials used for surfacing outdoor areas.`}</li>
+                  <li className="py-2.5 px-0">{`Intek Paver blocks are easy to maintain which resist stains, dirt, and oil spills, making cleaning a hassle-free process`}</li>
                 </ul>
               </div>
             </motion.div>
@@ -187,7 +187,7 @@ const PaverBlocksMain = () => {
               <div className=" w-full">
                 <h2 className="font-bold">Tetra Paver</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`Tetra pavers are easy to maintain which resist stains, dirt, and oil spills, making cleaning a hassle-free process.`}</li>
+                  <li className="py-2.5 px-0">{`Tetra pavers are our latest design, expertly crafted for rich look and long-lasting durability.`}</li>
                 </ul>
               </div>
             </motion.div>
@@ -211,7 +211,7 @@ const PaverBlocksMain = () => {
               <div className=" w-full">
                 <h2 className="font-bold">{`Rectangle Paver 8" x 11"`}</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`rectangle blocks are manufactured from strong materials such as concrete, clay, or natural stone, making them highly durable`}</li>
+                  <li className="py-2.5 px-0">{`Designed for strength and style, 8x11 rectangle paver enhance any area with their timeless appeal and reliable performance.`}</li>
                 </ul>
               </div>
             </motion.div>
@@ -235,7 +235,7 @@ const PaverBlocksMain = () => {
               <div className=" w-full">
                 <h2 className="font-bold">{`Rectangle Paver 8" x 9"`}</h2>
                 <ul class="border-t border-[#ccc] flex flex-col items-center justify-center">
-                  <li className="py-2.5 px-0">{`rectangle blocks are manufactured from strong materials such as concrete, clay, or natural stone, making them highly durable`}</li>
+                  <li className="py-2.5 px-0">{`With 8x9 paver in elegant leather finish, these paver blocks offer a perfect blend of sophistication and unmatched durability,`}</li>
                 </ul>
               </div>
             </motion.div>

@@ -12,7 +12,8 @@ import BlocksSlider from "@/components/Products/BlocksSlider";
 const ZigZag = () => {
   const [modelOpen, setModelOpen] = React.useState(false);
   const [imageUrl, setImageUrl] = React.useState("");
-
+  const [emailStatus, setEmailStatus] = useState(null); // success or error
+  const [statusMessage, setStatusMessage] = useState("");
   const data = useStaticQuery(graphql`
     query {
       allFile(
@@ -40,8 +41,9 @@ const ZigZag = () => {
   const [form, setForm] = useState({
     name: "",
     email: "",
-    quantity: "",
+    phone: "",
     area: "",
+    product: "Zig-zag Paver",
   });
 
   const handleChange = (e) => {
@@ -52,13 +54,23 @@ const ZigZag = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
-      .sendForm("your_service_id", "your_template_id", e.target, "your_user_id")
+      .sendForm("service_3w9ux2t", "template_jxo7tb9", e.target, "bGSllFnbAIFCmLRtW")
       .then(
         (result) => {
-          alert("Enquiry sent successfully!");
+          setEmailStatus("success");
+          setStatusMessage("Enquiry sent successfully!");
+          setForm({
+            name: "",
+            email: "",
+            phone: "",
+            area: "",
+            product: "Zig-zag Paver",
+          });
+          e.target.reset();
         },
         (error) => {
-          alert("Failed to send enquiry. Please try again.");
+          setEmailStatus("error");
+          setStatusMessage("Failed to send enquiry. Please try again.");
         }
       );
   };
@@ -85,50 +97,79 @@ const ZigZag = () => {
                     className="w-full h-full rounded-lg"
                   />
                 </div>
-                <form className="space-y-4" onSubmit={sendEmail}>
-                  <input
-                    type="text"
-                    name="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    placeholder="Your Name"
-                    className="w-full border border-gray-300 rounded-md p-2"
-                    required
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    placeholder="Your Email"
-                    className="w-full border border-gray-300 rounded-md p-2"
-                    required
-                  />
-                  <input
-                    type="number"
-                    name="quantity"
-                    value={form.quantity}
-                    onChange={handleChange}
-                    placeholder="Quantity (e.g., number of blocks)"
-                    className="w-full border border-gray-300 rounded-md p-2"
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="area"
-                    value={form.area}
-                    onChange={handleChange}
-                    placeholder="Area in sqft"
-                    className="w-full border border-gray-300 rounded-md p-2"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    className="w-full bg-green-600 text-white font-bold py-2 rounded-md"
-                  >
-                    Submit Enquiry
-                  </button>
-                </form>
+                <div className="ml-0 md:ml-10">
+                    <form className="space-y-4" onSubmit={sendEmail}>
+                      <input
+                        type="text"
+                        name="name"
+                        value={form.name}
+                        onChange={handleChange}
+                        placeholder="Your Name  (required)"
+                        className="w-full border border-gray-300 rounded-md p-2"
+                        required
+                      />
+                      <div className="flex space-x-2">
+                        <select
+                          name="countryCode"
+                          value={form.countryCode}
+                          onChange={handleChange}
+                          className="w-[20%] border border-gray-300 rounded-md p-2 bg-white"
+                          required
+                        >
+                          <option value="+91">+91 (India)</option>
+                          {/* Add other options */}
+                        </select>
+                        <input
+                          type="tel"
+                          name="phone"
+                          value={form.number}
+                          onChange={handleChange}
+                          placeholder="Your Contact Number  (required)"
+                          className="w-[80%] border border-gray-300 rounded-md p-2"
+                          required
+                        />
+                      </div>
+                      <input
+                        type="email"
+                        name="email"
+                        value={form.mailID}
+                        onChange={handleChange}
+                        placeholder="Your Mail Address  (optional)"
+                        className="w-full border border-gray-300 rounded-md p-2"
+                      />
+                      <input
+                        type="text"
+                        name="area"
+                        value={form.area}
+                        onChange={handleChange}
+                        placeholder="Area in sqft  (optional)"
+                        className="w-full border border-gray-300 rounded-md p-2"
+                      />
+                      <input
+                        type="text"
+                        name="product"
+                        value={form.product}
+                        placeholder="Zig zag paver"
+                        className="w-full border border-gray-300 rounded-md p-2"
+                        readOnly
+                      />
+                      <button
+                        type="submit"
+                        className="w-full bg-green-600 text-white font-bold py-2 rounded-md"
+                      >
+                        Submit Enquiry
+                      </button>
+                    </form>
+                    {emailStatus && (
+                      <div
+                        className={`mt-4 text-center font-bold ${
+                          emailStatus === "success" ? "text-green-600" : "text-red-600"
+                        }`}
+                      >
+                        {statusMessage}
+                      </div>
+                    )}
+                  </div>
               </div>
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
@@ -136,17 +177,7 @@ const ZigZag = () => {
                 transition={{ duration: 1 }}
               >
                 <p className="mb-3 text-[#787878] text-base text-center leading-6">
-                  Zigzag pavers, also known as herringbone pavers or zigzag
-                  pattern pavers, are a popular choice for creating attractive
-                  and durable outdoor surfaces such as walkways, driveways, and
-                  patios. The zigzag pattern is created by laying the pavers at
-                  45-degree angles to each other, which not only adds visual
-                  interest but also enhances the structural stability of the
-                  pavement. We provide interlock pavers with Zig Zag pavers to
-                  withstand heavy weights in the outdoors like parking lots,
-                  pavements, and traffic areas. Our clients are satisfied with
-                  our <a href="/projects">Zig Zag pavers</a> installation. We
-                  take pride in manufacturing Zig Zag pavers in Coimbatore.
+                Our Zigzag paver block, with its 83mm height, is a reliable commercial paver designed to handle heavy loads and high-traffic areas. This universal design is a preferred choice for industries, petrol bunks, weighbridges, roads, government projects, and pathways, thanks to its durability and excellent interlocking capabilities. Engineered for strength and performance, the Zigzag paver ensures stability and long-lasting functionality, making it an ideal solution for demanding applications.
                 </p>
               </motion.div>
             </div>

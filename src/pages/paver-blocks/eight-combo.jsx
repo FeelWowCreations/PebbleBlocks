@@ -9,8 +9,10 @@ import { getSrc } from "gatsby-plugin-image";
 import emailjs from "emailjs-com";
 
 const EightInch = () => {
-  const [modelOpen, setModelOpen] = React.useState(false);
-  const [imageUrl, setImageUrl] = React.useState("");
+  const [modelOpen, setModelOpen] = useState(false);
+  const [imageUrl, setImageUrl] = useState("");
+  const [emailStatus, setEmailStatus] = useState(null); // success or error
+  const [statusMessage, setStatusMessage] = useState("");
 
   const data = useStaticQuery(graphql`
     query {
@@ -39,8 +41,9 @@ const EightInch = () => {
   const [form, setForm] = useState({
     name: "",
     email: "",
-    quantity: "",
+    phone: "",
     area: "",
+    product: "Eight Inch Paver",
   });
 
   const handleChange = (e) => {
@@ -51,13 +54,23 @@ const EightInch = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
-      .sendForm("your_service_id", "your_template_id", e.target, "your_user_id")
+      .sendForm("service_3w9ux2t", "template_jxo7tb9", e.target, "bGSllFnbAIFCmLRtW")
       .then(
         (result) => {
-          alert("Enquiry sent successfully!");
+          setEmailStatus("success");
+          setStatusMessage("Enquiry sent successfully!");
+          setForm({
+            name: "",
+            email: "",
+            phone: "",
+            area: "",
+            product: "Eight-Inch Paver",
+          });
+          e.target.reset();
         },
         (error) => {
-          alert("Failed to send enquiry. Please try again.");
+          setEmailStatus("error");
+          setStatusMessage("Failed to send enquiry. Please try again.");
         }
       );
   };
@@ -77,13 +90,7 @@ const EightInch = () => {
           <div className="max-w-[1250px] m-auto">
             <div className="shadow-12 p-[30px] lg:py-10 lg:px-[140px] relative bg-white rounded-xl">
               <div className="flex flex-col items-center">
-                {/* <h5 className="text-2xl font-bold z-10 mb-[15px] inline-block text-[#298212]">
-                  PRODUCTS
-                </h5>
-                <h1 className="mb-[30px] font-extrabold mt-[-5px] p-0 text-[40px]">
-                  Eight Inch Blocks
-                </h1> */}
-                <div className="grid grid-cols-1 md:grid-cols-[repeat(2,50%)] mb-[30px] w-full h-full">
+                <div className="grid grid-cols-1 md:grid-cols-[repeat(2,50%)] gap-y-6 md:gap-10 mb-10 w-full h-full">
                   <div className="w-[280px] h-[260px] md:w-[320px] md:h-[320px] col-span-1 self-center justify-self-center rounded-lg">
                     <img
                       src={EightInchImage}
@@ -91,69 +98,88 @@ const EightInch = () => {
                       className="w-full h-full rounded-lg"
                     />
                   </div>
-                  <form className="space-y-4" onSubmit={sendEmail}>
-                    <input
-                      type="text"
-                      name="name"
-                      value={form.name}
-                      onChange={handleChange}
-                      placeholder="Your Name"
-                      className="w-full border border-gray-300 rounded-md p-2"
-                      required
-                    />
-                    <input
-                      type="number"
-                      name="number"
-                      value={form.email}
-                      onChange={handleChange}
-                      placeholder="Your Contact Number"
-                      className="w-full border border-gray-300 rounded-md p-2"
-                      required
-                    />
-                    <input
-                      type="text"
-                      name="quantity"
-                      value={form.quantity}
-                      onChange={handleChange}
-                      placeholder="Quantity (e.g., number of blocks)"
-                      className="w-full border border-gray-300 rounded-md p-2"
-                      required
-                    />
-                    <input
-                      type="text"
-                      name="area"
-                      value={form.area}
-                      onChange={handleChange}
-                      placeholder="Area in sqft"
-                      className="w-full border border-gray-300 rounded-md p-2"
-                      required
-                    />
-                    <button
-                      type="submit"
-                      className="w-full bg-green-600 text-white font-bold py-2 rounded-md"
-                    >
-                      Submit Enquiry
-                    </button>
-                  </form>
+                  <div className="ml-0 md:ml-10">
+                    <form className="space-y-4" onSubmit={sendEmail}>
+                      <input
+                        type="text"
+                        name="name"
+                        value={form.name}
+                        onChange={handleChange}
+                        placeholder="Your Name  (required)"
+                        className="w-full border border-gray-300 rounded-md p-2"
+                        required
+                      />
+                      <div className="flex space-x-2">
+                        <select
+                          name="countryCode"
+                          value={form.countryCode}
+                          onChange={handleChange}
+                          className="w-[20%] border border-gray-300 rounded-md p-2 bg-white"
+                          required
+                        >
+                          <option value="+91">+91 (India)</option>
+                          {/* Add other options */}
+                        </select>
+                        <input
+                          type="tel"
+                          name="phone"
+                          value={form.number}
+                          onChange={handleChange}
+                          placeholder="Your Contact Number  (required)"
+                          className="w-[80%] border border-gray-300 rounded-md p-2"
+                          required
+                        />
+                      </div>
+                      <input
+                        type="email"
+                        name="email"
+                        value={form.mailID}
+                        onChange={handleChange}
+                        placeholder="Your Mail Address  (optional)"
+                        className="w-full border border-gray-300 rounded-md p-2"
+                      />
+                      <input
+                        type="text"
+                        name="area"
+                        value={form.area}
+                        onChange={handleChange}
+                        placeholder="Area in sqft  (optional)"
+                        className="w-full border border-gray-300 rounded-md p-2"
+                      />
+                      <input
+                        type="text"
+                        name="product"
+                        value={form.product}
+                        placeholder="Eight Inch paver"
+                        className="w-full border border-gray-300 rounded-md p-2"
+                        readOnly
+                      />
+                      <button
+                        type="submit"
+                        className="w-full bg-green-600 text-white font-bold py-2 rounded-md"
+                      >
+                        Submit Enquiry
+                      </button>
+                    </form>
+                    {emailStatus && (
+                      <div
+                        className={`mt-4 text-center font-bold ${
+                          emailStatus === "success" ? "text-green-600" : "text-red-600"
+                        }`}
+                      >
+                        {statusMessage}
+                      </div>
+                    )}
+                  </div>
                 </div>
+
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1 }}
                 >
                   <p className="mb-3 text-[#787878] text-base text-center leading-6">
-                    EightInch pavers, also known as herringbone pavers, offer a
-                    stylish and highly durable solution for outdoor surfaces.
-                    The EightInch pattern is ideal for creating stable and
-                    visually appealing walkways, driveways, and patios, with the
-                    added benefit of interlocking strength to support heavy
-                    loads in areas like parking lots. Our pavers are crafted
-                    with top-quality materials, ensuring both aesthetics and
-                    functionality. Popular for their unique style and high
-                    durability, our clients trust our EightInch pavers to
-                    withstand daily use in demanding environments. Manufactured
-                    in Coimbatore, these blocks are designed for versatility and
-                    long-lasting quality.
+                  Experience the perfect blend of strength and style with our 8-inch combo paver blocks, featuring a robust design and an elegant leather finish. These pavers are ideal for driveways, patios, and high-traffic areas, offering unmatched durability and a premium textured appearance. Built for long-lasting performance and easy maintenance, they add a sophisticated touch to any outdoor or commercial space.
                   </p>
                 </motion.div>
               </div>

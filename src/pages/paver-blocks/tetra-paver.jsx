@@ -11,7 +11,8 @@ import emailjs from "emailjs-com";
 const TetraPaver = () => {
   const [modelOpen, setModelOpen] = React.useState(false);
   const [imageUrl, setImageUrl] = React.useState("");
-
+  const [emailStatus, setEmailStatus] = useState(null); // success or error
+  const [statusMessage, setStatusMessage] = useState("");
   const data = useStaticQuery(graphql`
     query {
       allFile(
@@ -36,7 +37,13 @@ const TetraPaver = () => {
     imageUrl: getSrc(edge.node.childImageSharp.gatsbyImageData), // extract the URL
   }));
 
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    area: "",
+    product: "Tetra Paver",
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -46,13 +53,23 @@ const TetraPaver = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
-      .sendForm("your_service_id", "your_template_id", e.target, "your_user_id")
+      .sendForm("service_3w9ux2t", "template_jxo7tb9", e.target, "bGSllFnbAIFCmLRtW")
       .then(
         (result) => {
-          alert("Enquiry sent successfully!");
+          setEmailStatus("success");
+          setStatusMessage("Enquiry sent successfully!");
+          setForm({
+            name: "",
+            email: "",
+            phone: "",
+            area: "",
+            product: "Tetra Paver",
+          });
+          e.target.reset();
         },
         (error) => {
-          alert("Failed to send enquiry. Please try again.");
+          setEmailStatus("error");
+          setStatusMessage("Failed to send enquiry. Please try again.");
         }
       );
   };
@@ -90,34 +107,62 @@ const TetraPaver = () => {
                     <h2 className="text-lg font-bold">
                       Request More Information
                     </h2>
-                    <form onSubmit={sendEmail} className="space-y-4">
+                    <div className="ml-0 md:ml-10">
+                    <form className="space-y-4" onSubmit={sendEmail}>
                       <input
                         type="text"
                         name="name"
                         value={form.name}
                         onChange={handleChange}
-                        placeholder="Your Name"
+                        placeholder="Your Name  (required)"
                         className="w-full border border-gray-300 rounded-md p-2"
                         required
                       />
+                      <div className="flex space-x-2">
+                        <select
+                          name="countryCode"
+                          value={form.countryCode}
+                          onChange={handleChange}
+                          className="w-[20%] border border-gray-300 rounded-md p-2 bg-white"
+                          required
+                        >
+                          <option value="+91">+91 (India)</option>
+                          {/* Add other options */}
+                        </select>
+                        <input
+                          type="tel"
+                          name="phone"
+                          value={form.number}
+                          onChange={handleChange}
+                          placeholder="Your Contact Number  (required)"
+                          className="w-[80%] border border-gray-300 rounded-md p-2"
+                          required
+                        />
+                      </div>
                       <input
                         type="email"
                         name="email"
-                        value={form.email}
+                        value={form.mailID}
                         onChange={handleChange}
-                        placeholder="Your Email"
+                        placeholder="Your Mail Address  (optional)"
                         className="w-full border border-gray-300 rounded-md p-2"
-                        required
                       />
-                      <textarea
-                        name="message"
-                        value={form.message}
+                      <input
+                        type="text"
+                        name="area"
+                        value={form.area}
                         onChange={handleChange}
-                        placeholder="Your Message"
+                        placeholder="Area in sqft  (optional)"
                         className="w-full border border-gray-300 rounded-md p-2"
-                        rows="4"
-                        required
-                      ></textarea>
+                      />
+                      <input
+                        type="text"
+                        name="product"
+                        value={form.product}
+                        placeholder="Tetra paver"
+                        className="w-full border border-gray-300 rounded-md p-2"
+                        readOnly
+                      />
                       <button
                         type="submit"
                         className="w-full bg-green-600 text-white font-bold py-2 rounded-md"
@@ -125,6 +170,16 @@ const TetraPaver = () => {
                         Submit Enquiry
                       </button>
                     </form>
+                    {emailStatus && (
+                      <div
+                        className={`mt-4 text-center font-bold ${
+                          emailStatus === "success" ? "text-green-600" : "text-red-600"
+                        }`}
+                      >
+                        {statusMessage}
+                      </div>
+                    )}
+                  </div>
                   </div>
                 </div>
                 <motion.div
@@ -133,23 +188,7 @@ const TetraPaver = () => {
                   transition={{ duration: 1 }}
                 >
                   <p className="mb-3 text-[#787878] text-base text-center leading-6">
-                    <strong>Tetra</strong> Paver Blocks are a distinctive type
-                    of interlocking concrete block known for their durability,
-                    versatility, and unique shape, which allows for various
-                    creative patterns and designs. Made from high-quality
-                    cement, aggregates, and sometimes colored pigments, these
-                    blocks offer not only robust structural integrity but also
-                    aesthetic appeal. Their interlocking feature provides
-                    stability and reduces the need for additional adhesives or
-                    mortar, making them a popular choice for many construction
-                    and landscaping projects.
-                    <br />
-                    Tetra Paver Blocks are a high-quality, versatile solution
-                    for both decorative and heavy-duty outdoor projects. Their
-                    interlocking design ensures longevity and stability, making
-                    them an excellent choice for residential, commercial, and
-                    industrial applications where durability and visual appeal
-                    are key.
+                  Discover our latest new design paver block, crafted to bring a rich look to your driveways, walkways, and outdoor spaces. Designed with precision, these blocks are not only stylish but also durable, ensuring long-lasting performance. With innovative patterns and premium quality, your spaces get the perfect blend of elegance and functionality.
                   </p>
                 </motion.div>
               </div>

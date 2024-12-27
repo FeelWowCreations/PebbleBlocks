@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
-import RectangleBlockImage from  "../../images/Products/Rectangle-89/rectangle89.jpg"; 
+import RectangleBlockImage from "../../images/Products/Rectangle-89/rectangle89.jpg";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import BlocksSlider from "@/components/Products/BlocksSlider";
 import { graphql, useStaticQuery } from "gatsby";
 import { getSrc } from "gatsby-plugin-image";
 import emailjs from "emailjs-com";
- 
+
 const Rectangle8x9Paver = () => {
   const [modelOpen, setModelOpen] = React.useState(false);
   const [imageUrl, setImageUrl] = React.useState("");
+  const [emailStatus, setEmailStatus] = useState(null); // success or error
+  const [statusMessage, setStatusMessage] = useState("");
 
   const data = useStaticQuery(graphql`
     query {
@@ -21,7 +23,7 @@ const Rectangle8x9Paver = () => {
         }
       ) {
         edges {
-          node { 
+          node {
             childImageSharp {
               gatsbyImageData(width: 2000)
             }
@@ -39,8 +41,9 @@ const Rectangle8x9Paver = () => {
   const [form, setForm] = useState({
     name: "",
     email: "",
-    quantity: "",
+    phone: "",
     area: "",
+    product: "Rectangle 8x9 Paver",
   });
 
   const handleChange = (e) => {
@@ -51,13 +54,28 @@ const Rectangle8x9Paver = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
-      .sendForm("your_service_id", "your_template_id", e.target, "your_user_id")
+      .sendForm(
+        "service_3w9ux2t",
+        "template_jxo7tb9",
+        e.target,
+        "bGSllFnbAIFCmLRtW"
+      )
       .then(
         (result) => {
-          alert("Enquiry sent successfully!");
+          setEmailStatus("success");
+          setStatusMessage("Enquiry sent successfully!");
+          setForm({
+            name: "",
+            email: "",
+            phone: "",
+            area: "",
+            product: "Rectangle 8x9 Paver",
+          });
+          e.target.reset();
         },
         (error) => {
-          alert("Failed to send enquiry. Please try again.");
+          setEmailStatus("error");
+          setStatusMessage("Failed to send enquiry. Please try again.");
         }
       );
   };
@@ -85,50 +103,81 @@ const Rectangle8x9Paver = () => {
                       className="w-full h-full rounded-lg"
                     />
                   </div>
-                  <form className="space-y-4" onSubmit={sendEmail}>
-                    <input
-                      type="text"
-                      name="name"
-                      value={form.name}
-                      onChange={handleChange}
-                      placeholder="Your Name"
-                      className="w-full border border-gray-300 rounded-md p-2"
-                      required
-                    />
-                    <input
-                      type="number"
-                      name="number"
-                      value={form.email}
-                      onChange={handleChange}
-                      placeholder="Your Contact Number"
-                      className="w-full border border-gray-300 rounded-md p-2"
-                      required
-                    />
-                    <input
-                      type="text"
-                      name="quantity"
-                      value={form.quantity}
-                      onChange={handleChange}
-                      placeholder="Quantity (e.g., number of blocks)"
-                      className="w-full border border-gray-300 rounded-md p-2"
-                      required
-                    />
-                    <input
-                      type="text"
-                      name="area"
-                      value={form.area}
-                      onChange={handleChange}
-                      placeholder="Area in sqft"
-                      className="w-full border border-gray-300 rounded-md p-2"
-                      required
-                    />
-                    <button
-                      type="submit"
-                      className="w-full bg-green-600 text-white font-bold py-2 rounded-md"
-                    >
-                      Submit Enquiry
-                    </button>
-                  </form>
+                  <div className="ml-0 md:ml-10">
+                    <form className="space-y-4" onSubmit={sendEmail}>
+                      <input
+                        type="text"
+                        name="name"
+                        value={form.name}
+                        onChange={handleChange}
+                        placeholder="Your Name  (required)"
+                        className="w-full border border-gray-300 rounded-md p-2"
+                        required
+                      />
+                      <div className="flex space-x-2">
+                        <select
+                          name="countryCode"
+                          value={form.countryCode}
+                          onChange={handleChange}
+                          className="w-[20%] border border-gray-300 rounded-md p-2 bg-white"
+                          required
+                        >
+                          <option value="+91">+91 (India)</option>
+                          {/* Add other options */}
+                        </select>
+                        <input
+                          type="tel"
+                          name="phone"
+                          value={form.number}
+                          onChange={handleChange}
+                          placeholder="Your Contact Number  (required)"
+                          className="w-[80%] border border-gray-300 rounded-md p-2"
+                          required
+                        />
+                      </div>
+                      <input
+                        type="email"
+                        name="email"
+                        value={form.mailID}
+                        onChange={handleChange}
+                        placeholder="Your Mail Address  (optional)"
+                        className="w-full border border-gray-300 rounded-md p-2"
+                      />
+                      <input
+                        type="text"
+                        name="area"
+                        value={form.area}
+                        onChange={handleChange}
+                        placeholder="Area in sqft  (optional)"
+                        className="w-full border border-gray-300 rounded-md p-2"
+                      />
+                      <input
+                        type="text"
+                        name="product"
+                        value={form.product}
+                        placeholder="Rectangle 8x9 paver"
+                        className="w-full border border-gray-300 rounded-md p-2"
+                        readOnly
+                      />
+                      <button
+                        type="submit"
+                        className="w-full bg-green-600 text-white font-bold py-2 rounded-md"
+                      >
+                        Submit Enquiry
+                      </button>
+                    </form>
+                    {emailStatus && (
+                      <div
+                        className={`mt-4 text-center font-bold ${
+                          emailStatus === "success"
+                            ? "text-green-600"
+                            : "text-red-600"
+                        }`}
+                      >
+                        {statusMessage}
+                      </div>
+                    )}
+                  </div>
                 </div>
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
@@ -136,15 +185,7 @@ const Rectangle8x9Paver = () => {
                   transition={{ duration: 1 }}
                 >
                   <p className="mb-3 text-[#787878] text-base text-center leading-6">
-                    Rectangle 8x9 pavers are perfect for larger areas such as
-                    driveways, pathways, and patios. Their durable structure and
-                    smooth surface make them a popular choice for creating
-                    functional and aesthetically pleasing outdoor spaces. We
-                    provide these blocks in varying sizes, including the 8x9
-                    format, to meet your specific project needs. Our clients
-                    trust us to deliver high-quality pavers that stand the test
-                    of time. For more details on our products, please visit our{" "}
-                    <a href="/projects">projects page</a>.
+                  The 8x9 rectangle paver block is designed to deliver unmatched strength and versatility. Ideal for enhancing outdoor spaces, it seamlessly blends durability with a sleek and functional shape. Perfect for use in residential and commercial projects, this paver block is a dependable choice for creating pathways, driveways, patios, and more. Its practical size and enduring design make it a favorite for modern and traditional landscapes.
                   </p>
                 </motion.div>
               </div>

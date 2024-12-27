@@ -12,7 +12,8 @@ import BlocksSlider from "@/components/Products/BlocksSlider";
 const RectanglePaver = () => {
   const [modelOpen, setModelOpen] = React.useState(false);
   const [imageUrl, setImageUrl] = React.useState("");
-
+  const [emailStatus, setEmailStatus] = useState(null); // success or error
+  const [statusMessage, setStatusMessage] = useState("");
   const data = useStaticQuery(graphql`
     query {
       allFile(
@@ -40,8 +41,9 @@ const RectanglePaver = () => {
   const [form, setForm] = useState({
     name: "",
     email: "",
-    quantity: "",
+    phone: "",
     area: "",
+    product: "Rectangle  Paver",
   });
 
   const handleChange = (e) => {
@@ -52,13 +54,28 @@ const RectanglePaver = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
-      .sendForm("your_service_id", "your_template_id", e.target, "your_user_id")
+      .sendForm(
+        "service_3w9ux2t",
+        "template_jxo7tb9",
+        e.target,
+        "bGSllFnbAIFCmLRtW"
+      )
       .then(
         (result) => {
-          alert("Enquiry sent successfully!");
+          setEmailStatus("success");
+          setStatusMessage("Enquiry sent successfully!");
+          setForm({
+            name: "",
+            email: "",
+            phone: "",
+            area: "",
+            product: "Rectangle Paver",
+          });
+          e.target.reset();
         },
         (error) => {
-          alert("Failed to send enquiry. Please try again.");
+          setEmailStatus("error");
+          setStatusMessage("Failed to send enquiry. Please try again.");
         }
       );
   };
@@ -85,50 +102,81 @@ const RectanglePaver = () => {
                     className="w-full h-full rounded-lg"
                   />
                 </div>
-                <form className="space-y-4" onSubmit={sendEmail}>
-                  <input
-                    type="text"
-                    name="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    placeholder="Your Name"
-                    className="w-full border border-gray-300 rounded-md p-2"
-                    required
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    placeholder="Your Email"
-                    className="w-full border border-gray-300 rounded-md p-2"
-                    required
-                  />
-                  <input
-                    type="number"
-                    name="quantity"
-                    value={form.quantity}
-                    onChange={handleChange}
-                    placeholder="Quantity (e.g., number of blocks)"
-                    className="w-full border border-gray-300 rounded-md p-2"
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="area"
-                    value={form.area}
-                    onChange={handleChange}
-                    placeholder="Area in sqft"
-                    className="w-full border border-gray-300 rounded-md p-2"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    className="w-full bg-green-600 text-white font-bold py-2 rounded-md"
-                  >
-                    Submit Enquiry
-                  </button>
-                </form>
+                <div className="ml-0 md:ml-10">
+                  <form className="space-y-4" onSubmit={sendEmail}>
+                    <input
+                      type="text"
+                      name="name"
+                      value={form.name}
+                      onChange={handleChange}
+                      placeholder="Your Name  (required)"
+                      className="w-full border border-gray-300 rounded-md p-2"
+                      required
+                    />
+                    <div className="flex space-x-2">
+                      <select
+                        name="countryCode"
+                        value={form.countryCode}
+                        onChange={handleChange}
+                        className="w-[20%] border border-gray-300 rounded-md p-2 bg-white"
+                        required
+                      >
+                        <option value="+91">+91 (India)</option>
+                        {/* Add other options */}
+                      </select>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={form.number}
+                        onChange={handleChange}
+                        placeholder="Your Contact Number  (required)"
+                        className="w-[80%] border border-gray-300 rounded-md p-2"
+                        required
+                      />
+                    </div>
+                    <input
+                      type="email"
+                      name="email"
+                      value={form.mailID}
+                      onChange={handleChange}
+                      placeholder="Your Mail Address  (optional)"
+                      className="w-full border border-gray-300 rounded-md p-2"
+                    />
+                    <input
+                      type="text"
+                      name="area"
+                      value={form.area}
+                      onChange={handleChange}
+                      placeholder="Area in sqft  (optional)"
+                      className="w-full border border-gray-300 rounded-md p-2"
+                    />
+                    <input
+                      type="text"
+                      name="product"
+                      value={form.product}
+                      placeholder="Rectangle paver"
+                      className="w-full border border-gray-300 rounded-md p-2"
+                      readOnly
+                    />
+                    <button
+                      type="submit"
+                      className="w-full bg-green-600 text-white font-bold py-2 rounded-md"
+                    >
+                      Submit Enquiry
+                    </button>
+                  </form>
+                  {emailStatus && (
+                    <div
+                      className={`mt-4 text-center font-bold ${
+                        emailStatus === "success"
+                          ? "text-green-600"
+                          : "text-red-600"
+                      }`}
+                    >
+                      {statusMessage}
+                    </div>
+                  )}
+                </div>
               </div>
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
@@ -136,15 +184,7 @@ const RectanglePaver = () => {
                 transition={{ duration: 1 }}
               >
                 <p className="mb-3 text-[#787878] text-base text-center leading-6">
-                  Rectangle pavers are versatile and durable, making them a
-                  popular choice for various outdoor applications like patios,
-                  walkways, and driveways. These pavers have a rectangular
-                  shape, making them easy to install in a range of patterns,
-                  from traditional to modern. We offer high-quality rectangle
-                  pavers designed to withstand heavy traffic and harsh weather
-                  conditions. Our customers are highly satisfied with our{" "}
-                  <a href="/projects">rectangle pavers</a> installations. We are
-                  proud to manufacture and supply these pavers in Coimbatore.
+                The 12x6 rectangle paver block is a versatile and widely used choice, known for its classic rectangle design and rich texture. Perfect for driveways, pathways, patios, and commercial spaces, its clean and timeless design complements any environment. Crafted for durability and style, this paver block provides a seamless blend of functionality and elegance, making it a trusted option for both residential and industrial applications.
                 </p>
               </motion.div>
             </div>
