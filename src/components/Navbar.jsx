@@ -209,6 +209,20 @@ const Navbar = () => {
 
               <li className="transform scale-0 animate-nav-link-load fill-mode-forwards">
                 <Link
+                  to="/blogs"
+                  className={`hover:text-blue-700 ${
+                    activeTab?.includes("/blogs")
+                      ? "border-b-2 md:pb-2 border-pebblePrimary text-pebblePrimary"
+                      : ""
+                  } transition-all duration-300 ease-in-out hover:border-b-2 hover:md:pb-2 hover:border-pebblePrimary hover:text-pebblePrimary`}
+                  onClick={() => setActiveTab("/blogs")}
+                >
+                  Blogs
+                </Link>
+              </li>
+
+              <li className="transform scale-0 animate-nav-link-load fill-mode-forwards">
+                <Link
                   to="/contact-us"
                   className={`hover:text-blue-700 ${
                     activeTab?.includes("/contact-us")
@@ -220,6 +234,7 @@ const Navbar = () => {
                   Contact Us
                 </Link>
               </li>
+              
             </ul>
           </div>
 
