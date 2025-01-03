@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const BlogContentPopup = ({ onClose, onSave, blogId }) => { 
+const BlogContentPopup = ({ onClose, onSave, blogId }) => {
   const [sections, setSections] = useState([
     { heading: "", paragraph: "" },
     { heading: "", paragraph: "" },
@@ -24,7 +24,7 @@ const BlogContentPopup = ({ onClose, onSave, blogId }) => {
       return;
     }
 
-    if (!blogId) {  // Validate blogId before saving
+    if (!blogId) {
       console.error("blogId is required but not provided");
       setError("Invalid blogId.");
       return;
@@ -34,8 +34,7 @@ const BlogContentPopup = ({ onClose, onSave, blogId }) => {
     setSuccessMessage("");
     setError("");
     try {
-      // Pass the sections and blogId to the onSave function
-      await onSave(sections, blogId);  // Ensure that blogId is passed correctly here
+      await onSave(sections, blogId);
       setSuccessMessage("Content saved successfully!");
       setTimeout(() => {
         if (typeof onClose === "function") {
@@ -53,8 +52,8 @@ const BlogContentPopup = ({ onClose, onSave, blogId }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-      <div className="bg-white p-12 mt-8 mb-8 rounded-lg shadow-lg lg:w-[50rem] relative overflow-auto max-h-screen">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 overflow-auto">
+      <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg w-full max-w-[95%] sm:max-w-[40rem] relative overflow-y-auto max-h-[90vh]">
         <button
           onClick={() => {
             if (typeof onClose === "function") {
@@ -67,27 +66,27 @@ const BlogContentPopup = ({ onClose, onSave, blogId }) => {
         >
           &times;
         </button>
-        <h2 className="text-xl font-bold mb-4">Add Blog Summary</h2>
+        <h2 className="text-lg sm:text-xl font-bold mb-4 text-center">Add Blog Summary</h2>
 
         {loading && <div>Loading...</div>}
         {error && <div className="text-red-500 mb-4">{error}</div>}
         {successMessage && <div className="text-green-500 mb-4">{successMessage}</div>}
 
         {sections.map((section, index) => (
-          <div key={index} className="mb-4">
+          <div key={index} className="mb-6">
             <label className="block text-sm font-medium mb-2">Heading {index + 1}</label>
             <input
               type="text"
               value={section.heading}
               onChange={(e) => handleInputChange(index, "heading", e.target.value)}
-              className="w-full p-2 mb-2 border rounded-lg"
+              className="w-full p-2 border rounded-lg"
               placeholder={`Enter heading ${index + 1}`}
             />
-            <label className="block text-sm font-medium mb-2">Paragraph {index + 1}</label>
+            <label className="block text-sm font-medium mt-4 mb-2">Paragraph {index + 1}</label>
             <textarea
               value={section.paragraph}
               onChange={(e) => handleInputChange(index, "paragraph", e.target.value)}
-              className="w-full p-2 mb-2 border rounded-lg"
+              className="w-full p-2 border rounded-lg"
               rows="4"
               placeholder={`Enter paragraph for heading ${index + 1}`}
             />
