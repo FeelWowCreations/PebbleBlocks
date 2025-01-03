@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import BlogContentPopup from "./blog-popup";
+import BlogContentPopup from "./blog-popup"; // Import the child component
 import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = "https://hfgrqwjoickvzchorfje.supabase.co";
@@ -15,7 +15,12 @@ const Blogs = () => {
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const [showBlogForm, setShowBlogForm] = useState(false);
-  const [showContentPopup, setShowContentPopup] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredBlogs, setFilteredBlogs] = useState([]);
+
+  const [selectedBlogId, setSelectedBlogId] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
+
   const [newBlog, setNewBlog] = useState({
     title: "",
     date: "",
@@ -23,9 +28,27 @@ const Blogs = () => {
     imageFile: null,
   });
 
+  const [summaryContent, setSummaryContent] = useState("");
+
   useEffect(() => {
     fetchBlogs();
   }, []);
+
+  const handleSearch = (e) => {
+    const query = e.target.value.toLowerCase();
+    setSearchQuery(query);
+
+    const filtered = blogs.filter((blog) =>
+      blog.title.toLowerCase().includes(query)
+    );
+    setFilteredBlogs(filtered);
+  };
+
+  const handleOpenPopup = (id) => {
+    setSelectedBlogId(id);
+    console.log(setSelectedBlogId);
+    setShowPopup(true);
+  };
 
   const fetchBlogs = async () => {
     try {
@@ -35,8 +58,9 @@ const Blogs = () => {
         .order("date", { ascending: false });
 
       if (error) throw error;
-
+      console.log("Pavithran",data);
       setBlogs(data);
+      setFilteredBlogs(data);
     } catch (error) {
       console.error("Failed to fetch blogs", error);
     }
@@ -51,55 +75,6 @@ const Blogs = () => {
     if (username === "VelavanPebble" && password === "VelavanPebbles@123") {
       setIsAdminLoggedIn(true);
       setShowLoginPopup(false);
-    } else {
-      // alert("Invalid credentials. Please use admin/admin.");
-    }
-  };
-
-  const handleAddBlog = async (event) => {
-    event.preventDefault();
-    try {
-      if (
-        !newBlog.title ||
-        !newBlog.date ||
-        !newBlog.excerpt ||
-        !newBlog.imageFile
-      ) {
-        alert("Please fill in all fields.");
-        return;
-      }
-
-      const id = Math.floor(Math.random() * 1000000);
-
-      const reader = new FileReader();
-      reader.onload = async () => {
-        const base64Image = reader.result.split(",")[1];
-
-        const { data, error } = await supabase.from("blogs").insert([
-          {
-            title: newBlog.title,
-            date: newBlog.date,
-            excerpt: newBlog.excerpt,
-            image: base64Image,
-            id: id,
-          },
-        ]);
-
-        if (error) throw error;
-
-        if (data && data.length > 0) {
-          setBlogs([data[0], ...blogs]);
-        } else {
-          console.error("No data returned from insert operation");
-        }
-
-        setShowBlogForm(false);
-        fetchBlogs();
-      };
-
-      reader.readAsDataURL(newBlog.imageFile);
-    } catch (error) {
-      console.error("Failed to add blog", error);
     }
   };
 
@@ -117,24 +92,94 @@ const Blogs = () => {
     }
   };
 
-  const handleSaveContent = (content) => {
-    console.log("Content saved:", content);
-    setShowContentPopup(false);
+  const handleAddBlog = async (event) => {
+    event.preventDefault();
+    try {
+      if (
+        !newBlog.title ||
+        !newBlog.date ||
+        !newBlog.excerpt ||
+        !newBlog.imageFile
+      ) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = async () => {
+        const base64Image = reader.result.split(",")[1];
+
+        const { data, error } = await supabase.from("blogs").insert([
+          {
+            title: newBlog.title,
+            date: newBlog.date,
+            excerpt: newBlog.excerpt,
+            image: base64Image,
+            id: id,
+          },
+        ]);
+        if (error) throw error;
+
+        if (data && data.length > 0) {
+          setBlogs([data[0], ...blogs]);
+        }
+
+        // After adding the blog, immediately open the popup for the summary
+        setShowBlogForm(false);
+        handleOpenPopup(id);
+      };
+
+      reader.readAsDataURL(newBlog.imageFile);
+    } catch (error) {
+      console.error("Failed to add blog", error);
+    }
+  };
+
+  const handleSaveContent = async (sections, blogId) => {
+    try {
+      const { error } = await supabase
+        .from("blogs")
+        .update({ summary: sections })
+        .eq("id", blogId);
+      if (error) {
+        throw error;
+      }
+      alert("Blog content saved successfully");
+      fetchBlogs();
+    } catch (error) {
+      console.error("Error saving content:", error);
+    }
   };
 
   const closeModal = () => {
     setShowBlogForm(false);
   };
 
+  const handleClose = () => {
+    console.log('Closing popup...');
+    setShowPopup(false);
+  };
+
   const indexOfLastBlog = currentPage * blogsPerPage;
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
-  const currentBlogs = blogs.slice(indexOfFirstBlog, indexOfLastBlog);
-  const totalPages = Math.ceil(blogs.length / blogsPerPage);
+  const displayedBlogs = searchQuery
+    ? filteredBlogs.slice(indexOfFirstBlog, indexOfLastBlog)
+    : blogs.slice(indexOfFirstBlog, indexOfLastBlog);
+  const totalPages = Math.ceil(
+    (searchQuery ? filteredBlogs.length : blogs.length) / blogsPerPage
+  );
 
   return (
     <section className="min-h-screen bg-gradient-to-b from-gray-50 via-gray-100 to-gray-200 py-12">
       <div className="container mx-auto px-6">
         <h1 className="text-4xl font-bold text-center mb-10">Our Blogs</h1>
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={handleSearch}
+          placeholder="Search blogs by title"
+          className="w-full mb-6 p-2 border rounded-lg"
+        />
 
         {isAdminLoggedIn && (
           <button
@@ -160,24 +205,30 @@ const Blogs = () => {
             gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
           }}
         >
-          {currentBlogs.map((blog) => (
+          {displayedBlogs.map((blog) => (
             <div
               key={blog.id}
               className="bg-white p-8 rounded-lg shadow-lg hover:scale-105 transform transition duration-300"
             >
-              <img
-                src={`data:image/jpeg;base64,${blog.image}`}
-                alt={blog.title}
-              />
+              <div
+                className="w-full h-48 mb-4 overflow-hidden relative"
+                style={{ width: "100%", height: "200px" }}
+              >
+                <img
+                  src={`data:image/jpeg;base64,${blog.image}`}
+                  alt={blog.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <h2 className="text-2xl font-semibold mb-3">{blog.title}</h2>
               <p className="text-gray-500 mb-3">{blog.date}</p>
               <p className="text-gray-700 mb-5">{blog.excerpt}</p>
-              <a
-                href={blog.link}
-                className="text-blue-500 font-medium hover:underline"
-              >
-                Read more →
-              </a>
+
+              {isAdminLoggedIn && (
+                <button>
+                </button>
+              )}
+
               {isAdminLoggedIn && (
                 <button
                   onClick={() => handleDeleteBlog(blog.id)}
@@ -195,106 +246,115 @@ const Blogs = () => {
             <button
               key={index}
               onClick={() => setCurrentPage(index + 1)}
-              className={`px-4 py-2 rounded-lg ${
+              className={`px-4 py-2 rounded-full ${
                 currentPage === index + 1
                   ? "bg-blue-500 text-white"
-                  : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+                  : "bg-white text-gray-700 border"
               }`}
             >
               {index + 1}
             </button>
           ))}
         </div>
-      </div>
 
-      {showLoginPopup && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
-            <h2 className="text-xl font-bold mb-4">Admin Login</h2>
-            <form onSubmit={handleLogin}>
-              <input
-                type="text"
-                name="username"
-                placeholder="Username"
-                className="w-full mb-4 p-2 border rounded-lg"
-              />
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                className="w-full mb-4 p-2 border rounded-lg"
-              />
-              <button
-                type="submit"
-                className="w-full bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
-              >
-                Login
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {showBlogForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
-            <button
-              onClick={closeModal}
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+        {/* Add Blog Form */}
+        {showBlogForm && (
+          <div
+            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+            onClick={closeModal}
+          >
+            <form
+              onSubmit={handleAddBlog}
+              className="bg-white p-8 rounded-lg w-96"
+              onClick={(e) => e.stopPropagation()}
             >
-              &times;
-            </button>
-            <h2 className="text-xl font-bold mb-4">Add New Blog</h2>
-            <form onSubmit={handleAddBlog}>
+              <h3 className="text-xl font-semibold mb-4">Add New Blog</h3>
               <input
                 type="text"
-                placeholder="Title"
                 value={newBlog.title}
                 onChange={(e) =>
                   setNewBlog({ ...newBlog, title: e.target.value })
                 }
-                className="w-full mb-4 p-2 border rounded-lg"
+                placeholder="Title"
+                className="w-full p-2 border mb-4 rounded-lg"
               />
               <input
                 type="date"
-                placeholder="Date"
                 value={newBlog.date}
                 onChange={(e) =>
                   setNewBlog({ ...newBlog, date: e.target.value })
                 }
-                className="w-full mb-4 p-2 border rounded-lg"
+                placeholder="Date"
+                className="w-full p-2 border mb-4 rounded-lg"
               />
+
               <textarea
-                placeholder="Excerpt"
                 value={newBlog.excerpt}
                 onChange={(e) =>
                   setNewBlog({ ...newBlog, excerpt: e.target.value })
                 }
-                className="w-full mb-4 p-2 border rounded-lg"
+                placeholder="Excerpt"
+                className="w-full p-2 border mb-4 rounded-lg"
               />
               <input
                 type="file"
-                accept="image/*"
                 onChange={handleFileChange}
-                className="w-full mb-4 p-2 border rounded-lg"
+                className="w-full p-2 border mb-4 rounded-lg"
               />
               <button
                 type="submit"
-                className="w-full bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600"
               >
                 Add Blog
               </button>
             </form>
           </div>
-        </div>
-      )}
+        )}
 
-      {showContentPopup && (
-        <BlogContentPopup
-          onClose={() => setShowContentPopup(false)}
-          onSave={handleSaveContent}
-        />
-      )}
+        {/* Login Popup */}
+        {showLoginPopup && (
+          <div
+            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+            onClick={() => setShowLoginPopup(false)}
+          >
+            <form
+              onSubmit={handleLogin}
+              className="bg-white p-8 rounded-lg w-96"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h3 className="text-xl font-semibold mb-4">Admin Login</h3>
+              <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                className="w-full p-2 border mb-4 rounded-lg"
+              />
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                className="w-full p-2 border mb-4 rounded-lg"
+              />
+              <button
+                type="submit"
+                className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600"
+              >
+                Login
+              </button>
+            </form>
+          </div>
+        )}
+
+        {/* Blog Content Popup */}
+        {showPopup && (
+          <BlogContentPopup
+            blogId={selectedBlogId}
+            supabase={supabase}
+            onSave={handleSaveContent}
+            onClose={handleClose}
+          />
+        )}
+      </div>
     </section>
   );
 };
