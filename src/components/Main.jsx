@@ -85,18 +85,18 @@ export const Head = () => (
       content="Learn about Pebble Blocks, Coimbatore's trusted provider of high-quality solid and paver blocks for construction. Durable products for residential & commercial needs."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://pebbleblocks/about-us" />
-    <meta property="og:image" content="https://yourwebsite.com/images/about-us/og-image.jpg" />
+    <meta property="og:url" content="https://pebbleblocks.com/about-us" />
+    <meta property="og:image" content="https://pebbleblocks.com/images/about-us/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="About Pebble Blocks - Quality Solid & Paver Blocks" />
     <meta
       name="twitter:description"
       content="Discover Pebble Blocks in Coimbatore - Offering durable solid and paver blocks for all types of construction projects."
     />
-    <meta name="twitter:image" content="https://yourwebsite.com/images/about-us/twitter-image.jpg" />
+    <meta name="twitter:image" content="https://pebbleblocks.com/images/about-us/twitter-image.jpg" />
 
     {/* Canonical URL */}
-    <link rel="canonical" href="https://yourwebsite.com/about-us" />
+    <link rel="canonical" href="https://pebbleblocks.comabout-us" />
 
     {/* Favicon */}
     <link rel="icon" href="/favicon.ico" />

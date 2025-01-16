@@ -45,17 +45,17 @@ export const Head = () => (
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://pebbleblocks.com" />
-    <meta property="og:image" content="https://yourwebsite.com/og-image.jpg" />
+    <meta property="og:image" content="https://pebbleblocks.com/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Solid & Paver Blocks Coimbatore" />
     <meta
       name="twitter:description"
       content="Pebble Blocks offers high-quality solid and paver blocks for residential, commercial, and industrial projects."
     />
-    <meta name="twitter:image" content="https://yourwebsite.com/twitter-image.jpg" />
+    <meta name="twitter:image" content="https://pebbleblocks.com/twitter-image.jpg" />
 
     {/* Canonical URL */}
-    <link rel="canonical" href="https://yourwebsite.com" />
+    <link rel="canonical" href="https://pebbleblocks.com" />
 
     {/* Favicon */}
     <link rel="icon" href="/favicon.ico" />
@@ -66,8 +66,8 @@ export const Head = () => (
         "@context": "https://schema.org",
         "@type": "Organization",
         name: "Pebble Blocks",
-        url: "https://yourwebsite.com",
-        logo: "https://yourwebsite.com/logo.png",
+        url: "https://pebbleblocks.com",
+        logo: "https://pebbleblocks.com/logo.png",
         description:
           "Pebble Blocks in Coimbatore offers high-quality solid and paver blocks for residential, commercial, and industrial projects.",
         address: {
@@ -80,7 +80,7 @@ export const Head = () => (
         },
         contactPoint: {
           "@type": "ContactPoint",
-          telephone: "+91-1234567890",
+          telephone: "+91-8883337674",
           contactType: "Customer Service",
         },
       })}
