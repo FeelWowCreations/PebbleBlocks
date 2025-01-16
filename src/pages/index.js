@@ -31,6 +31,7 @@ export const Head = () => (
       name="description"
       content="Pebble Blocks in Coimbatore offers high-quality solid and paver blocks for residential, commercial, and industrial projects. Build with confidence today!"
     />
+    <meta name="google-site-verification" content="-7Yxz5q5-UozKfBvbNVcKN9-LCbZTU8n9YrVfL8N6ac" />
     <meta
       name="keywords"
       content="paver blocks in coimbatore, parking stones, grass pavers, solid block, solid blocks near me"
@@ -43,7 +44,7 @@ export const Head = () => (
       content="Pebble Blocks in Coimbatore offers high-quality solid and paver blocks for residential, commercial, and industrial projects. Build with confidence today!"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://yourwebsite.com" />
+    <meta property="og:url" content="https://pebbleblocks.com" />
     <meta property="og:image" content="https://yourwebsite.com/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Solid & Paver Blocks Coimbatore" />
