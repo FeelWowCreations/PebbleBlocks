@@ -5,6 +5,7 @@ import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
 import WhatsappButton from "@/components/ui/WhatsAppFixed";
+import { Helmet } from "react-helmet";
 
 const ProjectsMain = () => {
   const [modelOpen, setModelOpen] = useState(false);
@@ -35,15 +36,30 @@ const ProjectsMain = () => {
 
   return (
     <div>
+      {/* SEO Optimization */}
+      <Helmet>
+        <title>Our Construction Projects - Pebble Blocks in Coimbatore</title>
+        <meta
+          name="description"
+          content="Explore our completed construction projects in Coimbatore using solid and paver blocks. View how Pebble Blocks contributes to high-quality, durable builds."
+        />
+        <meta
+          name="keywords"
+          content="garden path tiles, cement pavers, paver block road, paver block flooring, paving tiles design"
+        />
+      </Helmet>
+
       <Navbar />
       <main className="relative">
+        {/* Hero Section */}
         <section className="relative flex justify-center items-center bg-[url('../images/AboutUs/brick-wall.jpeg')] bg-cover h-[200px]">
           <div className="w-full h-full bg-black opacity-20 absolute top-0 left-0"></div>
           <h1 className="text-xl md:text-2xl lg:text-4xl font-bold leading-9 text-white z-10 text-center">
-            Gallery
+            Our Successful Construction Projects in Coimbatore
           </h1>
         </section>
 
+        {/* Projects Section */}
         <section className="bg-[#eaf0fb]">
           <motion.div
             className="container mx-auto px-4 py-8"
@@ -51,6 +67,12 @@ const ProjectsMain = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
+            <h2 className="text-2xl font-semibold text-gray-800 mb-6">
+              High-Quality Solid and Paver Block Solutions for Every Project
+            </h2>
+            <h3 className="text-lg text-gray-600 mb-8">
+              Building Trust with Durable, Reliable Construction Projects
+            </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {images.map((item, index) => (
                 <div
@@ -71,8 +93,11 @@ const ProjectsMain = () => {
             </div>
           </motion.div>
         </section>
+
         <WhatsappButton />
         <Footer />
+
+        {/* Modal Section */}
         {modelOpen && (
           <div
             className="fixed flex top-0 left-0 w-full h-full bg-[#000000] bg-opacity-50 justify-center items-center z-[40]"
@@ -116,7 +141,14 @@ export default ProjectsMain;
 
 export const Head = () => (
   <>
-    <title>Projects</title>
-    <body />
+    <title>Our Construction Projects - Pebble Blocks in Coimbatore</title>
+    <meta
+      name="description"
+      content="Explore our completed construction projects in Coimbatore using solid and paver blocks. View how Pebble Blocks contributes to high-quality, durable builds."
+    />
+    <meta
+      name="keywords"
+      content="garden path tiles, cement pavers, paver block road, paver block flooring, paving tiles design"
+    />
   </>
 );

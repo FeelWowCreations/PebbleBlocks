@@ -45,141 +45,148 @@ const Banner = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000); // Change image every 5 seconds
+    }, 5000);
 
-    return () => clearInterval(interval); // Cleanup interval on component unmount
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <>
-      <section className="relative w-full h-[calc(100vh-92px)] overflow-hidden">
-        <Swiper className="mySwiper h-full">
-          {images.map((_, index) => (
-            <SwiperSlide className="">
-              <figure className="h-full w-full">
-                <GatsbyImage
-                  image={images[currentImageIndex]}
-                  alt="banner"
-                  placeholder="tracedSVG"
-                  className="object-cover w-full h-full transition-transform duration-1500 ease-in-out"
-                />
-              </figure>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <div className="absolute inset-0 z-10 bg-gradient-to-t from-gray-900 to-transparent flex flex-col justify-center items-center text-center p-8">
-          <motion.h1
-            className="text-4xl md:text-6xl text-white font-bold mb-4"
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-          >
-            Building Better with Pebble Blocks
-          </motion.h1>
-          <motion.p
-            className="text-lg md:text-xl text-white mb-6 px-4 md:px-8"
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-          >
-            We Provide Reliable High Quality Bricks and Blocks From Foundations
-            to Finishes
-          </motion.p>
-          <Link to="/contact-us">
-            <motion.button
-              className="px-6 py-3 bg-blue-500 text-white font-medium rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.3 }}
-            >
-              Contact Us
-            </motion.button>
-          </Link>
-        </div>
-      </section>
+      <header>
+        <title>Solid & Paver Blocks Coimbatore - Durable Construction Solutions</title>
+        <meta
+          name="description"
+          content="Pebble Blocks in Coimbatore offers high-quality solid and paver blocks for residential, commercial, and industrial projects. Build with confidence today!"
+        />
+      </header>
 
-      <section className="py-16 bg-gray-100">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <CounterCard
-              value="3+"
-              label="Manufacturing Units"
-              Icon={<FactoryIcon />}
-            />
-            <CounterCard value="50+" label="Workers" Icon={<WorkersIcon />} />
-            <CounterCard
-              value="1000+"
-              label="Customers"
-              Icon={<CustomerIcon />}
-            />
-            <CounterCard
-              value="25+"
-              label="Products"
-              Icon={<ProductsIcon className="w-12 h-12" />}
-            />
-            <CounterCard
-              value="500+"
-              label="Projects Completed"
-              Icon={<ProjectIcon />}
-            />
-            <CounterCard
-              value="30+"
-              label="Suppliers"
-              Icon={<SupplierIcon />}
-            />
-            <CounterCard
-              value="15+"
-              label="Years of Experience"
-              Icon={<AwardIcon />}
-            />
-            <CounterCard
-              value="75+"
-              label="Happy Reviews"
-              Icon={<ReviewIcons />}
-            />
+      <main>
+        <section
+          className="relative w-full h-[calc(100vh-92px)] overflow-hidden"
+          aria-label="Banner Section with Rotating Images"
+        >
+          <Swiper
+            className="mySwiper h-full"
+            modules={[Navigation, Pagination]}
+            navigation
+            pagination={{ clickable: true }}
+          >
+            {images.map((_, index) => (
+              <SwiperSlide key={index}>
+                <figure className="h-full w-full">
+                  <GatsbyImage
+                    image={images[currentImageIndex]}
+                    alt={`Pebble Blocks Banner Image ${index + 1}`}
+                    placeholder="tracedSVG"
+                    className="object-cover w-full h-full"
+                  />
+                </figure>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <div className="absolute inset-0 z-10 bg-gradient-to-t from-gray-900 to-transparent flex flex-col justify-center items-center text-center p-8">
+            <motion.h1
+              className="text-4xl md:text-4xl text-white font-bold mb-4"
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+            >
+              Premium Solid and Paver Blocks in Coimbatore for All Construction
+              Projects
+            </motion.h1>
+            <motion.p
+              className="text-lg md:text-xl text-white mb-6 px-4 md:px-8"
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            >
+              From solid blocks to stylish pavers, we deliver the quality you
+              need for durable construction solutions.
+            </motion.p>
+            <Link to="/contact-us">
+              <motion.button
+                className="px-6 py-3 bg-blue-500 text-white font-medium rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+                initial={{ scale: 0.9 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                Contact Us
+              </motion.button>
+            </Link>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section
+          className="py-16 bg-gray-100"
+          aria-label="Pebble Blocks Statistics Section"
+        >
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl md:text-4xl font-bold text-center mb-8">
+              We Provide Blocks from Foundations to Finishes
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <CounterCard
+                value="3+"
+                label="Manufacturing Units"
+                Icon={<FactoryIcon />}
+              />
+              <CounterCard value="50+" label="Workers" Icon={<WorkersIcon />} />
+              <CounterCard
+                value="1000+"
+                label="Customers"
+                Icon={<CustomerIcon />}
+              />
+              <CounterCard
+                value="25+"
+                label="Products"
+                Icon={<ProductsIcon />}
+              />
+              <CounterCard
+                value="500+"
+                label="Projects Completed"
+                Icon={<ProjectIcon />}
+              />
+              <CounterCard
+                value="30+"
+                label="Suppliers"
+                Icon={<SupplierIcon />}
+              />
+              <CounterCard
+                value="15+"
+                label="Years of Experience"
+                Icon={<AwardIcon />}
+              />
+              <CounterCard
+                value="75+"
+                label="Happy Reviews"
+                Icon={<ReviewIcons />}
+              />
+            </div>
+          </div>
+        </section>
+      </main>
     </>
   );
 };
 
-// CounterCard Component
-const CounterCard = ({ value, label, Icon }) => {
-  return (
+const CounterCard = ({ value, label, Icon }) => (
+  <motion.div
+    className="bg-white rounded-lg shadow-lg p-6 text-center"
+    initial={{ scale: 0.9 }}
+    animate={{ scale: 1 }}
+    transition={{ duration: 0.3 }}
+  >
     <motion.div
-      className="bg-white rounded-lg shadow-lg p-6 text-center transform transition-transform duration-300 hover:scale-105"
-      initial={{ scale: 0.9 }}
-      animate={{ scale: 1 }}
-      transition={{ duration: 0.3 }}
+      className="mb-4 flex justify-center items-center"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
     >
-      <motion.div
-        className="mb-4 flex justify-center items-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-      >
-        {/* Icon with w-12 h-12 size */}
-        {React.cloneElement(Icon, { className: "w-12 h-12" })}
-      </motion.div>
-      <motion.h2
-        className="text-3xl font-bold text-blue-600"
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.8 }}
-      >
-        {value}
-      </motion.h2>
-      <motion.p
-        className="text-gray-600 mt-2"
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
-      >
-        {label}
-      </motion.p>
+      {React.cloneElement(Icon, { className: "w-12 h-12" })}
     </motion.div>
-  );
-};
+    <h3 className="text-3xl font-bold text-blue-600">{value}</h3>
+    <p className="text-gray-600 mt-2">{label}</p>
+  </motion.div>
+);
 
 export default Banner;

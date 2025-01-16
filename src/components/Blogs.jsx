@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import BlogContentPopup from "./blog-popup"; // Import the child component
 import { createClient } from "@supabase/supabase-js";
+import { Helmet } from "react-helmet"; // For SEO
 
 const supabaseUrl = "https://hfgrqwjoickvzchorfje.supabase.co";
 const supabaseKey =
@@ -170,6 +171,29 @@ const Blogs = () => {
   );
 
   return (
+    <>
+      <Helmet>
+        {/* SEO Meta Tags */}
+        <title>Pebble Blocks Blog - Construction Tips, Trends, and Insights</title>
+        <meta
+          name="description"
+          content="Explore expert tips, construction trends, and industry insights at the Pebble Blocks blog. Stay informed with updates on solid and paver blocks for all projects."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://www.pebbleblocks.com/blog" />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="Pebble Blocks Blog - Construction Tips, Trends, and Insights" />
+        <meta property="og:description" content="Explore expert tips, construction trends, and industry insights at the Pebble Blocks blog." />
+        <meta property="og:url" content="https://www.pebbleblocks.com/blog" />
+        <meta property="og:type" content="website" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Pebble Blocks Blog - Construction Tips, Trends, and Insights" />
+        <meta name="twitter:description" content="Explore expert tips, construction trends, and industry insights at the Pebble Blocks blog." />
+      </Helmet>
+
     <section className="min-h-screen bg-gradient-to-b from-gray-50 via-gray-100 to-gray-200 py-12">
       <div className="container mx-auto px-6">
         <h1 className="text-4xl font-bold text-center mb-10">Our Blogs</h1>
@@ -356,6 +380,7 @@ const Blogs = () => {
         )}
       </div>
     </section>
+    </>
   );
 };
 

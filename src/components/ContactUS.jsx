@@ -1,10 +1,9 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import FooterBackground from "../images/AboutUs/footerBackground.jpg"
-import ContactUS2 from "../images/AboutUs/contact-bg.jpg"
+import { Helmet } from "react-helmet"; // For adding meta tags
+import FooterBackground from "../images/AboutUs/footerBackground.jpg";
+import ContactUS2 from "../images/AboutUs/contact-bg.jpg";
 import emailjs from 'emailjs-com';
-
-
 
 const ContactUs = () => {
   const data = useStaticQuery(graphql`
@@ -39,7 +38,6 @@ const ContactUs = () => {
       });
   };
 
-
   const googleFormURL =
     "https://docs.google.com/forms/d/e/1FAIpQLSff2CvzEnE0hi7mHlw3SvYRXelCZ6xH5zDaN-RgDxVijUwTEQ/viewform?embedded=true";
   const googleMapURL =
@@ -68,6 +66,15 @@ const ContactUs = () => {
 
   return (
     <section>
+      <Helmet>
+        <title>Contact Pebble Blocks - Get in Touch for Quality Construction Solutions</title>
+        <meta
+          name="description"
+          content="Contact Pebble Blocks for inquiries on solid and paver blocks in Coimbatore. Reach out for quotes, support, or product information today!"
+        />
+        <meta name="keywords" content="parking paver block, interlocking paving stones, solid blocks design, pavement tiles, office tiles" />
+      </Helmet>
+
       {/* Top Image Section */}
       <div className="relative w-full h-32 lg:h-[20rem] flex items-center rounded-lg justify-center mb-0">
         {/* Background Image with Opacity */}
@@ -78,26 +85,24 @@ const ContactUs = () => {
             opacity: 1,
           }}
         ></div>
-        {/* Content */}
-
       </div>
 
-      <section className=" relative py-8 sm:py-12 lg:mt-5 lg:py-16 bg-gray-50">
+      <section className="relative py-8 sm:py-12 lg:mt-5 lg:py-16 bg-gray-50">
         <div className="absolute inset-0">
           <img
             src={FooterBackground}
-            alt="Background"
+            alt="Contact Us Background"
             className="w-full h-full object-cover opacity-20"
           />
         </div>
 
-        <div className=" relative container mx-auto px-4">
+        <div className="relative container mx-auto px-4">
           <div className="flex flex-col lg:flex-row lg:space-x-8">
             {/* Map Section */}
             <div className="flex-1 w-full lg:w-1/2 mb-8 lg:mb-0">
               <div className="contact-us-left bg-white px-4 py-[1.65rem] rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:border hover:border-blue-300 hover:shadow-lg h-full">
                 <h2 className="text-2xl sm:text-3xl lg:text-2xl font-semibold mb-4">
-                  Find Us Here
+                  We’re Here to Help You with Solid and Paver Blocks for All Projects
                 </h2>
                 <div
                   className="relative w-full"
@@ -112,7 +117,7 @@ const ContactUs = () => {
                     allowFullScreen
                     aria-hidden="false"
                     tabIndex="0"
-                    title="Google Map"
+                    title="Pebble Blocks Location"
                     className="absolute top-0 left-0"
                   >
                     Loading…
@@ -125,7 +130,7 @@ const ContactUs = () => {
             <div className="flex-1 w-full lg:w-1/2">
               <div className="contact-us-form bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:border hover:border-blue-300 hover:shadow-lg h-full">
                 <h2 className="text-2xl sm:text-3xl lg:text-2xl font-semibold mb-4">
-                  Connect With Us
+                  Get in Touch Today for Product Information or Quotes
                 </h2>
                 <p className="text-base sm:text-md mb-6">
                   If you have any questions, please feel free to contact us.
