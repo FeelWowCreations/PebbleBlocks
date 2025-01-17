@@ -8,21 +8,15 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-google-gtag`,
+      resolve: `gatsby-plugin-google-tagmanager`,
       options: {
-        trackingIds: [
-          "AW-16705789102",  // Your Google Ads/Tag Manager ID
-        ],
-        // This object gets passed directly to the gtag config command
-        // This is where you define any config options for gtag
-        gtagConfig: {
-          anonymize_ip: true, // Optional, anonymizes the user's IP
-        },
-        // This object gets passed to the plugin
-        pluginConfig: {
-          head: true, // Places the gtag.js script in the head of the HTML
-          respectDNT: true, // Respects "Do Not Track" settings
-        },
+        id: "GTM-KDVNCGLT", // Replace with your GTM container ID
+        includeInDevelopment: false, // Set to true if you want GTM active in development
+        defaultDataLayer: { platform: "gatsby" }, // Add default dataLayer properties
+        gtmAuth: "YOUR_AUTH_STRING", // Optional, required if you use GTM environments
+        gtmPreview: "YOUR_PREVIEW_STRING", // Optional, required if you use GTM environments
+        dataLayerName: "dataLayer", // Optional, set the dataLayer name
+        routeChangeEventName: "gatsby-route-change", // Fires on route changes
       },
     },
     "gatsby-plugin-postcss",

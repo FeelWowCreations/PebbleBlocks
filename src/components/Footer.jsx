@@ -83,7 +83,7 @@ const Footer = () => {
                 contact@velavanenterprise.com
               </a>
             </p>
-            <p className="mb-4 flex items-center justify-center md:justify-start transition-all duration-300 cursor-pointer ease-in-out">
+            <p className="mb-4 flex items-center justify-center md:justify-start  transition-all duration-300 cursor-pointer ease-in-out">
               <span className="me-3 [&>svg]:h-5 [&>svg]:w-5">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
