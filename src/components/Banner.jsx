@@ -15,6 +15,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
+import { Helmet } from "react-helmet";
 
 const Banner = () => {
   const data = useStaticQuery(graphql`

@@ -96,7 +96,7 @@ export const Head = () => (
     <meta name="twitter:image" content="https://pebbleblocks.com/images/about-us/twitter-image.jpg" />
 
     {/* Canonical URL */}
-    <link rel="canonical" href="https://pebbleblocks.comabout-us" />
+    <link rel="canonical" href="https://pebbleblocks.com/about-us" />
 
     {/* Favicon */}
     <link rel="icon" href="/favicon.ico" />
