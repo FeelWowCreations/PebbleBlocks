@@ -2,7 +2,7 @@ import React from "react";
 import { ReactComponent as WhatsappIcon } from "../../images/Icons/whatsapp.svg"; 
 
 const WhatsappButton = () => {
-  const phoneNumber = "YOUR_PHONE_NUMBER"; // Replace with your phone number (include country code without the +)
+  const phoneNumber = "08883337674"; // Replace with your phone number (include country code without the +)
   const message = "Hello, I'm interested in learning more about your products."; // Customize your message
 
   const whatsappUrl = `https://wa.me/${+918883337674}?text=${encodeURIComponent(message)}`;

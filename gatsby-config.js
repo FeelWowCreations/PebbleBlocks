@@ -4,7 +4,7 @@
 module.exports = {
   siteMetadata: {
     title: `Pebble Blocks`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://www.pebbleblocks.com`,
   },
   plugins: [
     {
