@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import BlogContentPopup from "./blog-popup"; // Import the child component
 import { createClient } from "@supabase/supabase-js";
 import { Helmet } from "react-helmet"; // For SEO
+import { Link } from "gatsby";
 
 const supabaseUrl = "https://hfgrqwjoickvzchorfje.supabase.co";
 const supabaseKey =
@@ -59,7 +60,7 @@ const Blogs = () => {
         .order("date", { ascending: false });
 
       if (error) throw error;
-      console.log("Pavithran",data);
+      console.log("Pavithran", data);
       setBlogs(data);
       setFilteredBlogs(data);
     } catch (error) {
@@ -157,7 +158,7 @@ const Blogs = () => {
   };
 
   const handleClose = () => {
-    console.log('Closing popup...');
+    console.log("Closing popup...");
     setShowPopup(false);
   };
 
@@ -174,212 +175,228 @@ const Blogs = () => {
     <>
       <Helmet>
         {/* SEO Meta Tags */}
-        <title>Pebble Blocks Blog - Construction Tips, Trends, and Insights</title>
+        <title>
+          Pebble Blocks Blog - Construction Tips, Trends, and Insights
+        </title>
         <meta
           name="description"
           content="Explore expert tips, construction trends, and industry insights at the Pebble Blocks blog. Stay informed with updates on solid and paver blocks for all projects."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://www.pebbleblocks.com/blog" />
-        
+
         {/* Open Graph Tags */}
-        <meta property="og:title" content="Pebble Blocks Blog - Construction Tips, Trends, and Insights" />
-        <meta property="og:description" content="Explore expert tips, construction trends, and industry insights at the Pebble Blocks blog." />
+        <meta
+          property="og:title"
+          content="Pebble Blocks Blog - Construction Tips, Trends, and Insights"
+        />
+        <meta
+          property="og:description"
+          content="Explore expert tips, construction trends, and industry insights at the Pebble Blocks blog."
+        />
         <meta property="og:url" content="https://www.pebbleblocks.com/blog" />
         <meta property="og:type" content="website" />
-        
+
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Pebble Blocks Blog - Construction Tips, Trends, and Insights" />
-        <meta name="twitter:description" content="Explore expert tips, construction trends, and industry insights at the Pebble Blocks blog." />
+        <meta
+          name="twitter:title"
+          content="Pebble Blocks Blog - Construction Tips, Trends, and Insights"
+        />
+        <meta
+          name="twitter:description"
+          content="Explore expert tips, construction trends, and industry insights at the Pebble Blocks blog."
+        />
       </Helmet>
 
-    <section className="min-h-screen bg-gradient-to-b from-gray-50 via-gray-100 to-gray-200 py-12">
-      <div className="container mx-auto px-6">
-        <h1 className="text-4xl font-bold text-center mb-10">Our Blogs</h1>
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={handleSearch}
-          placeholder="Search blogs by title"
-          className="w-full mb-6 p-2 border rounded-lg"
-        />
-
-        {isAdminLoggedIn && (
-          <button
-            onClick={() => setShowBlogForm(true)}
-            className="mb-6 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
-          >
-            Add Blog
-          </button>
-        )}
-
-        {!isAdminLoggedIn && (
-          <button
-            onClick={() => setShowLoginPopup(true)}
-            className="mb-6 bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600"
-          >
-            Admin Login
-          </button>
-        )}
-
-        <div
-          className="grid gap-8 mx-12"
-          style={{
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-          }}
-        >
-          {displayedBlogs.map((blog) => (
-            <div
-              key={blog.id}
-              className="bg-white p-8 rounded-lg shadow-lg hover:scale-105 transform transition duration-300"
-            >
-              <div
-                className="w-full h-48 mb-4 overflow-hidden relative"
-                style={{ width: "100%", height: "200px" }}
-              >
-                <img
-                  src={`data:image/jpeg;base64,${blog.image}`}
-                  alt={blog.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h2 className="text-2xl font-semibold mb-3">{blog.title}</h2>
-              <p className="text-gray-500 mb-3">{blog.date}</p>
-              <p className="text-gray-700 mb-5">{blog.excerpt}</p>
-
-              {isAdminLoggedIn && (
-                <button>
-                </button>
-              )}
-
-              {isAdminLoggedIn && (
-                <button
-                  onClick={() => handleDeleteBlog(blog.id)}
-                  className="mt-4 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
-                >
-                  Delete
-                </button>
-              )}
-            </div>
-          ))}
-        </div>
-
-        <div className="flex justify-center items-center mt-8 space-x-2">
-          {Array.from({ length: totalPages }, (_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentPage(index + 1)}
-              className={`px-4 py-2 rounded-full ${
-                currentPage === index + 1
-                  ? "bg-blue-500 text-white"
-                  : "bg-white text-gray-700 border"
-              }`}
-            >
-              {index + 1}
-            </button>
-          ))}
-        </div>
-
-        {/* Add Blog Form */}
-        {showBlogForm && (
-          <div
-            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
-            onClick={closeModal}
-          >
-            <form
-              onSubmit={handleAddBlog}
-              className="bg-white p-8 rounded-lg w-96"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <h3 className="text-xl font-semibold mb-4">Add New Blog</h3>
-              <input
-                type="text"
-                value={newBlog.title}
-                onChange={(e) =>
-                  setNewBlog({ ...newBlog, title: e.target.value })
-                }
-                placeholder="Title"
-                className="w-full p-2 border mb-4 rounded-lg"
-              />
-              <input
-                type="date"
-                value={newBlog.date}
-                onChange={(e) =>
-                  setNewBlog({ ...newBlog, date: e.target.value })
-                }
-                placeholder="Date"
-                className="w-full p-2 border mb-4 rounded-lg"
-              />
-
-              <textarea
-                value={newBlog.excerpt}
-                onChange={(e) =>
-                  setNewBlog({ ...newBlog, excerpt: e.target.value })
-                }
-                placeholder="Excerpt"
-                className="w-full p-2 border mb-4 rounded-lg"
-              />
-              <input
-                type="file"
-                onChange={handleFileChange}
-                className="w-full p-2 border mb-4 rounded-lg"
-              />
-              <button
-                type="submit"
-                className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600"
-              >
-                Add Blog
-              </button>
-            </form>
-          </div>
-        )}
-
-        {/* Login Popup */}
-        {showLoginPopup && (
-          <div
-            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
-            onClick={() => setShowLoginPopup(false)}
-          >
-            <form
-              onSubmit={handleLogin}
-              className="bg-white p-8 rounded-lg w-96"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <h3 className="text-xl font-semibold mb-4">Admin Login</h3>
-              <input
-                type="text"
-                name="username"
-                placeholder="Username"
-                className="w-full p-2 border mb-4 rounded-lg"
-              />
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                className="w-full p-2 border mb-4 rounded-lg"
-              />
-              <button
-                type="submit"
-                className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600"
-              >
-                Login
-              </button>
-            </form>
-          </div>
-        )}
-
-        {/* Blog Content Popup */}
-        {showPopup && (
-          <BlogContentPopup
-            blogId={selectedBlogId}
-            supabase={supabase}
-            onSave={handleSaveContent}
-            onClose={handleClose}
+      <section className="min-h-screen bg-gradient-to-b from-gray-50 via-gray-100 to-gray-200 py-12">
+        <div className="container mx-auto px-6">
+          <h1 className="text-4xl font-bold text-center mb-10">Our Blogs</h1>
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={handleSearch}
+            placeholder="Search blogs by title"
+            className="w-full mb-6 p-2 border rounded-lg"
           />
-        )}
-      </div>
-    </section>
+
+          {isAdminLoggedIn && (
+            <button
+              onClick={() => setShowBlogForm(true)}
+              className="mb-6 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+            >
+              Add Blog
+            </button>
+          )}
+
+          {!isAdminLoggedIn && (
+            <button
+              onClick={() => setShowLoginPopup(true)}
+              className="mb-6 bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600"
+            >
+              Admin Login
+            </button>
+          )}
+
+          <div
+            className="grid gap-8 mx-12"
+            style={{
+              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+            }}
+          >
+            {displayedBlogs.map((blog) => (
+              <div
+                key={blog.id}
+                className="bg-white p-8 rounded-lg shadow-lg hover:scale-105 transform transition duration-300"
+              >
+                <div
+                  className="w-full h-48 mb-4 overflow-hidden relative"
+                  style={{ width: "100%", height: "200px" }}
+                >
+                  <img
+                    src={`data:image/jpeg;base64,${blog.image}`}
+                    alt={blog.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h2 className="text-2xl font-semibold mb-3">{blog.title}</h2>
+                <p className="text-gray-500 mb-3">{blog.date}</p>
+                <p className="text-gray-700 mb-5">{blog.excerpt}</p>
+                <Link
+                    to={`/blog/${blog.id}`}
+                  className="text-blue-500 hover:underline mt-2 inline-block"
+                >
+                  Read More (Blog ID: {blog.id})
+                </Link>
+                {isAdminLoggedIn && <button></button>}
+
+                {isAdminLoggedIn && (
+                  <button
+                    onClick={() => handleDeleteBlog(blog.id)}
+                    className="mt-4 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+                  >
+                    Delete
+                  </button>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="flex justify-center items-center mt-8 space-x-2">
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentPage(index + 1)}
+                className={`px-4 py-2 rounded-full ${
+                  currentPage === index + 1
+                    ? "bg-blue-500 text-white"
+                    : "bg-white text-gray-700 border"
+                }`}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
+
+          {/* Add Blog Form */}
+          {showBlogForm && (
+            <div
+              className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+              onClick={closeModal}
+            >
+              <form
+                onSubmit={handleAddBlog}
+                className="bg-white p-8 rounded-lg w-96"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <h3 className="text-xl font-semibold mb-4">Add New Blog</h3>
+                <input
+                  type="text"
+                  value={newBlog.title}
+                  onChange={(e) =>
+                    setNewBlog({ ...newBlog, title: e.target.value })
+                  }
+                  placeholder="Title"
+                  className="w-full p-2 border mb-4 rounded-lg"
+                />
+                <input
+                  type="date"
+                  value={newBlog.date}
+                  onChange={(e) =>
+                    setNewBlog({ ...newBlog, date: e.target.value })
+                  }
+                  placeholder="Date"
+                  className="w-full p-2 border mb-4 rounded-lg"
+                />
+
+                <textarea
+                  value={newBlog.excerpt}
+                  onChange={(e) =>
+                    setNewBlog({ ...newBlog, excerpt: e.target.value })
+                  }
+                  placeholder="Excerpt"
+                  className="w-full p-2 border mb-4 rounded-lg"
+                />
+                <input
+                  type="file"
+                  onChange={handleFileChange}
+                  className="w-full p-2 border mb-4 rounded-lg"
+                />
+                <button
+                  type="submit"
+                  className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600"
+                >
+                  Add Blog
+                </button>
+              </form>
+            </div>
+          )}
+
+          {/* Login Popup */}
+          {showLoginPopup && (
+            <div
+              className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+              onClick={() => setShowLoginPopup(false)}
+            >
+              <form
+                onSubmit={handleLogin}
+                className="bg-white p-8 rounded-lg w-96"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <h3 className="text-xl font-semibold mb-4">Admin Login</h3>
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="Username"
+                  className="w-full p-2 border mb-4 rounded-lg"
+                />
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  className="w-full p-2 border mb-4 rounded-lg"
+                />
+                <button
+                  type="submit"
+                  className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600"
+                >
+                  Login
+                </button>
+              </form>
+            </div>
+          )}
+
+          {/* Blog Content Popup */}
+          {showPopup && (
+            <BlogContentPopup
+              blogId={selectedBlogId}
+              supabase={supabase}
+              onSave={handleSaveContent}
+              onClose={handleClose}
+            />
+          )}
+        </div>
+      </section>
     </>
   );
 };

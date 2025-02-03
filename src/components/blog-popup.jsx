@@ -2,46 +2,52 @@ import React, { useState } from "react";
 
 const BlogContentPopup = ({ onClose, onSave, blogId }) => {
   const [sections, setSections] = useState([
-    { heading: "", paragraph: "" },
-    { heading: "", paragraph: "" },
-    { heading: "", paragraph: "" },
-    { heading: "", paragraph: "" },
-    { heading: "", paragraph: "" },
+    { heading: "", paragraph: "", isMandatory: true },
   ]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
+  // Handle input change
   const handleInputChange = (index, field, value) => {
     const updatedSections = [...sections];
     updatedSections[index][field] = value;
     setSections(updatedSections);
   };
 
+  // Add a new heading + paragraph section
+  const handleAddSection = () => {
+    setSections([...sections, { heading: "", paragraph: "", isMandatory: false }]);
+  };
+
+  // Remove a section (not allowed for the first mandatory section)
+  const handleRemoveSection = (index) => {
+    if (sections.length === 1) return; // Prevent removing the last section
+    setSections(sections.filter((_, i) => i !== index));
+  };
+
+  // Save function with validation
   const handleSave = async () => {
-    if (typeof onSave !== "function") {
-      console.error("onSave is not a function");
+    if (!blogId) {
+      setError("Invalid blogId.");
       return;
     }
 
-    if (!blogId) {
-      console.error("blogId is required but not provided");
-      setError("Invalid blogId.");
+    // Ensure at least one section has content
+    if (!sections[0].paragraph.trim()) {
+      setError("The first paragraph is mandatory.");
       return;
     }
 
     setLoading(true);
     setSuccessMessage("");
     setError("");
+
     try {
       await onSave(sections, blogId);
       setSuccessMessage("Content saved successfully!");
       setTimeout(() => {
-        if (typeof onClose === "function") {
-          onClose();
-        } else {
-          console.error("onClose is not a function");
-        }
+        if (typeof onClose === "function") onClose();
       }, 1000);
     } catch (error) {
       setError("Failed to save sections");
@@ -55,13 +61,7 @@ const BlogContentPopup = ({ onClose, onSave, blogId }) => {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 overflow-auto">
       <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg w-full max-w-[95%] sm:max-w-[40rem] relative overflow-y-auto max-h-[90vh]">
         <button
-          onClick={() => {
-            if (typeof onClose === "function") {
-              onClose();
-            } else {
-              console.error("onClose is not a function");
-            }
-          }}
+          onClick={() => onClose && onClose()}
           className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
         >
           &times;
@@ -74,7 +74,9 @@ const BlogContentPopup = ({ onClose, onSave, blogId }) => {
 
         {sections.map((section, index) => (
           <div key={index} className="mb-6">
-            <label className="block text-sm font-medium mb-2">Heading {index + 1}</label>
+            <label className="block text-sm font-medium mb-2">
+              {index === 0 ? "Mandatory Heading" : `Heading ${index + 1}`}
+            </label>
             <input
               type="text"
               value={section.heading}
@@ -82,7 +84,10 @@ const BlogContentPopup = ({ onClose, onSave, blogId }) => {
               className="w-full p-2 border rounded-lg"
               placeholder={`Enter heading ${index + 1}`}
             />
-            <label className="block text-sm font-medium mt-4 mb-2">Paragraph {index + 1}</label>
+
+            <label className="block text-sm font-medium mt-4 mb-2">
+              {index === 0 ? "Mandatory Paragraph" : `Paragraph ${index + 1}`}
+            </label>
             <textarea
               value={section.paragraph}
               onChange={(e) => handleInputChange(index, "paragraph", e.target.value)}
@@ -90,8 +95,24 @@ const BlogContentPopup = ({ onClose, onSave, blogId }) => {
               rows="4"
               placeholder={`Enter paragraph for heading ${index + 1}`}
             />
+
+            {index !== 0 && (
+              <button
+                onClick={() => handleRemoveSection(index)}
+                className="mt-2 text-red-500 hover:text-red-700 text-sm"
+              >
+                Remove Section
+              </button>
+            )}
           </div>
         ))}
+
+        <button
+          onClick={handleAddSection}
+          className="w-full bg-gray-300 text-black px-4 py-2 rounded-lg hover:bg-gray-400 mb-4"
+        >
+          + Add Heading
+        </button>
 
         <button
           onClick={handleSave}
@@ -104,5 +125,4 @@ const BlogContentPopup = ({ onClose, onSave, blogId }) => {
     </div>
   );
 };
-
 export default BlogContentPopup;
