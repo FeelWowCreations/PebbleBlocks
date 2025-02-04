@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import WhatsappButton from "@/components/ui/WhatsAppFixed";
+import { useLocation } from "@reach/router";
 
 const supabaseUrl = "https://hfgrqwjoickvzchorfje.supabase.co";
 const supabaseKey =
@@ -13,54 +14,62 @@ const supabaseKey =
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const BlogPage = () => {
-  const path = window.location.href;
-  const id = path.split("/")[4];
-
+  const location = useLocation();
+  const [id, setId] = useState(null);
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+
   useEffect(() => {
-    if (!id) {
-      setError("Blog ID is missing from URL.");
-      setLoading(false);
-      return;
-    }
-
-    const fetchBlogDetail = async () => {
-      try {
-        const { data, error } = await supabase
-          .from("blogs")
-          .select("id, title, summary, image, date, meta_description, keywords")
-          .eq("id", id)
-          .single();
-
-        if (error) throw error;
-        if (!data) throw new Error("Blog not found.");
-
-        console.log("Fetched blog:", data);
-
-        // Parse summary if it's a JSON string
-        if (typeof data.summary === "string") {
-          try {
-            data.summary = JSON.parse(data.summary);
-          } catch (jsonError) {
-            console.error("Error parsing summary JSON:", jsonError);
-            data.summary = [];
-          }
-        }
-
-        setBlog(data);
-      } catch (error) {
-        setError("Blog not found.");
-        console.error("Error fetching blog:", error);
-      } finally {
+    if (typeof window !== "undefined") {
+      const path = location.pathname;
+      const blogId = path.split("/")[2]; // Adjust based on your route structure
+      console.log("Extracted Blog ID:", blogId);
+  
+      if (!blogId) {
+        setError("Blog ID is missing from URL.");
         setLoading(false);
+        return;
       }
-    };
-
-    fetchBlogDetail();
-  }, [id]);
+  
+      const fetchBlogDetail = async (blogId) => {
+        try {
+          const { data, error } = await supabase
+            .from("blogs")
+            .select("id, title, summary, image, date, meta_description, keywords")
+            .eq("id", blogId) // Use blogId directly
+            .single();
+  
+          if (error) throw error;
+          if (!data) throw new Error("Blog not found.");
+  
+          console.log("Fetched blog:", data);
+  
+          // Parse summary if it's a JSON string
+          if (typeof data.summary === "string") {
+            try {
+              data.summary = JSON.parse(data.summary);
+            } catch (jsonError) {
+              console.error("Error parsing summary JSON:", jsonError);
+              data.summary = [];
+            }
+          }
+  
+          setBlog(data);
+        } catch (error) {
+          setError("Blog not found.");
+          console.error("Error fetching blog:", error);
+        } finally {
+          setLoading(false);
+        }
+      };
+  
+      setId(blogId); // Update state
+      fetchBlogDetail(blogId); // Fetch data immediately with correct ID
+    }
+  }, [location]); 
+  
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;

@@ -1,78 +1,131 @@
 import React, { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
-import { useParams, useNavigate } from "react-router-dom"; // Updated import to useNavigate
-import DOMPurify from "dompurify"; // For HTML sanitization
-import { Helmet } from "react-helmet"; // For SEO meta tags
+import { Helmet } from "react-helmet";
 
 const supabaseUrl = "https://hfgrqwjoickvzchorfje.supabase.co";
-const supabaseKey = "your-supabase-key"; // Use your actual Supabase key
+const supabaseKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhmZ3Jxd2pvaWNrdnpjaG9yZmplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzU4MTMwNzQsImV4cCI6MjA1MTM4OTA3NH0.bGRsLSnfpcqhZNnK_Vv5h1EATglEn628nXzF8uTxsd4";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const BlogPage = () => {
-  const { id } = useParams(); // Use the correct 'id' from URL
-  const navigate = useNavigate(); // Use useNavigate for navigation
+  
+  const [id, setId] = React.useState(null);
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch blog detail based on id
-  const fetchBlogDetail = async () => {
-    try {
-      const { data, error } = await supabase
-        .from("blogs")
-        .select("*")
-        .eq("id", id) // Use the correct id from the URL
-        .single();
-
-      if (error) throw error;
-      setBlog(data);
-    } catch (error) {
-      setError("Blog not found.");
-      console.error("Error fetching blog:", error);
-      navigate("/"); // Redirect to homepage or a fallback page
-    } finally {
-      setLoading(false);
+  React.useEffect(() => {
+    // This code will only run on the client-side, after the component is mounted
+    if (typeof window !== "undefined") {
+      const path = window.location.href;
+      const blogId = path.split("/")[4];
+      setId(blogId); // Set the id in state
     }
-  };
+  }, []);
 
   useEffect(() => {
+    if (!id) {
+      setError("Blog ID is missing from URL.");
+      setLoading(false);
+      return;
+    }
+
+    const fetchBlogDetail = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("blogs")
+          .select("id, title, summary, image, date, meta_description, keywords")
+          .eq("id", id)
+          .single();
+
+        if (error) throw error;
+        if (!data) throw new Error("Blog not found.");
+
+        console.log("Fetched blog:", data);
+
+        // Parse summary if it's a JSON string
+        if (typeof data.summary === "string") {
+          try {
+            data.summary = JSON.parse(data.summary);
+          } catch (jsonError) {
+            console.error("Error parsing summary JSON:", jsonError);
+            data.summary = [];
+          }
+        }
+
+        setBlog(data);
+      } catch (error) {
+        setError("Blog not found.");
+        console.error("Error fetching blog:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchBlogDetail();
-  }, [id]); // Depend on id to refetch data if it changes
+  }, [id]);
 
-  if (loading) {
-    return <div>Loading...</div>; // Show loading spinner or message
-  }
-
-  if (error) {
-    return <div>{error}</div>; // Show error message if no blog found
-  }
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
 
   return (
+    <div>
     <div className="min-h-screen bg-gray-50">
+      {/* SEO Meta Tags */}
       <Helmet>
-        <title>{blog.title}</title>
-        <meta name="description" content={blog.excerpt} />
-        <meta property="og:image" content={`data:image/png;base64,${blog.image}`} />
+        <title>{blog.title || "Blog Post"}</title>
+        <meta name="description" content={blog.meta_description || "Read this amazing blog post."} />
+        <meta name="keywords" content={blog.keywords || "blog, article, news"} />
+        {blog.image && <meta property="og:image" content={`data:image/png;base64,${blog.image}`} />}
       </Helmet>
 
       <div className="container mx-auto px-6 py-12">
+        {/* Title */}
         <h1 className="text-4xl font-bold text-center mb-8">{blog.title}</h1>
 
-        <div className="mt-6">
-          <p className="text-gray-600 mb-4">{blog.date}</p>
+        {/* Date */}
+        <p className="text-gray-600 text-center mb-4">{blog.date}</p>
+
+        {/* Image */}
+        {blog.image && (
           <img
             src={`data:image/png;base64,${blog.image}`}
             alt={blog.title}
             className="w-full h-72 object-cover mb-4"
           />
-          <div
-            className="text-gray-700 mb-6"
-            dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(blog.summary || "No content available."),
-            }}
-          />
+        )}
+
+        {/* Blog Content (Handling Summary as Array of Objects) */}
+        <div className="text-gray-700 mb-6">
+          {Array.isArray(blog.summary) && blog.summary.length > 0 ? (
+            blog.summary.map((section, index) => (
+              <div key={index} className="mb-6">
+                {/* Heading */}
+                {section.heading && (
+                  <h2 className="text-2xl font-semibold mb-2">{section.heading}</h2>
+                )}
+
+                {/* Paragraph */}
+                {section.paragraph && (
+                  <p className="mt-2">{section.paragraph}</p>
+                )}
+
+                {/* Optional Image */}
+                {section.image && (
+                  <img
+                    src={section.image}
+                    alt={`Section ${index + 1}`}
+                    className="w-full h-64 object-cover mt-4"
+                  />
+                )}
+              </div>
+            ))
+          ) : (
+            <p>No content available.</p>
+          )}
         </div>
       </div>
+    </div>
     </div>
   );
 };
