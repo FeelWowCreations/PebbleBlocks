@@ -137,22 +137,34 @@ const Blogs = () => {
     }
   };
 
-  const handleSaveContent = async (sections, blogId) => {
+  const handleSaveContent = async (blogId, sections, metaDescription, keywords) => {
+    if (!blogId) {
+      console.error("Error: blogId is missing in handleSaveContent.");
+      return;
+    }
+  
     try {
+      console.log("Saving blog content with ID:", blogId);  // Debugging log
+  
       const { error } = await supabase
         .from("blogs")
-        .update({ summary: sections })
+        .update({ 
+          summary: sections, 
+          meta_description: metaDescription, 
+          keywords: keywords 
+        })
         .eq("id", blogId);
-      if (error) {
-        throw error;
-      }
-      alert("Blog content saved successfully");
+  
+      if (error) throw error;
+  
+      alert("Blog content and metadata saved successfully");
       fetchBlogs();
     } catch (error) {
       console.error("Error saving content:", error);
     }
   };
-
+  
+  
   const closeModal = () => {
     setShowBlogForm(false);
   };
@@ -266,7 +278,7 @@ const Blogs = () => {
                     to={`/blog/${blog.id}`}
                   className="text-blue-500 hover:underline mt-2 inline-block"
                 >
-                  Read More (Blog ID: {blog.id})
+                  Read More
                 </Link>
                 {isAdminLoggedIn && <button></button>}
 

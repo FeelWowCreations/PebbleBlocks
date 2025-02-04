@@ -4,11 +4,13 @@ const BlogContentPopup = ({ onClose, onSave, blogId }) => {
   const [sections, setSections] = useState([
     { heading: "", paragraph: "", isMandatory: true },
   ]);
+  const [metaDescription, setMetaDescription] = useState("");
+  const [keywords, setKeywords] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
-  // Handle input change
+  // Handle input change for sections
   const handleInputChange = (index, field, value) => {
     const updatedSections = [...sections];
     updatedSections[index][field] = value;
@@ -22,41 +24,42 @@ const BlogContentPopup = ({ onClose, onSave, blogId }) => {
 
   // Remove a section (not allowed for the first mandatory section)
   const handleRemoveSection = (index) => {
-    if (sections.length === 1) return; // Prevent removing the last section
+    if (sections.length === 1) return;
     setSections(sections.filter((_, i) => i !== index));
   };
 
   // Save function with validation
   const handleSave = async () => {
-    if (!blogId) {
+    console.log("blogId inside handleSave:", blogId);
+  
+    // Ensure blogId is a valid ID (string or number)
+    const validBlogId = blogId && (typeof blogId === 'string' || typeof blogId === 'number') ? blogId : null;
+  
+    if (!validBlogId) {
       setError("Invalid blogId.");
       return;
     }
-
-    // Ensure at least one section has content
-    if (!sections[0].paragraph.trim()) {
-      setError("The first paragraph is mandatory.");
-      return;
-    }
-
+  
     setLoading(true);
     setSuccessMessage("");
     setError("");
-
+  
     try {
-      await onSave(sections, blogId);
+      // Pass the valid blogId to onSave
+      await onSave(validBlogId, sections, metaDescription, keywords);
       setSuccessMessage("Content saved successfully!");
       setTimeout(() => {
         if (typeof onClose === "function") onClose();
       }, 1000);
     } catch (error) {
-      setError("Failed to save sections");
-      console.error("Error in saving sections:", error);
+      setError("Failed to save content");
+      console.error("Error in saving content:", error);
     } finally {
       setLoading(false);
     }
   };
-
+  
+  
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 overflow-auto">
       <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg w-full max-w-[95%] sm:max-w-[40rem] relative overflow-y-auto max-h-[90vh]">
@@ -107,6 +110,30 @@ const BlogContentPopup = ({ onClose, onSave, blogId }) => {
           </div>
         ))}
 
+        {/* Meta Description Field */}
+        <div className="mb-6">
+          <label className="block text-sm font-medium mb-2">Meta Description</label>
+          <textarea
+            value={metaDescription}
+            onChange={(e) => setMetaDescription(e.target.value)}
+            className="w-full p-2 border rounded-lg"
+            rows="3"
+            placeholder="Enter meta description"
+          />
+        </div>
+
+        {/* Keywords Field */}
+        <div className="mb-6">
+          <label className="block text-sm font-medium mb-2">Keywords (comma-separated)</label>
+          <input
+            type="text"
+            value={keywords}
+            onChange={(e) => setKeywords(e.target.value)}
+            className="w-full p-2 border rounded-lg"
+            placeholder="Enter keywords"
+          />
+        </div>
+
         <button
           onClick={handleAddSection}
           className="w-full bg-gray-300 text-black px-4 py-2 rounded-lg hover:bg-gray-400 mb-4"
@@ -125,4 +152,5 @@ const BlogContentPopup = ({ onClose, onSave, blogId }) => {
     </div>
   );
 };
+
 export default BlogContentPopup;
