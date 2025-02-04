@@ -15,18 +15,18 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   // Run a GraphQL query to get the blog data
-  const result = await graphql(`
-    query {
-      allBlogs {
-        nodes {
-          id
-          title
-          excerpt
-          slug
-        }
-      }
-    }
-  `);
+  // const result = await graphql(`
+  //   query {
+  //     allBlogs {
+  //       nodes {
+  //         id
+  //         title
+  //         excerpt
+  //         slug
+  //       }
+  //     }
+  //   }
+  // `);
 
   if (result.errors) {
     console.error("Error fetching blog data", result.errors);
