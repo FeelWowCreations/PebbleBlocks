@@ -37,11 +37,11 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.allBlogs.nodes.forEach((blog) => {
     createPage({
       path: `/blog/${blog.slug}`, // URL path for the blog post, using slug for SEO-friendly URLs
-      component: resolve(`src/pages/blog/[id].js`), // Path to the dynamic blog template
+      component: resolve(`src/pages/blog/[slug].js`), // Updated to use the [slug].js file
       context: {
-        id: blog.id, // Pass the blog ID to the page context for use in the component
+        slug: blog.slug, // Pass the blog slug to the page context for use in the component
         title: blog.title, // Pass the blog title to the component (optional)
-        excerpt: blog.excerpt, // Pass the blog excerpt (optional)
+        excerpt: blog.excerpt, // Pass the blog excerpt to the component (optional)
       },
     });
   });

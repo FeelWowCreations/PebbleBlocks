@@ -7,7 +7,7 @@ function Blog() {
     <Router>
       <Routes>
         {/* Define the route with the dynamic 'id' */}
-        <Route path="/blog/:id" element={<BlogPage />} /> 
+        <Route path="/blog/:slug" element={<BlogPage />} /> 
       </Routes>
     </Router>
   );
