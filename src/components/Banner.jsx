@@ -202,7 +202,7 @@ export const Head = () => (
     <meta name="google-site-verification" content="yIwcr0WDHdyXwk1jvKlyoCvDN-HvkD4NZEa8Xups4Ic" />
     <meta
       name="keywords"
-      content="paver blocks in coimbatore, parking stones, grass pavers, paver block, paver blocks near me"
+      content="paver blocks in coimbatore, parking stones, grass pavers, paver blocks manufacturers in coimbatore,paver blocks manufacturers near me"
     />
     <meta name="author" content="Pebble Blocks" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -215,7 +215,7 @@ export const Head = () => (
     <meta property="og:url" content="https://pebbleblocks.com" />
     <meta property="og:image" content="https://pebbleblocks.com/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Paver Blocks Manufacturers in Coimbatore | Pebble Blocks" />
+    <meta name="twitter:title" content="Solid & Paver Blocks Coimbatore" />
     <meta
       name="twitter:description"
       content="Pebble Blocks is a leading paver blocks manufacturer in Coimbatore, offering durable, high-quality paving solutions for your construction projects."
@@ -237,12 +237,13 @@ export const Head = () => (
         url: "https://pebbleblocks.com",
         logo: "https://pebbleblocks.com/logo.png",
         description:
-"Pebble Blocks is a leading paver blocks manufacturer in Coimbatore, offering durable, high-quality paving solutions for your construction projects."        address: {
+          "Pebble Blocks is a leading paver blocks manufacturer in Coimbatore, offering durable, high-quality paving solutions for your construction projects.",
+        address: {
           "@type": "PostalAddress",
-          streetAddress: "Paruvai",
-          addressLocality: "Palladam",
+          streetAddress: "123 Main Street",
+          addressLocality: "Coimbatore",
           addressRegion: "TN",
-          postalCode: "641658",
+          postalCode: "641001",
           addressCountry: "IN",
         },
         contactPoint: {
