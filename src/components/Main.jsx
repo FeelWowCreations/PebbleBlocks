@@ -18,7 +18,7 @@ const AboutUs = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          Leading Supplier of Solid and Paver Blocks in Coimbatore
+          Discover the Best Paver Block Price in Coimbatore at Pebble Blocks
         </motion.h1>
       </motion.section>
 
@@ -68,10 +68,10 @@ export default AboutUs;
 export const Head = () => (
   <>
     {/* SEO meta tags */}
-    <title>About Pebble Blocks - Quality Solid & Paver Blocks in Coimbatore</title>
+    <title>Best Paver Block Price in Coimbatore | About Pebble Blocks</title>
     <meta
       name="description"
-      content="Learn about Pebble Blocks, Coimbatore's trusted provider of high-quality solid and paver blocks for construction. Durable products for residential & commercial needs."
+      content="Pebble Blocks offers the best paver block price in Coimbatore without compromising on quality. Explore our durable and aesthetic paving solutions for your next project."
     />
     <meta
       name="keywords"

@@ -48,7 +48,7 @@ const PaverBlocks = ({ setModalOpen, setImageUrl }) => {
         {/* Semantic Header */}
         <header className="text-center py-8">
           <h1 className="text-3xl font-bold text-gray-900">
-            Durable and Stylish Paver Blocks for Every Outdoor Project
+          Premium Paver Blocks in Coimbatore – Durable and Stylish Solutions
           </h1>
           <h2 className="text-xl font-semibold text-gray-700 mt-4">
             Choose Our Paver Blocks for Your Driveway and Walkways.

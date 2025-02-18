@@ -72,7 +72,7 @@ const ContactUs = () => {
           name="description"
           content="Contact Pebble Blocks for inquiries on solid and paver blocks in Coimbatore. Reach out for quotes, support, or product information today!"
         />
-        <meta name="keywords" content="parking paver block, interlocking paving stones, solid blocks design, pavement tiles, office tiles" />
+        <meta name="keywords" content="parking paver block, interlocking paving stones,square paver block design,solid concrete blocks, solid blocks design, pavement tiles, office tiles" />
       </Helmet>
 
       {/* Top Image Section */}

@@ -54,10 +54,10 @@ const Banner = () => {
   return (
     <>
       <header>
-        <title>Solid & Paver Blocks Coimbatore - Durable Construction Solutions</title>
+        <title>Paver Blocks Manufacturers in Coimbatore | Pebble Blocks</title>
         <meta
           name="description"
-          content="Pebble Blocks in Coimbatore offers high-quality solid and paver blocks for residential, commercial, and industrial projects. Build with confidence today!"
+          content="Pebble Blocks is a leading paver blocks manufacturer in Coimbatore, offering durable, high-quality paving solutions for your construction projects."
         />
       </header>
 
@@ -92,8 +92,7 @@ const Banner = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              Premium Solid and Paver Blocks in Coimbatore for All Construction
-              Projects
+              Paver Blocks Manufacturers in Coimbatore – Quality Paving Solutions by Pebble Blocks
             </motion.h1>
             <motion.p
               className="text-lg md:text-xl text-white mb-6 px-4 md:px-8"
@@ -195,31 +194,31 @@ export default Banner;
 export const Head = () => (
   <>
     {/* SEO meta tags */}
-    <title>Solid & Paver Blocks Coimbatore - Durable Construction Solutions</title>
+    <title>Paver Blocks Manufacturers in Coimbatore | Pebble Blocks</title>
     <meta
       name="description"
-      content="Pebble Blocks in Coimbatore offers high-quality solid and paver blocks for residential, commercial, and industrial projects. Build with confidence today!"
+      content="Pebble Blocks is a leading paver blocks manufacturer in Coimbatore, offering durable, high-quality paving solutions for your construction projects."
     />
     <meta name="google-site-verification" content="yIwcr0WDHdyXwk1jvKlyoCvDN-HvkD4NZEa8Xups4Ic" />
     <meta
       name="keywords"
-      content="paver blocks in coimbatore, parking stones, grass pavers, solid block, solid blocks near me"
+      content="paver blocks in coimbatore, parking stones, grass pavers, paver block, paver blocks near me"
     />
     <meta name="author" content="Pebble Blocks" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:title" content="Solid & Paver Blocks Coimbatore - Durable Construction Solutions" />
+    <meta property="og:title" content="Paver Blocks Manufacturers in Coimbatore | Pebble Blocks" />
     <meta
       property="og:description"
-      content="Pebble Blocks in Coimbatore offers high-quality solid and paver blocks for residential, commercial, and industrial projects. Build with confidence today!"
+      content="Pebble Blocks is a leading paver blocks manufacturer in Coimbatore, offering durable, high-quality paving solutions for your construction projects."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://pebbleblocks.com" />
     <meta property="og:image" content="https://pebbleblocks.com/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Solid & Paver Blocks Coimbatore" />
+    <meta name="twitter:title" content="Paver Blocks Manufacturers in Coimbatore | Pebble Blocks" />
     <meta
       name="twitter:description"
-      content="Pebble Blocks offers high-quality solid and paver blocks for residential, commercial, and industrial projects."
+      content="Pebble Blocks is a leading paver blocks manufacturer in Coimbatore, offering durable, high-quality paving solutions for your construction projects."
     />
     <meta name="twitter:image" content="https://pebbleblocks.com/twitter-image.jpg" />
 
@@ -238,13 +237,12 @@ export const Head = () => (
         url: "https://pebbleblocks.com",
         logo: "https://pebbleblocks.com/logo.png",
         description:
-          "Pebble Blocks in Coimbatore offers high-quality solid and paver blocks for residential, commercial, and industrial projects.",
-        address: {
+"Pebble Blocks is a leading paver blocks manufacturer in Coimbatore, offering durable, high-quality paving solutions for your construction projects."        address: {
           "@type": "PostalAddress",
-          streetAddress: "123 Main Street",
-          addressLocality: "Coimbatore",
+          streetAddress: "Paruvai",
+          addressLocality: "Palladam",
           addressRegion: "TN",
-          postalCode: "641001",
+          postalCode: "641658",
           addressCountry: "IN",
         },
         contactPoint: {

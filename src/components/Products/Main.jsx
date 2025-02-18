@@ -11,7 +11,7 @@ const Products = () => {
       <section className="relative flex justify-center items-center bg-[url('../images/AboutUs/brick-wall.jpeg')] bg-cover h-[200px]">
         <div className="w-full h-full bg-black opacity-20 absolute top-0 left-0"></div>
         <h1 className="text-xl md:text-2xl lg:text-4xl font-bold leading-9 text-white z-10 text-center">
-          Paver Block Manufacturer and Suppliers in Coimbatore, India
+        Premium Paver Blocks in Coimbatore – Durable and Stylish Solutions
         </h1>
       </section>
       <div className="bg-gradient-to-t from-orange-100 to-white animate-product-load transform translate-y-0 opacity-0 fill-mode-forwards">

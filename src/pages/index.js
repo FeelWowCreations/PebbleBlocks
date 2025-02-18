@@ -13,7 +13,7 @@ const IndexPage = () => {
     <>
       {/* Helmet for setting favicon and meta information */}
       <Helmet>
-        <title>Pebble Blocks | Paver and Solid Blocks Manufactures Coimbatore </title>
+        <title>Paver Blocks Manufacturers in Coimbatore | Pebble Blocks </title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

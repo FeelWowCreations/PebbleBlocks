@@ -34,10 +34,10 @@ const SolidBlocks = ({ setModalOpen, setImageUrl }) => {
     <section className="w-fit h-fit m-auto flex flex-col items-center justify-center">
       {/* SEO Optimization */}
       <Helmet>
-        <title>High-Quality Solid Blocks in Coimbatore - Strong & Durable Solutions</title>
+        <title>Solid Concrete Blocks Manufacturers in Coimbatore | Pebble Blocks</title>
         <meta
           name="description"
-          content="Explore durable solid blocks in Coimbatore for construction projects. Ideal for residential and commercial needs, offering strength and reliability in every block."
+          content="Pebble Blocks is a leading solid concrete blocks manufacturer in Coimbatore, offering durable and high-quality blocks for your construction projects at great prices."
         />
         <meta
           name="keywords"
@@ -48,7 +48,7 @@ const SolidBlocks = ({ setModalOpen, setImageUrl }) => {
       {/* Heading Section */}
       <header className="text-center my-8">
         <h1 className="text-3xl font-bold text-gray-800">
-          Durable Solid Blocks for Construction in Coimbatore
+        Leading Solid Concrete Blocks Manufacturers in Coimbatore 
         </h1>
         <h2 className="text-xl text-gray-600 mt-2">
           Choose Our Solid Blocks for Your Construction Needs.
